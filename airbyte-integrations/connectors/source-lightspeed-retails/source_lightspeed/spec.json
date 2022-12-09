@@ -1,0 +1,48 @@
+{
+  "documentationUrl": "https://docsurl.com",
+  "connectionSpecification": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Lightspeed Spec",
+    "type": "object",
+    "required": [],
+    "additionalProperties": false,
+    "properties": {
+      "account_id": {
+        "type": "string",
+        "description": "Lightspeed Account ID",
+        "examples": [
+          "account_id"
+        ]
+      },
+      "client_id": {
+        "type": "string",
+        "description": "Lightspeed Client ID",
+        "examples": [
+          "client_id"
+        ]
+      },
+      "client_secret": {
+        "type": "string",
+        "description": "Lightspeed Client Secret",
+        "airbyte_secret": true,
+        "examples": [
+          "client_secret"
+        ]
+      },
+      "refresh_token": {
+        "type": "string",
+        "description": "Lightspeed Refresh Token",
+        "airbyte_secret": true,
+        "examples": [
+          "refresh_token"
+        ]
+      },
+      "production": {
+        "title": "production",
+        "type": "boolean",
+        "description": "Toggle on for production, toggle off for staging",
+        "default": true
+      }
+    }
+  }
+}

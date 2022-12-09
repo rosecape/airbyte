@@ -1,0 +1,7 @@
+{
+  "account_id": "accountid",
+  "refresh_token": "invalid",
+  "client_id": "invalid",
+  "client_secret": "invalid",
+  "production": true
+}

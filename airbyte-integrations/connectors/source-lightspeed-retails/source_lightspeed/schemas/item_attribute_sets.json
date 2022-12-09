@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "itemAttributeSetID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "name": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "attributeName1": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "attributeName2": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "attributeName3": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "system": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "archived": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "timeStamp": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        }
+    }
+}

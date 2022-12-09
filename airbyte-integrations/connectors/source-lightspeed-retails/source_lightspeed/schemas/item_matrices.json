@@ -1,0 +1,131 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "itemMatrixID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "description": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "tax": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "defaultCost": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "itemType": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "serialized": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "modelYear": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "archived": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "timeStamp": "2017-03-31T17:35:47+00:00",
+        "itemAttributeSetID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "manufacturerID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "categoryID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "defaultVendorID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "taxClassID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "seasonID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "departmentID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "Prices": {
+            "type": [
+                "null",
+                "object"
+            ],
+            "ItemPrice": {
+                "type": [
+                    "null",
+                    "array"
+                ],
+                "items": {
+                    "properties": {
+                        "amount": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "useTypeID": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "useType": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

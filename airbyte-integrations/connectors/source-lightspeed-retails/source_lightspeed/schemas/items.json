@@ -1,0 +1,277 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "itemID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "systemSku": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "defaultCost": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "avgCost": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "discountable": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "tax": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "archived": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "itemType": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "serialized": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "description": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "modelYear": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "upc": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "ean": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "customSku": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "manufacturerSku": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "createTime": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "timeStamp": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "publishToEcom": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "categoryID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "taxClassID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "departmentID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "itemMatrixID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "manufacturerID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "seasonID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "defaultVendorID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "ItemShops": {
+            "type": [
+                "null",
+                "object"
+            ],
+            "properties": {
+                "ItemShop": {
+                    "type": [
+                        "null",
+                        "array"
+                    ],
+                    "items": {
+                        "properties": {
+                            "itemShopID": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "qoh": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "backorder": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "componentQoh": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "componentBackorder": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "reorderPoint": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "reorderLevel": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "timeStamp": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "format": "date-time"
+                            },
+                            "itemID": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "shopID": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Prices": {
+            "type": [
+                "null",
+                "object"
+            ],
+            "properties": {
+                "ItemPrice": {
+                    "type": [
+                        "null",
+                        "array"
+                    ],
+                    "items": {
+                        "type": [
+                            "null",
+                            "object"
+                        ],
+                        "properties": {
+                            "amount": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "useTypeID": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "useType": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

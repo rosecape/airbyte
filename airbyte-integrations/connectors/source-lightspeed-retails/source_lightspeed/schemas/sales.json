@@ -1,0 +1,280 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "saleID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "timeStamp": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "discountPercent": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "completed": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "archived": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "voided": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "enablePromotions": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "isTaxInclusive": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "createTime": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "updateTime": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "completeTime": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "referenceNumber": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "referenceNumberSource": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "tax1Rate": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "tax2Rate": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "change": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "tipEnabled": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "receiptPreference": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "displayableSubtotal": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "ticketNumber": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcDiscount": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcTotal": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcSubtotal": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcTaxable": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcNonTaxable": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcAvgCost": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcFIFOCost": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcTax1": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcTax2": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcPayments": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcTips": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "total": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "totalDue": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "displayableTotal": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "balance": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "customerID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "discountID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "employeeID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "tipEmployeeID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "quoteID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "registerID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "shipToID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "shopID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "taxCategoryID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "taxTotal": {
+            "type": [
+                "null",
+                "string"
+            ]
+        }
+    }
+}

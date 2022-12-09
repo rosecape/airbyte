@@ -1,0 +1,124 @@
+{
+  "streams": [
+    {
+      "stream": {
+        "name": "customers",
+        "json_schema": {},
+        "supported_sync_modes": [
+          "full_refresh"
+        ],
+        "source_defined_cursor": false
+      },
+      "sync_mode": "full_refresh",
+      "destination_sync_mode": "overwrite"
+    },
+    {
+      "stream": {
+        "name": "discounts",
+        "json_schema": {},
+        "supported_sync_modes": [
+          "full_refresh"
+        ],
+        "source_defined_cursor": false
+      },
+      "sync_mode": "full_refresh",
+      "destination_sync_mode": "overwrite"
+    },
+    {
+      "stream": {
+        "name": "items",
+        "json_schema": {},
+        "supported_sync_modes": [
+          "incremental",
+          "full_refresh"
+        ],
+        "source_defined_cursor": true,
+        "default_cursor_field": [
+          "timeStamp"
+        ]
+      },
+      "sync_mode": "incremental",
+      "cursor_field": [
+        "timeStamp"
+      ],
+      "destination_sync_mode": "append"
+    },
+    {
+      "stream": {
+        "name": "sales",
+        "json_schema": {},
+        "supported_sync_modes": [
+          "incremental",
+          "full_refresh"
+        ],
+        "source_defined_cursor": true,
+        "default_cursor_field": [
+          "timeStamp"
+        ]
+      },
+      "sync_mode": "incremental",
+      "cursor_field": [
+        "timeStamp"
+      ],
+      "destination_sync_mode": "append"
+    },
+    {
+      "stream": {
+        "name": "sale_lines",
+        "json_schema": {},
+        "supported_sync_modes": [
+          "incremental",
+          "full_refresh"
+        ],
+        "source_defined_cursor": true,
+        "default_cursor_field": [
+          "timeStamp"
+        ]
+      },
+      "sync_mode": "incremental",
+      "cursor_field": [
+        "timeStamp"
+      ],
+      "destination_sync_mode": "append"
+    },
+    {
+      "stream": {
+        "name": "shops",
+        "json_schema": {},
+        "supported_sync_modes": [
+          "full_refresh"
+        ],
+        "source_defined_cursor": false
+      },
+      "sync_mode": "full_refresh",
+      "cursor_field": [
+        "timeStamp"
+      ],
+      "destination_sync_mode": "overwrite"
+    },
+    {
+      "stream": {
+        "name": "tax_classes",
+        "json_schema": {},
+        "supported_sync_modes": [
+          "full_refresh"
+        ],
+        "source_defined_cursor": false
+      },
+      "sync_mode": "full_refresh",
+      "destination_sync_mode": "overwrite"
+    },
+    {
+      "stream": {
+        "name": "tax_categories",
+        "json_schema": {},
+        "supported_sync_modes": [
+          "full_refresh"
+        ],
+        "source_defined_cursor": false
+      },
+      "sync_mode": "full_refresh",
+      "destination_sync_mode": "overwrite"
+    }
+  ]
+}

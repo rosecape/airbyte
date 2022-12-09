@@ -1,0 +1,304 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lastName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "company": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "companyRegistrationNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "vatNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "creditAccountId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customerTypeId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "discountID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "taxCategoryID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customerID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "createTime": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "timeStamp": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "archived": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Contact": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "contactID": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "custom": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "noEmail": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "noPhone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "noMail": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Addresses": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "ContactAddress": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "address1": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "address2": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "city": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "state": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "zip": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "country": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "countryCode": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "stateCode": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "Phones": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "ContactPhone": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "string": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "useType": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "Emails": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "ContactEmail": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "address": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "useType": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "Websites": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "Contact": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "url": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "noEmail": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "noMail": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "noPhone": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "timeStamp": {
+                  "type": [
+                    "null",
+                    "string"
+                  ],
+                  "format": "date-time"
+                }
+              }
+            }
+          }
+        },
+        "timeStamp": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

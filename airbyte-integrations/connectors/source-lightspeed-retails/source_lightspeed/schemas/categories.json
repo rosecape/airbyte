@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "categoryID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "name": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "nodeDepth": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "fullPathName": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "leftNode": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "rightNode": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "createTime": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "timeStamp": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "parentID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        }
+    }
+}

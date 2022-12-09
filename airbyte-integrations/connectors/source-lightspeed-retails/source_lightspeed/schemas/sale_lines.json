@@ -1,0 +1,212 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "saleLineID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "createTime": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "timeStamp": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "unitQuantity": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "unitPrice": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "normalUnitPrice": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "discountAmount": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "discountPercent": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "avgCost": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "fifoCost": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "tax": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "tax1Rate": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "tax2Rate": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "isLayaway": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "isWorkorder": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "isSpecialOrder": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "displayableSubtotal": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "displayableUnitPrice": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcLineDiscount": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcTransactionDiscount": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcTotal": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcSubtotal": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcTax1": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "calcTax2": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "taxClassID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "customerID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "discountID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "employeeID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "itemID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "noteID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "parentSaleLineID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "shopID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "taxCategoryID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "saleID": {
+            "type": [
+                "null",
+                "string"
+            ]
+        }
+    }
+}
