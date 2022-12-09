@@ -1,0 +1,378 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "ID": {"type": ["null", "integer"]},
+    "BookingNumber": {"type": ["null", "string"]},
+    "Confirmable": {"type": ["null", "boolean"]},
+    "EndDateTime": {"type": ["null", "string"]},
+    "FinalTotal": {
+      "type": ["null", "object"],
+      "properties": {
+        "Amount": {"type": ["null", "integer"]},
+        "CurrencyCode": {"type": ["null", "string"]}
+      }
+    },
+    "IsCancelled": {"type": ["null", "boolean"]},
+    "IsNoShow": {"type": ["null", "boolean"]},
+    "LocationID": {"type": ["null", "integer"]},
+    "StartDateTime": {"type": ["null", "string"]},
+    "Status": {
+      "type": ["null", "object"],
+      "properties": {
+        "ID": {"type": ["null", "integer"]},
+        "Name": {"type": ["null", "string"]}
+      }
+    },
+    "CanTakePayment": {"type": ["null", "boolean"]},
+    "DateCreated": {"type": ["null", "string"]},
+    "BelongsToEnrollment": {"type": ["null", "boolean"]},
+    "OrderID": {"type": ["null", "integer"]},
+    "StartDateTimeOffset": {"type": ["null", "string"]},
+    "EndDateTimeOffset": {"type": ["null", "string"]},
+    "DateCreatedOffset": {"type": ["null", "string"]},
+    "AppointmentPayment": {
+      "type": ["null", "object"],
+      "properties": {
+        "CouponCode": {"type": ["null", "string"]},
+        "PaymentItem": {
+          "type": ["null", "object"],
+          "properties": {
+            "Amount": {
+              "type": ["null", "object"],
+              "properties": {
+                "Amount": {"type": ["null", "integer"]},
+                "CurrencyCode": {"type": ["null", "string"]}
+              }
+            },
+            "CreditCard": {"type": ["null", "string"]},
+            "CustomerSeries": {"type": ["null", "string"]},
+            "GiftCertificate": {"type": ["null", "string"]},
+            "Method": {
+              "type": ["null", "object"],
+              "properties": {
+                "ID": {"type": ["null", "integer"]},
+                "Name": {"type": ["null", "string"]}
+              }
+            },
+            "CustomPaymentMethodID": {"type": ["null", "string"]},
+            "RemoteTransactionId": {"type": ["null", "string"]},
+            "Groupon": {"type": ["null", "string"]},
+            "PartnerPayment": {"type": ["null", "string"]}
+          }
+        }
+      }
+    },
+
+
+
+    "AppointmentTreatments": {
+      "type": ["null", "array"],
+      "properties": {
+        "AppointmentID": {"type": ["null", "integer"]},
+        "DynamicPrice": {
+          "type": ["null", "object"],
+          "properties": {
+            "Discount": {
+              "type": ["null", "object"],
+              "properties": {
+                "Amount": {"type": ["null", "number"]},
+                "CurrencyCode": {"type": ["null", "string"]}
+              }
+            },
+            "FinalPrice": {
+              "type": ["null", "object"],
+              "properties": {
+                "Amount": {"type": ["null", "number"]},
+                "CurrencyCode": {"type": ["null", "string"]}
+              }
+            },
+            "OriginalPrice": {
+              "type": ["null", "object"],
+              "properties": {
+                "Amount": {"type": ["null", "number"]},
+                "CurrencyCode": {"type": ["null", "string"]}
+              }
+            },
+            "Specials": {
+              "type": ["null", "array"]
+            },
+            "SpecialsSummary": {"type": ["null", "string"]},
+            "IsFinalPriceOverriden": {"type": ["null", "boolean"]},
+            "OverrideReasonID": {"type": ["null", "string"]},
+            "ReceiptDisplayPrice": {
+              "type": ["null", "object"],
+              "properties": {
+                "Amount": {"type": ["null", "number"]},
+                "CurrencyCode": {"type": ["null", "string"]}
+              }
+            },
+            "OriginalTagPrice": {
+              "type": ["null", "object"],
+              "properties": {
+                "Amount": {"type": ["null", "number"]},
+                "CurrencyCode": {"type": ["null", "string"]}
+              }
+            },
+            "TrackDynamicPrice": {
+              "type": ["null", "object"],
+              "properties": {
+                "TrackCampaignID": {"type": ["null", "integer"]}
+              }
+            }
+          }
+        },
+        "EndDateTime": {"type": ["null", "string"]},
+        "ID": {"type": ["null", "integer"]},
+        "StartDateTime": {"type": ["null", "string"]},
+        "FullStayGroupID": {"type": ["null", "string"]},
+        "SharedRoomGroupID": {"type": ["null", "string"]},
+        "ChildID": {"type": ["null", "string"]},
+        "ChildName": {"type": ["null", "string"]},
+        "StartDateTimeOffset": {"type": ["null", "string"]},
+        "EndDateTimeOffset": {"type": ["null", "string"]},
+        "EmployeeWasRequested": {"type": ["null", "boolean"]},
+        "GenderPreferenceFemale": {"type": ["null", "boolean"]},
+        "Guest": {"type": ["null", "string"]},
+        "Treatment": {
+          "type": ["null", "object"],
+          "properties": {
+            "AllowCustomersToBookOnline": {"type": ["null", "boolean"]},
+            "BillableItemID": {"type": ["null", "integer"]},
+            "Category": {
+              "type": ["null", "object"],
+              "properties": {
+                "ID": {"type": ["null", "integer"]},
+                "Name": {"type": ["null", "string"]}
+              }
+            },
+            "DepositOptions": {"type": ["null", "string"]},
+            "Description": {"type": ["null", "string"]},
+            "DisplayName": {"type": ["null", "string"]},
+            "ID": {"type": ["null", "integer"]},
+            "IsActive": {"type": ["null", "boolean"]},
+            "IsDeleted": {"type": ["null", "boolean"]},
+            "Name": {"type": ["null", "string"]},
+            "Price": {
+              "type": ["null", "object"],
+              "properties": {
+                "Amount": {"type": ["null", "number"]},
+                "CurrencyCode": {"type": ["null", "string"]}
+              }
+            },
+            "SubCategory": {
+              "type": ["null", "object"],
+              "properties": {
+                "ID": {"type": ["null", "integer"]},
+                "Name": {"type": ["null", "string"]}
+              }
+            },
+            "TotalDuration": {"type": ["null", "integer"]},
+            "TreatmentDuration": {"type": ["null", "integer"]},
+            "ImageURL": {"type": ["null", "string"]},
+            "DurationType": {
+              "type": ["null", "object"],
+              "properties": {
+                "ID": {"type": ["null", "integer"]},
+                "Name": {"type": ["null", "string"]}
+              }
+            },
+            "FlexiblePriceIncrementType": {
+              "type": ["null", "object"],
+              "properties": {
+                "ID": {"type": ["null", "integer"]},
+                "Name": {"type": ["null", "string"]}
+              }
+            },
+            "IsBoundingService": {"type": ["null", "boolean"]},
+            "IsFlexiblePrice": {"type": ["null", "boolean"]},
+            "IsSharedService": {"type": ["null", "boolean"]},
+            "MaxTreatmentDuration": {"type": ["null", "string"]},
+            "MinTreatmentDuration": {"type": ["null", "string"]},
+            "SharedRoomGuestCount": {"type": ["null", "string"]},
+            "ColorCode": {"type": ["null", "string"]},
+            "DoesNotRequireStaff": {"type": ["null", "boolean"]},
+            "IsForCouples": {"type": ["null", "boolean"]},
+            "AvailableInAdvance": {"type": ["null", "integer"]},
+            "DateCreated": {"type": ["null", "string"]},
+            "DateLastModified": {"type": ["null", "string"]},
+            "AvailableInAdvanceDateUnitType": {
+              "type": ["null", "object"],
+              "properties": {
+                "ID": {"type": ["null", "integer"]},
+                "Name": {"type": ["null", "string"]}
+              }
+            },
+            "CustomerRecordType": {
+              "type": ["null", "object"],
+              "properties": {
+                "ID": {"type": ["null", "integer"]},
+                "Name": {"type": ["null", "string"]}
+              }
+            },
+            "IsClass": {"type": ["null", "boolean"]},
+            "CustomerTypeID": {"type": ["null", "integer"]},
+            "CustomerTypeName": {"type": ["null", "string"]},
+            "RequiresTwoTechnicians": {"type": ["null", "boolean"]},
+            "DateCreatedOffset": {"type": ["null", "string"]},
+            "DateLastModifiedOffset": {"type": ["null", "string"]},
+            "OnlineMenuType": {
+              "type": ["null", "object"],
+              "properties": {
+                "ID": {"type": ["null", "integer"]},
+                "Name": {"type": ["null", "string"]}
+              }
+            },
+            "IsVerifiedVisibleInOnlineBooking": {"type": ["null", "boolean"]},
+            "EmployeeTreatments": {"type": ["null", "string"]}
+          }
+        },
+        "TreatmentDuration": {"type": ["null", "integer"]},
+        "Employee": {
+          "type": ["null", "object"],
+          "properties": {
+            "DisplayName": {"type": ["null", "string"]},
+            "FirstName": {"type": ["null", "string"]},
+            "Gender": {
+              "type": ["null", "object"],
+              "properties": {
+                "ID": {"type": ["null", "integer"]},
+                "Name": {"type": ["null", "string"]}
+              }
+            },
+            "ID": {"type": ["null", "integer"]},
+            "LastName": {"type": ["null", "string"]},
+            "LocationID": {"type": ["null", "integer"]},
+            "Photo": {"type": ["null", "string"]},
+            "ProfileDescription": {"type": ["null", "string"]},
+            "Rank": {"type": ["null", "string"]},
+            "Type": {"type": ["null", "integer"]}
+          }
+        },
+        "Employee2": {
+          "type": ["null", "object"],
+          "properties": {
+            "DisplayName": {"type": ["null", "string"]},
+            "FirstName": {"type": ["null", "string"]},
+            "Gender": {
+              "type": ["null", "object"],
+              "properties": {
+                "ID": {"type": ["null", "integer"]},
+                "Name": {"type": ["null", "string"]}
+              }
+            },
+            "ID": {"type": ["null", "integer"]},
+            "LastName": {"type": ["null", "string"]},
+            "LocationID": {"type": ["null", "integer"]},
+            "Photo": {"type": ["null", "string"]},
+            "ProfileDescription": {"type": ["null", "string"]},
+            "Rank": {"type": ["null", "string"]},
+            "Type": {"type": ["null", "integer"]}
+          }
+        }
+      }
+    },
+    "Customer": {"type": ["null", "string"]},
+    "InvoiceID": {"type": ["null", "integer"]},
+    "Treatment": {
+      "type": ["null", "object"],
+      "properties": {
+        "AllowCustomersToBookOnline": {"type": ["null", "boolean"]},
+        "BillableItemID": {"type": ["null", "integer"]},
+        "Category": {
+          "type": ["null", "object"],
+          "properties": {
+            "ID": {"type": ["null", "integer"]},
+            "Name": {"type": ["null", "string"]}
+          }
+        },
+        "DepositOptions": {"type": ["null", "string"]},
+        "Description": {"type": ["null", "string"]},
+        "DisplayName": {"type": ["null", "string"]},
+        "ID": {"type": ["null", "integer"]},
+        "IsActive": {"type": ["null", "boolean"]},
+        "IsDeleted": {"type": ["null", "boolean"]},
+        "Name": {"type": ["null", "string"]},
+        "Price": {
+          "type": ["null", "object"],
+          "properties": {
+            "Amount": {"type": ["null", "number"]},
+            "CurrencyCode": {"type": ["null", "string"]}
+          }
+        },
+        "SubCategory": {
+          "type": ["null", "object"],
+          "properties": {
+            "ID": {"type": ["null", "integer"]},
+            "Name": {"type": ["null", "string"]}
+          }
+        },
+        "TotalDuration": {"type": ["null", "integer"]},
+        "TreatmentDuration": {"type": ["null", "integer"]},
+        "ImageURL": {"type": ["null", "string"]},
+        "DurationType": {
+          "type": ["null", "object"],
+          "properties": {
+            "ID": {"type": ["null", "integer"]},
+            "Name": {"type": ["null", "string"]}
+          }
+        },
+        "FlexiblePriceIncrementType": {
+          "type": ["null", "object"],
+          "properties": {
+            "ID": {"type": ["null", "integer"]},
+            "Name": {"type": ["null", "string"]}
+          }
+        },
+        "IsBoundingService": {"type": ["null", "boolean"]},
+        "IsFlexiblePrice": {"type": ["null", "boolean"]},
+        "IsSharedService": {"type": ["null", "boolean"]},
+        "MaxTreatmentDuration": {"type": ["null", "string"]},
+        "MinTreatmentDuration": {"type": ["null", "string"]},
+        "SharedRoomGuestCount": {"type": ["null", "string"]},
+        "ColorCode": {"type": ["null", "string"]},
+        "DoesNotRequireStaff": {"type": ["null", "boolean"]},
+        "IsForCouples": {"type": ["null", "boolean"]},
+        "AvailableInAdvance": {"type": ["null", "integer"]},
+        "DateCreated": {"type": ["null", "string"]},
+        "DateLastModified": {"type": ["null", "string"]},
+        "AvailableInAdvanceDateUnitType": {
+          "type": ["null", "object"],
+          "properties": {
+            "ID": {"type": ["null", "integer"]},
+            "Name": {"type": ["null", "string"]}
+          }
+        },
+        "CustomerRecordType": {
+          "type": ["null", "object"],
+          "properties": {
+            "ID": {"type": ["null", "string"]},
+            "Name": {"type": ["null", "string"]}
+          }
+        },
+        "IsClass": {"type": ["null", "boolean"]},
+        "CustomerTypeID": {"type": ["null", "integer"]},
+        "CustomerTypeName": {"type": ["null", "string"]},
+        "RequiresTwoTechnicians": {"type": ["null", "boolean"]},
+        "DateCreatedOffset": {"type": ["null", "string"]},
+        "DateLastModifiedOffset": {"type": ["null", "string"]},
+        "OnlineMenuType": {
+          "type": ["null", "object"],
+          "properties": {
+            "ID": {"type": ["null", "integer"]},
+            "Name": {"type": ["null", "string"]}
+          }
+        },
+        "IsVerifiedVisibleInOnlineBooking": {"type": ["null", "boolean"]},
+        "EmployeeTreatments": {"type": ["null", "string"]}
+      }
+    },
+    "GroupAppointmentID": {"type": ["null", "string"]},
+    "BookedDateTime":{"type": ["null", "string"]},
+    "AddOnItems": {
+      "type": ["null", "array"]
+    },
+    "Child": {"type": ["null", "string"]},
+    "BookedDateTimeOffset": {"type": ["null", "string"]}
+  }
+}

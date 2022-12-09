@@ -1,0 +1,10 @@
+{
+  "url": "https://api-staging.booker.com/",
+  "client_id": "XXX",
+  "client_secret": "XXX",
+  "grant_type" : "client_credentials",
+  "scope": "customer",
+  "subscription_key": "EBCDB56F-3E54-4FC2-AA99-7BF3BDB7DBF3",
+  "location_id": 21941,
+  "start_date": "2022-06-01"
+}

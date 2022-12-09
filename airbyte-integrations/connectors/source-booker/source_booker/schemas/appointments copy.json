@@ -1,0 +1,254 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "ID": {"type": ["null", "integer"]},
+    "BookingNumber": {"type": ["null", "string"]},
+    "Confirmable": {"type": ["null", "boolean"]},
+    "EndDateTime": {"type": ["null", "string"]},
+    "FinalTotal": {
+      "type": ["null", "object"],
+      "properties": {
+        "Amount": {"type": ["null", "integer"]},
+        "CurrencyCode": {"type": ["null", "string"]}
+      }
+    },
+    "IsCancelled": false,
+    "IsNoShow": false,
+    "LocationID": 21941,
+    "StartDateTime": "/Date(1661895900000-0400)/",
+    "Status": {
+      "ID": 2,
+      "Name": "Booked"
+    },
+    "CanTakePayment": false,
+    "DateCreated": "/Date(1660829460000-0400)/",
+    "BelongsToEnrollment": false,
+    "OrderID": 295152683,
+    "StartDateTimeOffset": "2022-08-30T17:45:00-05:00",
+    "EndDateTimeOffset": "2022-08-30T18:45:00-05:00",
+    "DateCreatedOffset": "2022-08-18T09:31:00-05:00",
+    "AppointmentPayment": {
+      "CouponCode": null,
+      "PaymentItem": {
+        "Amount": {
+          "Amount": 115.5,
+          "CurrencyCode": "CAD"
+        },
+        "CreditCard": null,
+        "CustomerSeries": null,
+        "GiftCertificate": null,
+        "Method": {
+          "ID": 1,
+          "Name": "Credit Card"
+        },
+        "CustomPaymentMethodID": null,
+        "RemoteTransactionId": null,
+        "Groupon": null,
+        "PartnerPayment": null
+      }
+    },
+    "AppointmentTreatments": [
+      {
+        "AppointmentID": 241349647,
+        "DynamicPrice": {
+          "Discount": {
+            "Amount": 0.0,
+            "CurrencyCode": "CAD"
+          },
+          "FinalPrice": {
+            "Amount": 110.0,
+            "CurrencyCode": "CAD"
+          },
+          "OriginalPrice": {
+            "Amount": 110.0,
+            "CurrencyCode": "CAD"
+          },
+          "Specials": [],
+          "SpecialsSummary": null,
+          "IsFinalPriceOverriden": false,
+          "OverrideReasonID": null,
+          "ReceiptDisplayPrice": {
+            "Amount": 110.0,
+            "CurrencyCode": "CAD"
+          },
+          "OriginalTagPrice": {
+            "Amount": 110.0,
+            "CurrencyCode": "CAD"
+          },
+          "TrackDynamicPrice": {
+            "TrackCampaignID": 15
+          }
+        },
+        "EndDateTime": "/Date(1661899500000-0400)/",
+        "ID": 274068956,
+        "StartDateTime": "/Date(1661895900000-0400)/",
+        "FullStayGroupID": null,
+        "SharedRoomGroupID": null,
+        "ChildID": null,
+        "ChildName": null,
+        "StartDateTimeOffset": "2022-08-30T17:45:00-05:00",
+        "EndDateTimeOffset": "2022-08-30T18:45:00-05:00",
+        "EmployeeWasRequested": false,
+        "GenderPreferenceFemale": null,
+        "Guest": null,
+        "Treatment": {
+          "AllowCustomersToBookOnline": true,
+          "BillableItemID": 5361427,
+          "Category": {
+            "ID": 2,
+            "Name": "Massages"
+          },
+          "DepositOptions": null,
+          "Description": "classic massage: This prenatal massage focuses on the specific needs of pregnant women. Practiced lying on the side, with cushions positioned for maximum comfort, this massage is available to women who are more than three months\u2019 pregnant.\r\n",
+          "DisplayName": "General",
+          "ID": 951378,
+          "IsActive": true,
+          "IsDeleted": false,
+          "Name": "E. Pregnant women massage - 60 min - Massage femme enceinte - 60 minutes",
+          "Price": {
+            "Amount": 110.0,
+            "CurrencyCode": "CAD"
+          },
+          "SubCategory": {
+            "ID": 221,
+            "Name": "General"
+          },
+          "TotalDuration": 60,
+          "TreatmentDuration": 60,
+          "ImageURL": null,
+          "DurationType": {
+            "ID": 1,
+            "Name": "Fixed Single Day"
+          },
+          "FlexiblePriceIncrementType": {
+            "ID": null,
+            "Name": null
+          },
+          "IsBoundingService": false,
+          "IsFlexiblePrice": false,
+          "IsSharedService": false,
+          "MaxTreatmentDuration": null,
+          "MinTreatmentDuration": null,
+          "SharedRoomGuestCount": null,
+          "ColorCode": null,
+          "DoesNotRequireStaff": false,
+          "IsForCouples": false,
+          "AvailableInAdvance": 2,
+          "DateCreated": "/Date(1372338000000-0400)/",
+          "DateLastModified": "/Date(1486143660000-0500)/",
+          "AvailableInAdvanceDateUnitType": {
+            "ID": 3,
+            "Name": "months"
+          },
+          "CustomerRecordType": {
+            "ID": null,
+            "Name": null
+          },
+          "IsClass": false,
+          "CustomerTypeID": 1,
+          "CustomerTypeName": "Customer",
+          "RequiresTwoTechnicians": false,
+          "DateCreatedOffset": "2013-06-27T09:00:00-05:00",
+          "DateLastModifiedOffset": "2017-02-03T12:41:00-06:00",
+          "OnlineMenuType": {
+            "ID": 1,
+            "Name": "Book"
+          },
+          "IsVerifiedVisibleInOnlineBooking": true,
+          "EmployeeTreatments": null
+        },
+        "TreatmentDuration": 60,
+        "Employee": {
+          "DisplayName": "Emily  Rivers",
+          "FirstName": "Emily ",
+          "Gender": {
+            "ID": 2,
+            "Name": "Female"
+          },
+          "ID": 409939,
+          "LastName": "Rivers",
+          "LocationID": 21941,
+          "Photo": null,
+          "ProfileDescription": null,
+          "Rank": null,
+          "Type": 1
+        },
+        "Employee2": null
+      }
+    ],
+    "Customer": null,
+    "InvoiceID": null,
+    "Treatment": {
+      "AllowCustomersToBookOnline": true,
+      "BillableItemID": 5361427,
+      "Category": {
+        "ID": 2,
+        "Name": "Massages"
+      },
+      "DepositOptions": null,
+      "Description": "classic massage: This prenatal massage focuses on the specific needs of pregnant women. Practiced lying on the side, with cushions positioned for maximum comfort, this massage is available to women who are more than three months\u2019 pregnant.\r\n",
+      "DisplayName": "General",
+      "ID": 951378,
+      "IsActive": true,
+      "IsDeleted": false,
+      "Name": "E. Pregnant women massage - 60 min - Massage femme enceinte - 60 minutes",
+      "Price": {
+        "Amount": 110.0,
+        "CurrencyCode": "CAD"
+      },
+      "SubCategory": {
+        "ID": 221,
+        "Name": "General"
+      },
+      "TotalDuration": 60,
+      "TreatmentDuration": 60,
+      "ImageURL": null,
+      "DurationType": {
+        "ID": 1,
+        "Name": "Fixed Single Day"
+      },
+      "FlexiblePriceIncrementType": {
+        "ID": null,
+        "Name": null
+      },
+      "IsBoundingService": false,
+      "IsFlexiblePrice": false,
+      "IsSharedService": false,
+      "MaxTreatmentDuration": null,
+      "MinTreatmentDuration": null,
+      "SharedRoomGuestCount": null,
+      "ColorCode": null,
+      "DoesNotRequireStaff": false,
+      "IsForCouples": false,
+      "AvailableInAdvance": 2,
+      "DateCreated": "/Date(1372338000000-0400)/",
+      "DateLastModified": "/Date(1486143660000-0500)/",
+      "AvailableInAdvanceDateUnitType": {
+        "ID": 3,
+        "Name": "months"
+      },
+      "CustomerRecordType": {
+        "ID": null,
+        "Name": null
+      },
+      "IsClass": false,
+      "CustomerTypeID": 1,
+      "CustomerTypeName": "Customer",
+      "RequiresTwoTechnicians": false,
+      "DateCreatedOffset": "2013-06-27T09:00:00-05:00",
+      "DateLastModifiedOffset": "2017-02-03T12:41:00-06:00",
+      "OnlineMenuType": {
+        "ID": 1,
+        "Name": "Book"
+      },
+      "IsVerifiedVisibleInOnlineBooking": true,
+      "EmployeeTreatments": null
+    },
+    "GroupAppointmentID": null,
+    "BookedDateTime": "/Date(1660829580000-0400)/",
+    "AddOnItems": [],
+    "Child": null,
+    "BookedDateTimeOffset": "2022-08-18T09:33:00-05:00"
+  }
+}

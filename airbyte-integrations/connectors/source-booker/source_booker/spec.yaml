@@ -1,0 +1,50 @@
+documentationUrl: https://developers-staging.booker.com/
+connectionSpecification:
+  $schema: http://json-schema.org/draft-07/schema#
+  title: Booker Spec
+  type: object
+  required:
+    - url
+    - client_id
+    - client_secret
+    - grant_type
+    - scope
+    - subscription_key
+    - location_id
+    - start_date
+  properties:
+    
+    url:
+      type: string
+      description: url
+
+    client_id:
+      type: string
+      description: client_id
+    
+    client_secret:
+      type: string
+      description: client_secret
+
+    grant_type:
+      type: string
+      description: grant_type
+
+    scope:
+      type: string
+      description: scope
+    
+    subscription_key:
+      type: string
+      description: subscription_key
+    
+    location_id:
+      type: integer
+      description: subscription_key
+
+    start_date:
+      type: string
+      description: Start getting data from that date.
+      pattern: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$
+      examples:
+        - "%Y-%m-%d"

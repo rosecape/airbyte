@@ -1,0 +1,90 @@
+{
+  "streams": [
+    {
+      "stream": {
+        "name": "treatments",
+        "json_schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "ID": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "AllowCustomersToBookOnline": {
+              "type": [
+                "null",
+                "string",
+                "boolean"
+              ]
+            }
+          }
+        },
+        "supported_sync_modes": [
+          "full_refresh"
+        ],
+        "source_defined_primary_key": [
+          [
+            "ID"
+          ]
+        ]
+      },
+      "sync_mode": "full_refresh",
+      "destination_sync_mode": "overwrite"
+    },
+    {
+      "stream": {
+        "name": "appointments",
+        "json_schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "ID": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "BookingNumber": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "DateCreatedOffset": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "StartDateTimeOffset": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "EndDateTimeOffset": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "supported_sync_modes": [
+          "full_refresh",
+          "incremental"
+        ],
+        "source_defined_primary_key": [
+          [
+            "ID"
+          ]
+        ]
+      },
+      "sync_mode": "incremental",
+      "destination_sync_mode": "overwrite"
+    }
+  ]
+}
