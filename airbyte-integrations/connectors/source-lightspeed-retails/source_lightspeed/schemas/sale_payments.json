@@ -86,6 +86,13 @@
                 "string"
             ],
             "format": "date-time"
+        },
+        "timeStamp": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
         }
     }
 }

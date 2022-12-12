@@ -5,7 +5,7 @@
     "title": "Lightspeed Spec",
     "type": "object",
     "required": [],
-    "additionalProperties": false,
+    "additionalProperties": true,
     "properties": {
       "account_id": {
         "type": "string",
