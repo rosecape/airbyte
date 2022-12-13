@@ -45,8 +45,6 @@ class BookerAuthenticator(HttpAuthenticator):
         return self.access_token
 
 
-
-# Basic full refresh stream
 class BookerStream(HttpStream, ABC):
     url_base = None
     
@@ -92,6 +90,7 @@ class Treatments(BookerStream):
 
 
 class Appointments(BookerStream):
+    
     cursor_field = "StartDateTimeOffset"
     primary_key = "ID"
 
@@ -149,19 +148,25 @@ class Appointments(BookerStream):
 # Source
 class SourceBooker(AbstractSource):
     def check_connection(self, logger, config) -> Tuple[bool, any]:
-        data = {"client_id": config["client_id"],
-                "client_secret": config["client_secret"],
-                "grant_type" : config["grant_type"],
-                "scope": config["scope"]}
-        headers = { 'Content-Type': 'application/x-www-form-urlencoded',
-                    'Ocp-Apim-Subscription-Key': config["subscription_key"]}
+        data = {
+            "client_id": config["client_id"],
+            "client_secret": config["client_secret"],
+            "grant_type" : config["grant_type"],
+            "scope": config["scope"]
+        }
+        headers = { 
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Ocp-Apim-Subscription-Key': config["subscription_key"]
+        }
         r = requests.post("""{}v5/auth/connect/token""".format(config["url"]), data=data, headers=headers)
         r.raise_for_status()
         return True, None
         
     def streams(self, config: Mapping[str, Any]) -> List[Stream]:
         auth = BookerAuthenticator(config=config)
-        return [Treatments(config=config, authenticator=auth), 
-                Appointments(config=config, authenticator=auth)]
+        return [
+            Treatments(config=config, authenticator=auth),
+            Appointments(config=config, authenticator=auth)
+        ]
 
 
