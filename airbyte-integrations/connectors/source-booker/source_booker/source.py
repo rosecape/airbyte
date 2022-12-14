@@ -8,7 +8,7 @@ import requests
 from airbyte_cdk.sources import AbstractSource
 from airbyte_cdk.sources.streams import Stream
 
-from auth import BookerAuthenticator
+from .auth import BookerAuthenticator
 
 from source_booker.streams import (
     Treatments,

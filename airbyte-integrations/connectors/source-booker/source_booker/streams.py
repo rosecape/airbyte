@@ -3,13 +3,13 @@ from typing import Any, Iterable, List, Mapping, MutableMapping, Optional
 from datetime import datetime, timedelta
 import requests
 
-from auth import BookerAuthenticator
+from .auth import BookerAuthenticator
 from airbyte_cdk.sources.streams.http import HttpStream
 
 class BookerStream(HttpStream, ABC):
     
     def __init__(self, config: Mapping[str, Any], authenticator: BookerAuthenticator):
-        super().__init__(config, authenticator)
+        super().__init__()
         self.config = config
         self.location_id = config["location_id"]
         self.access_token = authenticator.get_access_token()
@@ -18,10 +18,17 @@ class BookerStream(HttpStream, ABC):
     @property
     def url_base(self) -> str:
         return f'{self.config["url"]}v4.1/customer/'
-
+    
     @property
     def data_field(self) -> str:
         """The name of the field in the response which contains the data"""
+
+    @property
+    def cursor_field(self) -> str:
+        """The name of the field in the response which contains the cursor"""
+
+    def next_page_token(self, response: requests.Response) -> Optional[Mapping[str, Any]]:
+        return None
 
     def backoff_time(self, response: requests.Response) -> Optional[float]:
         return 60
@@ -36,7 +43,7 @@ class BookerStream(HttpStream, ABC):
         }
         return data
 
-    def parse_response(self, response: requests.Response) -> Iterable[Mapping]:
+    def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
         return response.json().get(self.data_field, []) if self.data_field is not None else response.json()
 
 class IncrementalBookerStream(BookerStream, ABC):
@@ -57,18 +64,28 @@ class IncrementalBookerStream(BookerStream, ABC):
         
 class Treatments(BookerStream):
     
-    path = "treatments"
+    def path(self, **kwargs) -> str:
+        return "treatments"
+
     http_method = "POST"
 
     primary_key = "ID"
     data_field = "Treatments"
 
 
-class Appointments(BookerStream):
+class Appointments(IncrementalBookerStream):
 
-    path = "appointments"
+    def path(self, **kwargs) -> str:
+        return "appointments"
+        
     http_method = "POST"
     
     primary_key = "ID"
     data_field = "Results"
-    cursor_field = "StartDateTimeOffset"
+    cursor_field = "DateLastModified"
+
+    def request_body_json(self, stream_state: Mapping[str, Any], stream_slice: Mapping[str, Any] = None, next_page_token: Mapping[str, Any] = None,) -> Optional[Mapping]:
+        data = super().request_body_json(stream_state, stream_slice, next_page_token)
+        data["DateStart"] = stream_slice[self.cursor_field]
+        data["DateEnd"] = stream_slice[self.cursor_field]
+        return data

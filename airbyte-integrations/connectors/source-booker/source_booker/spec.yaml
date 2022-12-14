@@ -13,7 +13,6 @@ connectionSpecification:
     - location_id
     - start_date
   properties:
-    
     url:
       type: string
       description: url
@@ -21,7 +20,7 @@ connectionSpecification:
     client_id:
       type: string
       description: client_id
-    
+
     client_secret:
       type: string
       description: client_secret
@@ -33,11 +32,11 @@ connectionSpecification:
     scope:
       type: string
       description: scope
-    
+
     subscription_key:
       type: string
       description: subscription_key
-    
+
     location_id:
       type: integer
       description: subscription_key
