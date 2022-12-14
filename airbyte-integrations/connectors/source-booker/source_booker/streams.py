@@ -7,23 +7,27 @@ from auth import BookerAuthenticator
 from airbyte_cdk.sources.streams.http import HttpStream
 
 class BookerStream(HttpStream, ABC):
-    url_base = None
     
     def __init__(self, config: Mapping[str, Any], authenticator: BookerAuthenticator):
-        super().__init__()
-        self.url_base = """{}v4.1/customer/""".format(config["url"])
+        super().__init__(config, authenticator)
+        self.config = config
         self.location_id = config["location_id"]
         self.access_token = authenticator.get_access_token()
         self.auth_header = authenticator.get_auth_header()
 
+    @property
+    def url_base(self) -> str:
+        return f'{self.config["url"]}v4.1/customer/'
+
+    @property
+    def data_field(self) -> str:
+        """The name of the field in the response which contains the data"""
+
+    def backoff_time(self, response: requests.Response) -> Optional[float]:
+        return 60
+
     def request_headers(self, stream_state: Mapping[str, Any], stream_slice: Mapping[str, Any] = None, next_page_token: Mapping[str, Any] = None) -> Mapping[str, Any]:
         return self.auth_header
-
-    def next_page_token(self, response: requests.Response) -> Optional[Mapping[str, Any]]:
-        return None
-
-    def request_params(self, stream_state: Mapping[str, Any], stream_slice: Mapping[str, any] = None, next_page_token: Mapping[str, Any] = None) -> MutableMapping[str, Any]:
-        return {}
 
     def request_body_json(self, stream_state: Mapping[str, Any], stream_slice: Mapping[str, Any] = None, next_page_token: Mapping[str, Any] = None,) -> Optional[Mapping]:
         data = {
@@ -32,61 +36,10 @@ class BookerStream(HttpStream, ABC):
         }
         return data
 
-    def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
-        yield {}
+    def parse_response(self, response: requests.Response) -> Iterable[Mapping]:
+        return response.json().get(self.data_field, []) if self.data_field is not None else response.json()
 
-class Treatments(BookerStream):
-    primary_key = "ID"
-
-    @property
-    def http_method(self) -> str:
-        return "POST"
-
-    def path(self, stream_state: Mapping[str, Any] = None, stream_slice: Mapping[str, Any] = None, next_page_token: Mapping[str, Any] = None) -> str:
-        return "treatments"
-
-    def parse_response(self, response: requests.Response, stream_state: Mapping[str, Any], stream_slice: Mapping[str, Any] = None, next_page_token: Mapping[str, Any] = None) -> Iterable[Mapping]:
-        return response.json()["Treatments"]
-
-
-class Appointments(BookerStream):
-    
-    cursor_field = "StartDateTimeOffset"
-    primary_key = "ID"
-
-    def __init__(self, config: Mapping[str, Any], authenticator: BookerAuthenticator):
-        super().__init__(config, authenticator)
-        self.start_date = datetime.strptime(config["start_date"], "%Y-%m-%d")
-        self._cursor_value = None
-
-    @property
-    def state(self) -> Mapping[str, Any]:
-        if self._cursor_value:
-            return {self.cursor_field: self._cursor_value.strftime('%Y-%m-%d')}
-        else:
-            return {self.cursor_field: self.start_date.strftime('%Y-%m-%d')}
-
-    @state.setter
-    def state(self, value: Mapping[str, Any]):
-       self._cursor_value = datetime.strptime(value[self.cursor_field], '%Y-%m-%d')
-
-    @property
-    def http_method(self) -> str:
-        return "POST"
-
-    def backoff_time(self, response: requests.Response) -> Optional[float]:
-        return 60
-
-    def path(self, **kwargs) -> str:
-        return "appointments"
-
-    def request_body_json(self, stream_state: Mapping[str, Any], stream_slice: Mapping[str, Any] = None, next_page_token: Mapping[str, Any] = None,) -> Optional[Mapping]:
-        super_data = super().request_body_json(stream_state, stream_slice, next_page_token)
-        data = {
-            "FromStartDateOffset": """{}T00:00:00-0400""".format(stream_slice[self.cursor_field]),
-            "ToStartDateOffset": """{}T00:00:00-0400""".format((datetime.strptime(self.state[self.cursor_field], '%Y-%m-%d') + timedelta(days=1)).strftime('%Y-%m-%d')),
-        }
-        return {**super_data, **data}
+class IncrementalBookerStream(BookerStream, ABC):
 
     def _chunk_date_range(self, start_date: datetime) -> List[Mapping[str, any]]:
         dates = []
@@ -96,10 +49,26 @@ class Appointments(BookerStream):
         return dates
 
     def stream_slices(self, stream_state: Mapping[str, Any] = None, **kwargs) -> Iterable[Optional[Mapping[str, any]]]:
-        start_date = datetime.strptime(stream_state[self.cursor_field], "%Y-%m-%d") if stream_state and self.cursor_field in stream_state else self.start_date
+        start_date = datetime.strptime(stream_state[self.cursor_field], "%Y-%m-%d") if stream_state and self.cursor_field in stream_state else datetime.strptime(self.config["start_date"], "%Y-%m-%d")
         return self._chunk_date_range(start_date)
 
-    def parse_response(self, response: requests.Response, stream_state: Mapping[str, Any], stream_slice: Mapping[str, Any] = None, next_page_token: Mapping[str, Any] = None) -> Iterable[Mapping]:
-        response.raise_for_status()
-        self._cursor_value = datetime.strptime(self.state[self.cursor_field], '%Y-%m-%d') + timedelta(days=1)
-        return response.json()["Results"]
+    def get_updated_state(self, current_stream_state: MutableMapping[str, Any], latest_record: Mapping[str, Any]) -> Mapping[str, Any]:
+        return {self.cursor_field: max(latest_record.get(self.cursor_field, ""), current_stream_state.get(self.cursor_field, ""))}
+        
+class Treatments(BookerStream):
+    
+    path = "treatments"
+    http_method = "POST"
+
+    primary_key = "ID"
+    data_field = "Treatments"
+
+
+class Appointments(BookerStream):
+
+    path = "appointments"
+    http_method = "POST"
+    
+    primary_key = "ID"
+    data_field = "Results"
+    cursor_field = "StartDateTimeOffset"
