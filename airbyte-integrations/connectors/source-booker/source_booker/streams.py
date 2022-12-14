@@ -112,7 +112,7 @@ class Appointments(IncrementalBookerStream, IncrementalMixin):
     def request_body_json(self, stream_state: Mapping[str, Any], stream_slice: Mapping[str, Any], next_page_token: Mapping[str, Any] = None) -> Optional[Mapping]:
         super_data = super().request_body_json(stream_state, stream_slice, next_page_token)
         data = {
-            "FromStartDateOffset": """{}T00:00:00-0400""".format(stream_slice[self.cursor_field]),
-            "ToStartDateOffset": """{}T00:00:00-0400""".format((datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%d') + timedelta(days=1)).strftime('%Y-%m-%d')),
+            "FromStartDateOffset": """{}T00:00:00-0000""".format(stream_slice[self.cursor_field]),
+            "ToStartDateOffset": """{}T00:00:00-0000""".format((datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%d').replace(tzinfo=timezone.utc) + timedelta(days=1)).strftime('%Y-%m-%d')),
         }
         return {**super_data, **data}
