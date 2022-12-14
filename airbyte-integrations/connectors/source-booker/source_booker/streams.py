@@ -1,6 +1,6 @@
 from abc import ABC
 from typing import Any, Iterable, List, Mapping, MutableMapping, Optional
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import requests
 
 from .auth import BookerAuthenticator
@@ -76,11 +76,15 @@ class IncrementalBookerStream(BookerStream, ABC):
         start_date = datetime.strptime(stream_state[self.cursor_field], "%Y-%m-%d") if stream_state and self.cursor_field in stream_state else datetime.strptime(self.config["start_date"], "%Y-%m-%d")
         return self._chunk_date_range(start_date)
 
-    def read_records(self, *args, **kwargs) -> Iterable[Mapping[str, Any]]:
-        for record in super().read_records(*args, **kwargs):
-            latest_record_date = datetime.strptime(record[self.cursor_field], '%Y-%m-%dT%H:%M:%S%z')
-            self._cursor_value = max(self._cursor_value, latest_record_date) if self._cursor_value else latest_record_date
-            yield record
+    def read_records(self, stream_state: Mapping[str, Any] = None, stream_slice: Optional[Mapping[str, Any]] = None, **kwargs) -> Iterable[Mapping[str, Any]]:
+        records = super().read_records(stream_slice=stream_slice, **kwargs)
+        if next(records, object()) is not object():
+            for record in super().read_records(stream_slice=stream_slice, **kwargs):
+                cursor_value = self._cursor_value.replace(tzinfo=timezone.utc)
+                latest_record_date = datetime.strptime(record[self.cursor_field], '%Y-%m-%dT%H:%M:%S%z').replace(tzinfo=timezone.utc)
+                self._cursor_value = max(cursor_value, latest_record_date) if cursor_value else latest_record_date
+                yield record
+        self._cursor_value = datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%d').replace(tzinfo=timezone.utc)
             
 class Treatments(BookerStream):
     
