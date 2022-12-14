@@ -4,9 +4,22 @@ connectionSpecification:
   title: Lightspeed Resto Spec
   type: object
   required:
-    - TODO
+    - companyId
+    - deviceId
+    - username
+    - password
   properties:
-    # 'TODO: This schema defines the configuration required for the source. This usually involves metadata such as database and/or authentication information.':
-    TODO:
+    companyId:
+      type: number
+      description: "Company ID"
+    deviceId:
       type: string
-      description: describe me
+      description: "Device ID"
+    username:
+      type: string
+      description: "Username"
+      airbyte_secret: true
+    password:
+      type: string
+      description: "Password"
+      airbyte_secret: true
