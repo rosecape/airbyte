@@ -17,6 +17,8 @@ discover:
 read:
 	 python3 main.py read --config secrets/config.json --catalog sample_files/catalog.json
 
+read-debug:
+	 python3 main.py read --config secrets/config.json --catalog sample_files/catalog.json --debug
 
 read-state:
-	docker run --rm -v $(current_dir)/secrets:/secrets -v $(current_dir)/sample_files:/sample_files $(name):$(tag) read --config /secrets/config.json --catalog /sample_files/catalog.json --state /sample_files/state.json
+	python3 main.py read --config secrets/config.json --catalog sample_files/catalog.json --state sample_files/state.json --debug
