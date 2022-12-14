@@ -5,6 +5,8 @@ import requests
 
 from .auth import BookerAuthenticator
 from airbyte_cdk.sources.streams.http import HttpStream
+from airbyte_cdk.sources.streams import IncrementalMixin
+
 
 class BookerStream(HttpStream, ABC):
     
@@ -57,42 +59,11 @@ class IncrementalBookerStream(BookerStream, ABC):
         if self._cursor_value:
             return {self.cursor_field: self._cursor_value.strftime('%Y-%m-%d')}
         else:
-            return {self.cursor_field: self.start_date.strftime('%Y-%m-%d')}
-
+            return {self.cursor_field: self.config['start_date']}
+    
     @state.setter
     def state(self, value: Mapping[str, Any]):
-        self._cursor_value = datetime.strptime(value[self.cursor_field], '%Y-%m-%d')
-        
-class Treatments(BookerStream):
-    
-    def path(self, **kwargs) -> str:
-        return "treatments"
-
-    http_method = "POST"
-
-    primary_key = "ID"
-    data_field = "Treatments"
-
-
-class Appointments(IncrementalBookerStream):
-
-    def path(self, **kwargs) -> str:
-        return "appointments"
-
-    http_method = "POST"
-    
-    primary_key = "ID"
-    data_field = "Results"
-    cursor_field = "StartDateTimeOffset"
-
-    def request_body_json(self, stream_state: Mapping[str, Any], stream_slice: Mapping[str, Any] = None, next_page_token: Mapping[str, Any] = None,) -> Optional[Mapping]:
-        print(self._cursor_value)
-        super_data = super().request_body_json(stream_state, stream_slice, next_page_token)
-        data = {
-            "FromStartDateOffset": """{}T00:00:00-0400""".format(stream_slice[self.cursor_field]),
-            "ToStartDateOffset": """{}T00:00:00-0400""".format((datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%d') + timedelta(days=1)).strftime('%Y-%m-%d')),
-        }
-        return {**super_data, **data}
+       self._cursor_value = datetime.strptime(value[self.cursor_field], '%Y-%m-%d')
 
     def _chunk_date_range(self, start_date: datetime) -> List[Mapping[str, any]]:
         dates = []
@@ -107,7 +78,37 @@ class Appointments(IncrementalBookerStream):
 
     def read_records(self, *args, **kwargs) -> Iterable[Mapping[str, Any]]:
         for record in super().read_records(*args, **kwargs):
-            if self._cursor_value:
-                latest_record_date = datetime.strptime(record[self.cursor_field], '%Y-%m-%d')
-                self._cursor_value = max(self._cursor_value, latest_record_date)
+            latest_record_date = datetime.strptime(record[self.cursor_field], '%Y-%m-%dT%H:%M:%S%z')
+            self._cursor_value = max(self._cursor_value, latest_record_date) if self._cursor_value else latest_record_date
             yield record
+            
+class Treatments(BookerStream):
+    
+    def path(self, **kwargs) -> str:
+        return "treatments"
+
+    http_method = "POST"
+
+    primary_key = "ID"
+    data_field = "Treatments"
+
+
+class Appointments(IncrementalBookerStream, IncrementalMixin):
+
+    def path(self, **kwargs) -> str:
+        return "appointments"
+
+    http_method = "POST"
+    
+    primary_key = "ID"
+    data_field = "Results"
+
+    cursor_field = "StartDateTimeOffset"
+
+    def request_body_json(self, stream_state: Mapping[str, Any], stream_slice: Mapping[str, Any], next_page_token: Mapping[str, Any] = None) -> Optional[Mapping]:
+        super_data = super().request_body_json(stream_state, stream_slice, next_page_token)
+        data = {
+            "FromStartDateOffset": """{}T00:00:00-0400""".format(stream_slice[self.cursor_field]),
+            "ToStartDateOffset": """{}T00:00:00-0400""".format((datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%d') + timedelta(days=1)).strftime('%Y-%m-%d')),
+        }
+        return {**super_data, **data}
