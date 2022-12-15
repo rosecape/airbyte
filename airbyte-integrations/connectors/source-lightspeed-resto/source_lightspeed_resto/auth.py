@@ -9,18 +9,16 @@ class LightspeedRestoAuthenticator():
         self.config = config
 
     def authentication(self):
-        url = "http://staging-integration.posios.com/PosServer/rest/token"
+        url = "https://staging-integration.posios.com/PosServer/rest/token"
 
         data = {
             "companyId": self.config['companyId'],
             "deviceId": self.config['deviceId'],
             "password" : self.config['password'],
-            "username": self.config['username'],
+            "username": self.config['username']
         }
 
-        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+        headers = {'Content-Type': 'application/json', 'Accept': '*/*', 'Content-Length': '126'}
 
-        r = requests.post(url, data=data, headers=headers)
-        r.raise_for_status()
-
-        return r.json()['token']
+        response = requests.request("POST", url, data=data, headers=headers)
+        return response.json().get('token')
