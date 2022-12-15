@@ -20,5 +20,8 @@ class LightspeedRestoAuthenticator():
 
         headers = {'Content-Type': 'application/json', 'Accept': '*/*', 'Content-Length': '126'}
 
-        response = requests.request("POST", url, data=data, headers=headers)
-        return response.json().get('token')
+        response = requests.request("POST", url, json=data, headers=headers)
+        token = response.json().get('token')
+        if not token:
+            raise Exception('An error occured while generating token')
+        return token

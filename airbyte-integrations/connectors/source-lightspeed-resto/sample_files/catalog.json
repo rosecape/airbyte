@@ -1,0 +1,164 @@
+{
+    "streams": [
+        {
+            "stream": {
+                "name": "customers",
+                "json_schema": {
+                    "$schema": "http://json-schema.org/draft-07/schema#",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": [
+                                "null",
+                                "integer"
+                            ]
+                        },
+                        "uuid": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "firstName": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "lastName": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "street": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "streetNumber": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "zip": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "city": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "country": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "telephone": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "deliveryStreet": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "deliveryStreetNumber": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "deliveryZip": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "deliveryCity": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "deliveryCountry": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "email": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "credits": {
+                            "type": [
+                                "null",
+                                "number"
+                            ]
+                        },
+                        "companyId": {
+                            "type": [
+                                "null",
+                                "integer"
+                            ]
+                        },
+                        "modificationTime": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "note": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "vatNumber": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "dateOfBirth": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "language": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    }
+                },
+                "supported_sync_modes": [
+                    "full_refresh",
+                    "incremental"
+                ],
+                "source_defined_primary_key": [
+                    [
+                        "id"
+                    ]
+                ]
+            },
+            "sync_mode": "full_refresh",
+            "destination_sync_mode": "overwrite"
+        }
+    ]
+}

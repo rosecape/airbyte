@@ -1,0 +1,14 @@
+HTTP/1.1 500 Internal Server Error
+Date: Thu, 15 Dec 2022 01:43:30 GMT
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, OPTIONS, DELETE
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: x-auth-token, x-requested-with, content-type, X-Resto-Context
+Access-Control-Expose-Headers: Content-Disposition
+CF-Cache-Status: DYNAMIC
+Server: cloudflare
+CF-RAY: 779b7d20bdbf7154-YUL
+

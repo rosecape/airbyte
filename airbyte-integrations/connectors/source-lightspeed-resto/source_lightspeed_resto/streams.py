@@ -11,38 +11,25 @@ from airbyte_cdk.sources.streams.http import HttpStream
 import dateutil.parser as parser
 
 
-class LightspeedStream(HttpStream, ABC):
+class LightspeedRestoStream(HttpStream, ABC):
 
     def __init__(self, config: Dict):
-        super().__init__(authenticator=config["authenticator"])
+        super().__init__()
         self.config = config
 
     @property
     def url_base(self) -> str:
-        return f"https://api.lightspeedapp.com/API/Account/{self.config['account_id']}/"
-
-    @property
-    @abstractmethod
-    def data_field(self) -> str:
-        """The name of the field in the response which contains the data"""
-
-    def path(self, **kwargs) -> str:
-        return f"{self.data_field}.json"
-
-    @property
-    def relationships(self) -> list:
-        """
-        API docs: https://developers.lightspeedhq.com/retail/introduction/relations/
-        """
+        return "https://staging-integration.posios.com/PosServer/rest/"
 
     def next_page_token(self, response: requests.Response) -> Optional[Mapping[str, Any]]:
-        attributes = response.json().get("@attributes", None)
-        if attributes:
-            if "limit" in attributes and "offset" in attributes:
-                offset = int(attributes['offset']) + int(attributes['limit'])
-                if offset < int(response.json().get('@attributes')['count']):
-                    return offset
-                return None
+        response = response.json()
+        offset = int(response.get('offset')) + int(response.get('limit'))
+        if offset < int(response.json().get('count')):
+            return offset
+        return None
+
+    def request_headers(self, **kwargs) -> Mapping[str, Any]:
+        return {"Authorization": self.config['token']}
 
     def request_params(
         self, next_page_token: Mapping[str, Any] = None, **kwargs
@@ -50,19 +37,13 @@ class LightspeedStream(HttpStream, ABC):
         params = {}
         if next_page_token:
             params['offset'] = next_page_token
-        if self.relationships:
-            params['load_relations'] = self.relationships
         return params
 
     def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
-        results = response.json().get(
-            self.data_field, []) if self.data_field is not None else response.json()
-        records = results if isinstance(results, list) else [results]
-        for record in records:
-            yield record
+        return response.json().get('results') if 'results' in response.json() else response.json()
 
 
-class IncrementalLightspeedStream(LightspeedStream, ABC):
+class IncrementalLightspeedRestoStream(LightspeedRestoStream, ABC):
 
     order_field = "timeStamp"
     cursor_field = "timeStamp"
@@ -80,131 +61,11 @@ class IncrementalLightspeedStream(LightspeedStream, ABC):
         return params
 
 
-class Categories(IncrementalLightspeedStream):
+class Customers(LightspeedRestoStream):
     """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/Category/
+    API docs: https://developers.lightspeedhq.com/resto-api/endpoints/corecustomer
     """
-
-    data_field = "Category"
-    primary_key = "categoryID"
-
-
-class Customers(IncrementalLightspeedStream):
-    """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/Customer/
-    """
-
-    data_field = "Customer"
-    primary_key = "customerID"
-
-    relationships = '["Contact"]'
-
-
-class Discounts(IncrementalLightspeedStream):
-    """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/Discount/
-    """
-
-    data_field = "Discount"
-    primary_key = "discountID"
-
-
-class Items(IncrementalLightspeedStream):
-    """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/Item/
-    """
-
-    data_field = "Item"
-    primary_key = "itemID"
-
-    relationships = '["ItemShops","ItemPrices"]'
-
-
-class ItemMatrices(IncrementalLightspeedStream):
-    """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/ItemMatrix/
-    """
-
-    data_field = "ItemMatrix"
-    primary_key = "itemMatrixID"
-
-
-class ItemAttributeSets(IncrementalLightspeedStream):
-    """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/ItemAttributeSet/
-    """
-
-    data_field = "ItemAttributeSet"
-    primary_key = "itemAttributeSetID"
-
-
-class Manufacturers(IncrementalLightspeedStream):
-    """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/Manufacturer/
-    """
-
-    data_field = "Manufacturer"
-    primary_key = "manufacturerID"
-
-
-class PaymentTypes(LightspeedStream):
-    """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/PaymentType/
-    """
-
-    data_field = "PaymentType"
-    primary_key = "paymentTypeID"
-
-
-class Sales(IncrementalLightspeedStream):
-    """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/Sale/
-    """
-
-    data_field = "Sale"
-    primary_key = "saleID"
-
-
-class SaleLines(IncrementalLightspeedStream):
-    """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/SaleLine/
-    """
-
-    data_field = "SaleLine"
-    primary_key = "saleID"
-
-
-class SalePayments(IncrementalLightspeedStream):
-    """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/SalePayment/
-    """
-
-    data_field = "SalePayment"
-    primary_key = "salePaymentID"
-
-
-class Shops(IncrementalLightspeedStream):
-    """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/Shop/
-    """
-
-    data_field = "Shop"
-    primary_key = "shopID"
-
-
-class TaxCategories(IncrementalLightspeedStream):
-    """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/TaxCategory/
-    """
-
-    data_field = "TaxCategory"
-    primary_key = "taxCategoryID"
-
-
-class TaxClasses(IncrementalLightspeedStream):
-    """
-    API docs: https://developers.lightspeedhq.com/retail/endpoints/TaxClass/
-    """
-
-    data_field = "TaxClass"
-    primary_key = "taxClassID"
+    primary_key = "id"
+    
+    def path(self, **kwargs) -> str:
+        return "core/customer"
