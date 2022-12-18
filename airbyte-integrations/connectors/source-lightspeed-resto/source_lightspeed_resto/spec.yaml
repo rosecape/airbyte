@@ -8,6 +8,8 @@ connectionSpecification:
     - deviceId
     - username
     - password
+    - production
+    - url
   properties:
     companyId:
       type: number
@@ -23,6 +25,12 @@ connectionSpecification:
       type: string
       description: "Password"
       airbyte_secret: true
+    production:
+      type: boolean
+      description: Redirects to the proper api url
+    url:
+      type: string
+      description: Url of the API (if not production)
     start_date:
       type: string
       description: Start getting data from that date.
