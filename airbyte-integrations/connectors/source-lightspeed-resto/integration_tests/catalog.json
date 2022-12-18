@@ -1,464 +1,489 @@
 {
   "streams": [
     {
-      "name": "customers",
-      "supported_sync_modes": [
-        "full_refresh"
-      ],
-      "source_defined_cursor": true,
-      "default_cursor_field": "id",
-      "json_schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "uuid": {
-            "type": "string"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "street": {
-            "type": "string"
-          },
-          "streetNumber": {
-            "type": "string"
-          },
-          "zip": {
-            "type": "string"
-          },
-          "city": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
-          "telephone": {
-            "type": "string"
-          },
-          "deliveryStreet": {
-            "type": "string"
-          },
-          "deliveryStreetNumber": {
-            "type": "string"
-          },
-          "deliveryZip": {
-            "type": "string"
-          },
-          "deliveryCity": {
-            "type": "string"
-          },
-          "deliveryCountry": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "credits": {
-            "type": "number"
-          },
-          "companyId": {
-            "type": "integer"
-          },
-          "modificationTime": {
-            "type": "string",
-            "format": "date-time",
-            "description": "The time at which this record was last modified.",
-            "examples": [
-              "2020-01-01T00:00:00Z"
-            ]
-          },
-          "note": {
-            "type": "string"
-          },
-          "vatNumber": {
-            "type": "string"
-          },
-          "dateOfBirth": {
-            "type": "string",
-            "format": "date-time",
-            "examples": [
-              "2020-01-01T00:00:00Z"
-            ]
-          },
-          "language": {
-            "type": "string"
-          },
-          "customerCards": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "uuid": {
-                  "type": "string"
-                },
-                "companyId": {
-                  "type": "integer"
-                },
-                "mainEstablishmentMasterId": {
-                  "type": "integer"
-                },
-                "creationUserId": {
-                  "type": "integer"
-                },
-                "code": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
-                },
-                "generatedDate": {
-                  "type": "integer"
-                },
-                "originValue": {
-                  "type": "number"
-                },
-                "remainingValue": {
-                  "type": "number"
-                },
-                "soldValue": {
-                  "type": "number"
-                },
-                "redeemedValue": {
-                  "type": "number"
-                },
-                "expiryDate": {
-                  "type": "number"
-                },
-                "customerId": {
-                  "type": "integer"
-                },
-                "customerUuid": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string"
+      "stream": {
+        "name": "customers",
+        "supported_sync_modes": [
+          "full_refresh"
+        ],
+        "json_schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "uuid": {
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "street": {
+              "type": "string"
+            },
+            "streetNumber": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "telephone": {
+              "type": "string"
+            },
+            "deliveryStreet": {
+              "type": "string"
+            },
+            "deliveryStreetNumber": {
+              "type": "string"
+            },
+            "deliveryZip": {
+              "type": "string"
+            },
+            "deliveryCity": {
+              "type": "string"
+            },
+            "deliveryCountry": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "credits": {
+              "type": "number"
+            },
+            "companyId": {
+              "type": "integer"
+            },
+            "modificationTime": {
+              "type": "string",
+              "format": "date-time",
+              "description": "The time at which this record was last modified.",
+              "examples": [
+                "2020-01-01T00:00:00Z"
+              ]
+            },
+            "note": {
+              "type": "string"
+            },
+            "vatNumber": {
+              "type": "string"
+            },
+            "dateOfBirth": {
+              "type": "string",
+              "format": "date-time",
+              "examples": [
+                "2020-01-01T00:00:00Z"
+              ]
+            },
+            "language": {
+              "type": "string"
+            },
+            "customerCards": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "uuid": {
+                    "type": "string"
+                  },
+                  "companyId": {
+                    "type": "integer"
+                  },
+                  "mainEstablishmentMasterId": {
+                    "type": "integer"
+                  },
+                  "creationUserId": {
+                    "type": "integer"
+                  },
+                  "code": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "generatedDate": {
+                    "type": "integer"
+                  },
+                  "originValue": {
+                    "type": "number"
+                  },
+                  "remainingValue": {
+                    "type": "number"
+                  },
+                  "soldValue": {
+                    "type": "number"
+                  },
+                  "redeemedValue": {
+                    "type": "number"
+                  },
+                  "expiryDate": {
+                    "type": "number"
+                  },
+                  "customerId": {
+                    "type": "integer"
+                  },
+                  "customerUuid": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
                 }
               }
             }
           }
-        }
-      }
+        },
+        "source_defined_primary_key": [
+          [
+            "id"
+          ]
+        ]
+      },
+      "sync_mode": "full_refresh",
+      "destination_sync_mode": "overwrite"
     },
     {
-      "name": "products",
-      "supported_sync_modes": [
-        "full_refresh"
-      ],
-      "source_defined_cursor": true,
-      "default_cursor_field": "id",
-      "json_schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          },
-          "visible": {
-            "type": "boolean"
-          },
-          "imageLocation": {
-            "type": "string"
-          },
-          "kitchenImageLocation": {
-            "type": "string"
-          },
-          "cfdImageLocation": {
-            "type": "string"
-          },
-          "price": {
-            "type": "number"
-          },
-          "priceWithoutVat": {
-            "type": "number"
-          },
-          "takeawayPrice": {
-            "type": "number"
-          },
-          "takeawayPriceWithoutVat": {
-            "type": "number"
-          },
-          "deliveryPrice": {
-            "type": "number"
-          },
-          "deliveryPriceWithoutVat": {
-            "type": "number"
-          },
-          "productType": {
-            "type": "string"
-          },
-          "sku": {
-            "type": "string"
-          },
-          "taxClass": {
-            "type": "string"
-          },
-          "deliveryTaxClass": {
-            "type": "string"
-          },
-          "takeawayTaxClass": {
-            "type": "string"
-          },
-          "stockAmount": {
-            "type": "number"
-          },
-          "stockManagementEnabled": {
-            "type": "boolean"
-          },
-          "groupIds": {
-            "type": "array",
+      "stream": {
+        "name": "products",
+        "supported_sync_modes": [
+          "full_refresh"
+        ],
+        "json_schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "visible": {
+              "type": "boolean"
+            },
+            "imageLocation": {
+              "type": "string"
+            },
+            "kitchenImageLocation": {
+              "type": "string"
+            },
+            "cfdImageLocation": {
+              "type": "string"
+            },
+            "price": {
+              "type": "number"
+            },
+            "priceWithoutVat": {
+              "type": "number"
+            },
+            "takeawayPrice": {
+              "type": "number"
+            },
+            "takeawayPriceWithoutVat": {
+              "type": "number"
+            },
+            "deliveryPrice": {
+              "type": "number"
+            },
+            "deliveryPriceWithoutVat": {
+              "type": "number"
+            },
+            "productType": {
+              "type": "string"
+            },
+            "sku": {
+              "type": "string"
+            },
+            "taxClass": {
+              "type": "string"
+            },
+            "deliveryTaxClass": {
+              "type": "string"
+            },
+            "takeawayTaxClass": {
+              "type": "string"
+            },
+            "stockAmount": {
+              "type": "number"
+            },
+            "stockManagementEnabled": {
+              "type": "boolean"
+            },
+            "groupIds": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "additions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "priceWithoutVat": {
+                    "type": "number"
+                  },
+                  "info": {
+                    "type": "string"
+                  },
+                  "plu": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "source_defined_primary_key": [
+          [
+            "id"
+          ]
+        ]
+      },
+      "sync_mode": "full_refresh",
+      "destination_sync_mode": "overwrite"
+    },
+    {
+      "stream": {
+        "name": "receipts",
+        "supported_sync_modes": [
+          "full_refresh",
+          "incremental"
+        ],
+        "json_schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "sequentialId": {
+              "type": "integer"
+            },
+            "sequenceNumber": {
+              "type": "integer"
+            },
+            "uuid": {
+              "type": "string"
+            },
+            "parentId": {
+              "type": "integer"
+            },
+            "floorId": {
+              "type": "integer"
+            },
+            "tableId": {
+              "type": "integer"
+            },
+            "customerId": {
+              "type": "integer"
+            },
+            "customerUuid": {
+              "type": "string"
+            },
+            "userId": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "creationDate": {
+              "type": "string",
+              "format": "date-time",
+              "examples": [
+                "2020-01-01T00:00:00Z"
+              ]
+            },
+            "modificationDate": {
+              "type": "string",
+              "format": "date-time",
+              "examples": [
+                "2020-01-01T00:00:00Z"
+              ]
+            },
+            "closingDate": {
+              "type": "string",
+              "format": "date-time",
+              "examples": [
+                "2020-01-01T00:00:00Z"
+              ]
+            },
+            "deliveryDate": {
+              "type": "string",
+              "format": "date-time",
+              "examples": [
+                "2020-01-01T00:00:00Z"
+              ]
+            },
+            "printDate": {
+              "type": "string",
+              "format": "date-time",
+              "examples": [
+                "2020-01-01T00:00:00Z"
+              ]
+            },
+            "total": {
+              "type": "number"
+            },
             "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "productId": {
+                    "type": "string"
+                  },
+                  "productPLU": {
+                    "type": "string"
+                  },
+                  "prodId": {
+                    "type": "string"
+                  },
+                  "productName": {
+                    "type": "string"
+                  },
+                  "info": {
+                    "type": "string"
+                  },
+                  "amount": {
+                    "type": "number"
+                  },
+                  "unitPrice": {
+                    "type": "number"
+                  },
+                  "unitPriceWithoutVat": {
+                    "type": "number"
+                  },
+                  "totalPrice": {
+                    "type": "number"
+                  },
+                  "totalPriceWithoutVat": {
+                    "type": "number"
+                  },
+                  "vatPercentage": {
+                    "type": "number"
+                  },
+                  "deliveryVatPercentage": {
+                    "type": "number"
+                  },
+                  "takeawayVatPercentage": {
+                    "type": "number"
+                  },
+                  "priceTypeId": {
+                    "type": "integer"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "parentId": {
+                    "type": "string"
+                  },
+                  "seat": {
+                    "type": "integer"
+                  },
+                  "course": {
+                    "type": "integer"
+                  },
+                  "creationDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "examples": [
+                      "2020-01-01T00:00:00Z"
+                    ]
+                  },
+                  "sentDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "examples": [
+                      "2020-01-01T00:00:00Z"
+                    ]
+                  }
+                }
+              }
+            },
+            "payments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "paymentTypeId": {
+                    "type": "integer"
+                  },
+                  "paymentTypeCategoryId": {
+                    "type": "integer"
+                  },
+                  "amount": {
+                    "type": "number"
+                  },
+                  "tips": {
+                    "type": "number"
+                  },
+                  "restitution": {
+                    "type": "number"
+                  },
+                  "statusId": {
+                    "type": "integer"
+                  },
+                  "deviceId": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "numberOfCustomers": {
+              "type": "integer"
+            },
+            "currentCourse": {
+              "type": "integer"
+            },
+            "orderId": {
+              "type": "integer"
+            },
+            "liteserverReceiptId": {
               "type": "integer"
             }
-          },
-          "additions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "price": {
-                  "type": "number"
-                },
-                "priceWithoutVat": {
-                  "type": "number"
-                },
-                "info": {
-                  "type": "string"
-                },
-                "plu": {
-                  "type": "string"
-                }
-              }
-            }
           }
-        }
-      }
-    },
-    {
-      "name": "receipts",
-      "supported_sync_modes": [
-        "full_refresh",
-        "incremental"
-      ],
-      "source_defined_cursor": true,
-      "default_cursor_field": "id",
-      "json_schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "sequentialId": {
-            "type": "integer"
-          },
-          "sequenceNumber": {
-            "type": "integer"
-          },
-          "uuid": {
-            "type": "string"
-          },
-          "parentId": {
-            "type": "integer"
-          },
-          "floorId": {
-            "type": "integer"
-          },
-          "tableId": {
-            "type": "integer"
-          },
-          "customerId": {
-            "type": "integer"
-          },
-          "customerUuid": {
-            "type": "string"
-          },
-          "userId": {
-            "type": "integer"
-          },
-          "status": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "creationDate": {
-            "type": "string",
-            "format": "date-time",
-            "examples": [
-              "2020-01-01T00:00:00Z"
-            ]
-          },
-          "modificationDate": {
-            "type": "string",
-            "format": "date-time",
-            "examples": [
-              "2020-01-01T00:00:00Z"
-            ]
-          },
-          "closingDate": {
-            "type": "string",
-            "format": "date-time",
-            "examples": [
-              "2020-01-01T00:00:00Z"
-            ]
-          },
-          "deliveryDate": {
-            "type": "string",
-            "format": "date-time",
-            "examples": [
-              "2020-01-01T00:00:00Z"
-            ]
-          },
-          "printDate": {
-            "type": "string",
-            "format": "date-time",
-            "examples": [
-              "2020-01-01T00:00:00Z"
-            ]
-          },
-          "total": {
-            "type": "number"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "productId": {
-                  "type": "string"
-                },
-                "productPLU": {
-                  "type": "string"
-                },
-                "prodId": {
-                  "type": "string"
-                },
-                "productName": {
-                  "type": "string"
-                },
-                "info": {
-                  "type": "string"
-                },
-                "amount": {
-                  "type": "number"
-                },
-                "unitPrice": {
-                  "type": "number"
-                },
-                "unitPriceWithoutVat": {
-                  "type": "number"
-                },
-                "totalPrice": {
-                  "type": "number"
-                },
-                "totalPriceWithoutVat": {
-                  "type": "number"
-                },
-                "vatPercentage": {
-                  "type": "number"
-                },
-                "deliveryVatPercentage": {
-                  "type": "number"
-                },
-                "takeawayVatPercentage": {
-                  "type": "number"
-                },
-                "priceTypeId": {
-                  "type": "integer"
-                },
-                "id": {
-                  "type": "string"
-                },
-                "parentId": {
-                  "type": "string"
-                },
-                "seat": {
-                  "type": "integer"
-                },
-                "course": {
-                  "type": "integer"
-                },
-                "creationDate": {
-                  "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2020-01-01T00:00:00Z"
-                  ]
-                },
-                "sentDate": {
-                  "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2020-01-01T00:00:00Z"
-                  ]
-                }
-              }
-            }
-          },
-          "payments": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "type": {
-                  "type": "string"
-                },
-                "paymentTypeId": {
-                  "type": "integer"
-                },
-                "paymentTypeCategoryId": {
-                  "type": "integer"
-                },
-                "amount": {
-                  "type": "number"
-                },
-                "tips": {
-                  "type": "number"
-                },
-                "restitution": {
-                  "type": "number"
-                },
-                "statusId": {
-                  "type": "integer"
-                },
-                "deviceId": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "numberOfCustomers": {
-            "type": "integer"
-          },
-          "currentCourse": {
-            "type": "integer"
-          },
-          "orderId": {
-            "type": "integer"
-          },
-          "liteserverReceiptId": {
-            "type": "integer"
-          }
-        }
-      }
+        },
+        "source_defined_cursor": true,
+        "default_cursor_field": [
+          "modificationDate"
+        ],
+        "source_defined_primary_key": [
+          [
+            "id"
+          ]
+        ]
+      },
+      "sync_mode": "incremental",
+      "destination_sync_mode": "overwrite"
     }
   ]
 }
