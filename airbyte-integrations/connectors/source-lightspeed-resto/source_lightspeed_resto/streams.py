@@ -45,7 +45,6 @@ class LightspeedRestoStream(HttpStream, ABC):
         return params
 
     def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
-        print(response.url)
         return response.json().get('results') if 'results' in response.json() else response.json()
 
 
@@ -80,18 +79,6 @@ class IncrementalLightspeedRestoStream(LightspeedRestoStream, IncrementalMixin):
         start_date = stream_state[self.cursor_field] if stream_state and self.cursor_field in stream_state else self.config["start_date"]
         return self._chunk_date_range(datetime.strptime(start_date, '%Y-%m-%d'))
 
-    def request_params(self, stream_slice, stream_state: Mapping[str, Any], next_page_token: Mapping[str, Any], **kwargs):
-        params = super().request_params(stream_state=stream_state,
-                                        next_page_token=next_page_token, **kwargs) or {}
-        params['useModification'] = "true"
-        params['orderby'] = self.cursor_field
-
-        if not next_page_token:
-            params['from'] = self._cursor_value or stream_slice[self.cursor_field]
-            params['to'] = (datetime.strptime(params['from'], '%Y-%m-%d') + timedelta(days=1)).strftime("%Y-%m-%d")
-        
-        return params
-
     def read_records(self, stream_state: Mapping[str, Any] = None, stream_slice: Optional[Mapping[str, Any]] = None, **kwargs) -> Iterable[Mapping[str, Any]]:
         records = super().read_records(stream_slice=stream_slice, **kwargs)
         if next(records, object()) is not object():
@@ -115,6 +102,7 @@ class Customers(LightspeedRestoStream):
     API docs: https://developers.lightspeedhq.com/resto-api/endpoints/corecustomer
     """
     primary_key = "id"
+    cursor_field = "modifiedSince"
     
     def path(self, **kwargs) -> str:
         return "core/customer"
@@ -139,3 +127,15 @@ class Receipts(IncrementalLightspeedRestoStream):
     
     def path(self, **kwargs) -> str:
         return "financial/receipt"
+
+    def request_params(self, stream_slice, stream_state: Mapping[str, Any], next_page_token: Mapping[str, Any], **kwargs):
+        params = super().request_params(stream_state=stream_state,
+                                        next_page_token=next_page_token, **kwargs) or {}
+        params['useModification'] = "true"
+        params['orderby'] = self.cursor_field
+
+        if not next_page_token:
+            params['from'] = self._cursor_value or stream_slice[self.cursor_field]
+            params['to'] = (datetime.strptime(params['from'], '%Y-%m-%d') + timedelta(days=1)).strftime("%Y-%m-%d")
+        
+        return params

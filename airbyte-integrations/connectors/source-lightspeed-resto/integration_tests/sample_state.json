@@ -1,5 +1,8 @@
 {
   "receipts": {
-    "modificationDate": "2022-01-01"
+    "modificationDate": "<YYYY-MM-DD>"
+  },
+  "customers": {
+    "modificationDate": "<YYYY-MM-DD>"
   }
 }
