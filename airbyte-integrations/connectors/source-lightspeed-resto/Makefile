@@ -13,6 +13,12 @@ check:
 discover:
 	python3 main.py discover --config secrets/config.json
 
+unit-test:
+	python -m pytest -s unit_tests
+
+integration-test:
+	python -m pytest -s integration_tests
+
 read:
 	 python3 main.py read --config secrets/config.json --catalog sample_files/catalog.json
 

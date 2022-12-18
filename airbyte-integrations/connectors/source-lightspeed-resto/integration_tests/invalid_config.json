@@ -1,3 +1,9 @@
 {
-  "todo-wrong-field": "this should be an incomplete config file, used in standard tests"
+  "companyId": "12321",
+  "deviceId": "redacted",
+  "password": "redacted",
+  "username": "redacted@lenordik.com",
+  "start_date": "20210101",
+  "production": false,
+  "url": "https://google.com"
 }

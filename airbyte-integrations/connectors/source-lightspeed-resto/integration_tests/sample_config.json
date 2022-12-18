@@ -1,3 +1,9 @@
 {
-  "fix-me": "TODO"
+  "companyId": 12312,
+  "deviceId": "<deviceId>",
+  "password": "<password>",
+  "username": "<username>",
+  "start_date": "<start_date>",
+  "production": false,
+  "url": "<url>"
 }
