@@ -2,7 +2,7 @@
     "streams": [
         {
             "stream": {
-                "name": "customers",
+                "name": "receipts",
                 "json_schema": {
                     "$schema": "http://json-schema.org/draft-07/schema#",
                     "type": "object",
@@ -157,7 +157,7 @@
                     ]
                 ]
             },
-            "sync_mode": "full_refresh",
+            "sync_mode": "incremental",
             "destination_sync_mode": "overwrite"
         }
     ]

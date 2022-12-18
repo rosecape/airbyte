@@ -23,3 +23,9 @@ connectionSpecification:
       type: string
       description: "Password"
       airbyte_secret: true
+    start_date:
+      type: string
+      description: Start getting data from that date.
+      pattern: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$
+      examples:
+        - "%Y-%m-%d"

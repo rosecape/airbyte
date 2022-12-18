@@ -12,7 +12,9 @@ from airbyte_cdk.sources.streams.http.auth import TokenAuthenticator
 from .auth import LightspeedRestoAuthenticator
 
 from source_lightspeed_resto.streams import (
-    Customers
+    Customers,
+    Products,
+    Receipts
 )
 
 
@@ -22,8 +24,9 @@ class SourceLightspeedResto(AbstractSource):
         return True, None
 
     def streams(self, config: Mapping[str, Any]) -> List[Stream]:
-        token = LightspeedRestoAuthenticator(config).authentication()
-        config['token'] = token
+        auth = LightspeedRestoAuthenticator(config=config)
         return [
-            Customers(config)
+            Customers(config, authenticator=auth),
+            Products(config,  authenticator=auth),
+            Receipts(config, authenticator=auth)
         ]
