@@ -3,29 +3,93 @@
   "type": "object",
   "properties": {
     "id": {
-      "type": [
-        "null",
-        "string"
-      ]
+      "type": "integer"
     },
     "name": {
-      "type": [
-        "null",
-        "string"
-      ]
+      "type": "string"
     },
-    "years_of_service": {
-      "type": [
-        "null",
-        "integer"
-      ]
+    "visible": {
+      "type": "boolean"
     },
-    "start_date": {
-      "type": [
-        "null",
-        "string"
-      ],
-      "format": "date-time"
+    "imageLocation": {
+      "type": "string"
+    },
+    "kitchenImageLocation": {
+      "type": "string"
+    },
+    "cfdImageLocation": {
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "priceWithoutVat": {
+      "type": "number"
+    },
+    "takeawayPrice": {
+      "type": "number"
+    },
+    "takeawayPriceWithoutVat": {
+      "type": "number"
+    },
+    "deliveryPrice": {
+      "type": "number"
+    },
+    "deliveryPriceWithoutVat": {
+      "type": "number"
+    },
+    "productType": {
+      "type": "string"
+    },
+    "sku": {
+      "type": "string"
+    },
+    "taxClass": {
+      "type": "string"
+    },
+    "deliveryTaxClass": {
+      "type": "string"
+    },
+    "takeawayTaxClass": {
+      "type": "string"
+    },
+    "stockAmount": {
+      "type": "number"
+    },
+    "stockManagementEnabled": {
+      "type": "boolean"
+    },
+    "groupIds": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "additions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "priceWithoutVat": {
+            "type": "number"
+          },
+          "info": {
+            "type": "string"
+          },
+          "plu": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }

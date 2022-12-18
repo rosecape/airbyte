@@ -3,14 +3,135 @@
   "type": "object",
   "properties": {
     "id": {
-      "type": ["null", "string"]
+      "type": "string"
     },
-    "name": {
-      "type": ["null", "string"]
+    "uuid": {
+      "type": "string"
     },
-    "signup_date": {
-      "type": ["null", "string"],
-      "format": "date-time"
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "streetNumber": {
+      "type": "string"
+    },
+    "zip": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "deliveryStreet": {
+      "type": "string"
+    },
+    "deliveryStreetNumber": {
+      "type": "string"
+    },
+    "deliveryZip": {
+      "type": "string"
+    },
+    "deliveryCity": {
+      "type": "string"
+    },
+    "deliveryCountry": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "credits": {
+      "type": "number"
+    },
+    "companyId": {
+      "type": "integer"
+    },
+    "modificationTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time at which this record was last modified.",
+      "examples": [
+        "2020-01-01T00:00:00Z"
+      ]
+    },
+    "note": {
+      "type": "string"
+    },
+    "vatNumber": {
+      "type": "string"
+    },
+    "dateOfBirth": {
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2020-01-01T00:00:00Z"
+      ]
+    },
+    "language": {
+      "type": "string"
+    },
+    "customerCards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "companyId": {
+            "type": "integer"
+          },
+          "mainEstablishmentMasterId": {
+            "type": "integer"
+          },
+          "creationUserId": {
+            "type": "integer"
+          },
+          "code": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "generatedDate": {
+            "type": "integer"
+          },
+          "originValue": {
+            "type": "number"
+          },
+          "remainingValue": {
+            "type": "number"
+          },
+          "soldValue": {
+            "type": "number"
+          },
+          "redeemedValue": {
+            "type": "number"
+          },
+          "expiryDate": {
+            "type": "number"
+          },
+          "customerId": {
+            "type": "integer"
+          },
+          "customerUuid": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }
