@@ -2,9 +2,9 @@ import requests
 
 from typing import Any, Mapping
 
-from airbyte_cdk.sources.streams.http.auth import HttpAuthenticator
+from airbyte_cdk.sources.streams.http.requests_native_auth import TokenAuthenticator
 
-class LightspeedRestoAuthenticator(HttpAuthenticator):
+class LightspeedRestoAuthenticator(TokenAuthenticator):
 
     def __init__(self, config):
         self.config = config
@@ -28,4 +28,4 @@ class LightspeedRestoAuthenticator(HttpAuthenticator):
         return token
 
     def get_auth_header(self) -> Mapping[str, Any]:
-        return { "Authorization": self.authentication() }
+        return {"Authorization": self.authentication()}

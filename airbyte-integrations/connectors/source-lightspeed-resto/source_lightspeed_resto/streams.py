@@ -18,10 +18,14 @@ class LightspeedRestoStream(HttpStream, ABC):
     def __init__(self, config: Mapping[str, Any], authenticator: LightspeedRestoAuthenticator):
         super().__init__()
         self.config = config
+        self._authenticator = authenticator
 
     @property
     def url_base(self) -> str:
         return "https://staging-integration.posios.com/PosServer/rest/"
+
+    def request_headers(self, **kwargs) -> Mapping[str, Any]:
+        return self._authenticator.get_auth_header()
 
     def next_page_token(self, response: requests.Response) -> Optional[Mapping[str, Any]]:
         response = response.json()
@@ -81,9 +85,9 @@ class IncrementalLightspeedRestoStream(LightspeedRestoStream, ABC):
                                         next_page_token=next_page_token, **kwargs) or {}
         params['useModification'] = "true"
         params['orderby'] = self.cursor_field
-        if not next_page_token:
-            if stream_state:
-                params[self.cursor_field] = f">,{parser.parse(stream_state.get(self.cursor_field))}"
+        # if not next_page_token:
+        #     if stream_state:
+        params[self.cursor_field] = self.config['start_date']
         return params
 
     def read_records(self, stream_state: Mapping[str, Any] = None, stream_slice: Optional[Mapping[str, Any]] = None, **kwargs) -> Iterable[Mapping[str, Any]]:
