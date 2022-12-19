@@ -12,7 +12,7 @@ connectionSpecification:
     - url
   properties:
     companyId:
-      type: number
+      type: integer
       description: "Company ID"
     deviceId:
       type: string
