@@ -25,10 +25,6 @@ class BookerStream(HttpStream, ABC):
     def data_field(self) -> str:
         """The name of the field in the response which contains the data"""
 
-    @property
-    def cursor_field(self) -> str:
-        """The name of the field in the response which contains the cursor"""
-
     def next_page_token(self, response: requests.Response) -> Optional[Mapping[str, Any]]:
         return None
 
