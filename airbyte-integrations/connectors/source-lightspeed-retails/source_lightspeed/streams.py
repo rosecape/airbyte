@@ -1,7 +1,7 @@
 #
 # Copyright (c) 2021 Airbyte, Inc., all rights reserved.
 #
-
+import time
 from abc import ABC, abstractmethod
 from typing import Any, Dict, Iterable, Mapping, MutableMapping, Optional
 
@@ -54,12 +54,29 @@ class LightspeedStream(HttpStream, ABC):
             params['load_relations'] = self.relationships
         return params
 
+    def evaluate_leaky_bucket(self, response: requests.Response) -> bool:
+        leaky_bucket_level = response.headers['x-ls-api-bucket-level']
+        leaky_bucket_drip_rate = response.headers['x-ls-api-drip-rate']
+        leaky_bucket_percentage = (float(leaky_bucket_level.split('/')[0]) / float(leaky_bucket_level.split('/')[1])) * 100
+        print('\n')
+        print(f'Rate limiting - Leaky bucket progression: {leaky_bucket_level} ({leaky_bucket_percentage}%)')
+        print('\n')
+        if (leaky_bucket_percentage >= 40):
+            required_backoff_time = float(leaky_bucket_level.split('/')[0]) / float(leaky_bucket_drip_rate)
+            backoff_time = 0
+            while backoff_time < required_backoff_time:
+                print(f'Rate limiting - Backing off for 5 seconds. Resuming in {required_backoff_time - backoff_time} seconds.')
+                time.sleep(5)
+                backoff_time += 5
+
     def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
         results = response.json().get(
             self.data_field, []) if self.data_field is not None else response.json()
         records = results if isinstance(results, list) else [results]
         for record in records:
             yield record
+        
+        self.evaluate_leaky_bucket(response)
 
 
 class IncrementalLightspeedStream(LightspeedStream, ABC):
