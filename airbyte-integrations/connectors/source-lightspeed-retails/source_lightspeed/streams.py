@@ -10,6 +10,8 @@ import requests
 from airbyte_cdk.sources.streams.http import HttpStream
 from airbyte_cdk.sources.streams.http.auth import Oauth2Authenticator
 
+from airbyte_cdk.sources.streams.core import IncrementalMixin
+
 import dateutil.parser as parser
 
 logger = logging.getLogger("airbyte")
@@ -80,22 +82,40 @@ class LightspeedStream(HttpStream, ABC):
         self.handle_leaky_bucket(response)
 
 
-class IncrementalLightspeedStream(LightspeedStream, ABC):
+class IncrementalLightspeedStream(LightspeedStream, IncrementalMixin):
+
+    def __init__(self, config: Dict, authenticator: Oauth2Authenticator):
+        super().__init__(config, authenticator)
 
     order_field = "timeStamp"
     cursor_field = "timeStamp"
 
-    def get_updated_state(self, current_stream_state: MutableMapping[str, Any], latest_record: Mapping[str, Any]) -> Mapping[str, Any]:
-        return {self.cursor_field: max(latest_record.get(self.cursor_field, ""), current_stream_state.get(self.cursor_field, ""))}
+    @property
+    def state(self) -> Mapping[str, Any]:
+        return {self.cursor_field: str(self._cursor_value)}
+
+    @state.setter
+    def state(self, value: Mapping[str, Any]):
+        self._cursor_value = value[self.cursor_field]
 
     def request_params(self, stream_state: Mapping[str, Any] = None, next_page_token: Mapping[str, Any] = None, **kwargs):
         params = super().request_params(stream_state=stream_state,
                                         next_page_token=next_page_token, **kwargs) or {}
         params['orderby'] = self.cursor_field
-        if not next_page_token:
-            if stream_state:
-                params[self.cursor_field] = f">,{parser.parse(stream_state.get(self.cursor_field))}"
+
+        if next_page_token is not None:
+            params['offset'] = None
+            params[self.cursor_field] = f">,{parser.parse(self._cursor_value)}"
+
         return params
+
+    def read_records(self, stream_slice: Optional[Mapping[str, Any]] = None, **kwargs) -> Iterable[Mapping[str, Any]]:
+        records = super().read_records(stream_slice=stream_slice, **kwargs)
+        if next(records, object()) is not object():
+            for record in records:
+                latest_record_date = record[self.cursor_field]
+                self._cursor_value = max(self._cursor_value, latest_record_date) if self._cursor_value else latest_record_date
+                yield record
 
 
 class Categories(IncrementalLightspeedStream):
@@ -196,7 +216,7 @@ class SalePayments(IncrementalLightspeedStream):
     """
     API docs: https://developers.lightspeedhq.com/retail/endpoints/SalePayment/
     """
-
+    
     data_field = "SalePayment"
     primary_key = "salePaymentID"
 
