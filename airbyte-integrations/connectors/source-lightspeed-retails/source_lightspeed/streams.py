@@ -70,7 +70,6 @@ class LightspeedStream(HttpStream, ABC):
                 backoff_time += 5
 
     def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
-        print(response.url)
         results = response.json().get(
             self.data_field, []) if self.data_field is not None else response.json()
         records = results if isinstance(results, list) else [results]
