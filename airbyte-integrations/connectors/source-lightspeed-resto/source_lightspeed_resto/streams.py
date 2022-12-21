@@ -60,7 +60,7 @@ class IncrementalLightspeedRestoStream(LightspeedRestoStream, IncrementalMixin):
     @property
     def state(self) -> Mapping[str, Any]:
         if self._cursor_value:
-            return {self.cursor_field: self._cursor_value.strftime('%Y-%m-%d')}
+            return {self.cursor_field: self._cursor_value.strftime('%Y-%m-%dT%H:%M:%S.%fZ')}
         else:
             return {self.cursor_field: self.config['start_date']}
     
@@ -71,13 +71,13 @@ class IncrementalLightspeedRestoStream(LightspeedRestoStream, IncrementalMixin):
     def _chunk_date_range(self, start_date: datetime) -> List[Mapping[str, any]]:
         dates = []
         while start_date < (datetime.now() - timedelta(days=1)):
-            dates.append({self.cursor_field: start_date.strftime("%Y-%m-%d")})
+            dates.append({self.cursor_field: start_date.strftime("%Y-%m-%dT%H:%M:%S.%fZ")})
             start_date += timedelta(days=1)
         return dates
         
     def stream_slices(self, stream_state: Mapping[str, Any] = None, **kwargs) -> Iterable[Optional[Mapping[str, any]]]:
         start_date = stream_state[self.cursor_field] if stream_state and self.cursor_field in stream_state else self.config["start_date"]
-        return self._chunk_date_range(datetime.strptime(start_date, '%Y-%m-%d'))
+        return self._chunk_date_range(datetime.strptime(start_date, '%Y-%m-%dT%H:%M:%S.%fZ'))
 
     def read_records(self, stream_state: Mapping[str, Any] = None, stream_slice: Optional[Mapping[str, Any]] = None, **kwargs) -> Iterable[Mapping[str, Any]]:
         records = super().read_records(stream_slice=stream_slice, **kwargs)
@@ -85,7 +85,7 @@ class IncrementalLightspeedRestoStream(LightspeedRestoStream, IncrementalMixin):
             for record in records:
                 cursor_value = self._cursor_value
                 latest_record_date = record[self.cursor_field]
-                self._cursor_value = max(datetime.strptime(cursor_value, '%Y-%m-%d'), datetime.strptime(latest_record_date, '%Y-%m-%dT%H:%M:%S.%fZ')).strftime("%Y-%m-%d") if cursor_value else latest_record_date
+                self._cursor_value = max(cursor_value, latest_record_date) if cursor_value else latest_record_date
                 yield record
         self._cursor_value = stream_slice[self.cursor_field]
 
@@ -136,6 +136,6 @@ class Receipts(IncrementalLightspeedRestoStream):
 
         if not next_page_token:
             params['from'] = self._cursor_value or stream_slice[self.cursor_field]
-            params['to'] = (datetime.strptime(params['from'], '%Y-%m-%d') + timedelta(days=1)).strftime("%Y-%m-%d")
+            params['to'] = (datetime.strptime(params['from'], '%Y-%m-%dT%H:%M:%S.%fZ') + timedelta(days=1)).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
         
         return params
