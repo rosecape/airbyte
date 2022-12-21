@@ -10,7 +10,7 @@ class LightspeedRestoAuthenticator(TokenAuthenticator):
         self.config = config
 
     def authentication(self):
-        url = self.config['url'] if self.config['production'] else "https://staging-integration.posios.com/PosServer/rest/token"
+        url = f"{self.config['url']}/token" if self.config['production'] else "https://staging-integration.posios.com/PosServer/rest/token"
 
         data = {
             "companyId": self.config['companyId'],

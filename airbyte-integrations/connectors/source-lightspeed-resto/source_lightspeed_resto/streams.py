@@ -24,7 +24,7 @@ class LightspeedRestoStream(HttpStream, ABC):
 
     @property
     def url_base(self) -> str:
-        return self.config['url'] if self.config['production'] else "https://staging-integration.posios.com/PosServer/rest/"
+        return f"{self.config['url']}/" if self.config['production'] else "https://staging-integration.posios.com/PosServer/rest/"
 
     def request_headers(self, **kwargs) -> Mapping[str, Any]:
         return self._authenticator.get_auth_header()
