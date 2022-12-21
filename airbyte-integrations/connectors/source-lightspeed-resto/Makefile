@@ -2,7 +2,7 @@ name = airbyte/source-lightspeed-resto
 tag = dev
 
 build:
-	docker build . -t $(name):$(tag)
+	docker build --platform linux/amd64 . -t $(name):$(tag)
 
 spec:
 	python3 main.py spec
