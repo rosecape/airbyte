@@ -3,25 +3,7 @@
     {
       "stream": {
         "name": "treatments",
-        "json_schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "properties": {
-            "ID": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "AllowCustomersToBookOnline": {
-              "type": [
-                "null",
-                "string",
-                "boolean"
-              ]
-            }
-          }
-        },
+        "json_schema": {},
         "supported_sync_modes": [
           "full_refresh"
         ],
@@ -37,42 +19,7 @@
     {
       "stream": {
         "name": "appointments",
-        "json_schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "properties": {
-            "ID": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "BookingNumber": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "DateCreatedOffset": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "StartDateTimeOffset": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "EndDateTimeOffset": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
+        "json_schema": {},
         "supported_sync_modes": [
           "full_refresh",
           "incremental"

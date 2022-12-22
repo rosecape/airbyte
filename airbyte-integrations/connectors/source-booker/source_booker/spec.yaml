@@ -24,6 +24,7 @@ connectionSpecification:
     client_secret:
       type: string
       description: client_secret
+      airbyte_secret: true
 
     grant_type:
       type: string
@@ -36,6 +37,7 @@ connectionSpecification:
     subscription_key:
       type: string
       description: subscription_key
+      airbyte_secret: true
 
     location_id:
       type: integer

@@ -9,7 +9,7 @@
     "FinalTotal": {
       "type": ["null", "object"],
       "properties": {
-        "Amount": {"type": ["null", "integer"]},
+        "Amount": {"type": ["null", "number"]},
         "CurrencyCode": {"type": ["null", "string"]}
       }
     },
@@ -41,7 +41,7 @@
             "Amount": {
               "type": ["null", "object"],
               "properties": {
-                "Amount": {"type": ["null", "integer"]},
+                "Amount": {"type": ["null", "number"]},
                 "CurrencyCode": {"type": ["null", "string"]}
               }
             },

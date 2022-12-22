@@ -1,3 +1,10 @@
 {
-  "fix-me": "TODO"
+  "url": "<url>",
+  "client_id": "<client_id>",
+  "client_secret": "<client_secrets>",
+  "grant_type" : "<grant_type>",
+  "scope": "<scope>",
+  "subscription_key": "<subscription_key>",
+  "location_id": "<location_id>",
+  "start_date": "<start_date>"
 }
