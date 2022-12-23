@@ -67,9 +67,6 @@ class LightspeedRestoStream(HttpStream, ABC):
         return params
 
     def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
-        print('\n \n \n \n \n \n \n')
-        print(response.url)
-        print('\n \n \n \n \n \n \n')
         return response.json().get('results') if 'results' in response.json() else response.json()
 
 
