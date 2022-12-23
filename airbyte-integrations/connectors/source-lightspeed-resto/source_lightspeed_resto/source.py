@@ -14,6 +14,7 @@ from .auth import LightspeedRestoAuthenticator
 from source_lightspeed_resto.streams import (
     Customers,
     Products,
+    ProductGroups,
     Receipts
 )
 
@@ -28,5 +29,6 @@ class SourceLightspeedResto(AbstractSource):
         return [
             Customers(config, authenticator=auth),
             Products(config,  authenticator=auth),
+            ProductGroups(config,  authenticator=auth),
             Receipts(config, authenticator=auth)
         ]

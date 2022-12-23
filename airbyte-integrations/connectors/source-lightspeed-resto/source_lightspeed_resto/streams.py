@@ -6,6 +6,9 @@ from abc import ABC
 from typing import Any, Dict, Iterable, Mapping, MutableMapping, Optional, List
 
 import requests
+from urllib.parse import urlparse
+from urllib.parse import parse_qs
+
 import dateutil.parser as parser
 from datetime import datetime, timedelta, timezone
 
@@ -32,11 +35,28 @@ class LightspeedRestoStream(HttpStream, ABC):
         return self._authenticator.get_auth_header()
 
     def next_page_token(self, response: requests.Response) -> Optional[Mapping[str, Any]]:
-        response = response.json()
-        offset = int(response.get('offset')) + int(response.get('amount'))
-        if offset < int(response.get('total')):
-            return offset
-        return None
+        
+        response_json = response.json()
+        results = response_json.get('results') if 'results' in response_json else response_json
+
+        # Fast return if no results
+        if not results:
+            return None
+
+        # Default strategy for paginated endpoints
+        if 'offset' and 'amount' and 'total' in response:
+            offset = int(response_json.get('offset')) + int(response_json.get('amount'))
+            if offset < int(response_json.get('total')):
+                return offset
+
+        # Custom strategy for paginated endpoints not returning pagination metadata
+        else:
+            parsed = parse_qs(urlparse(response.url).query)
+            captured_value = parsed['offset'][0] if 'offset' in parsed else None
+            
+            if captured_value:
+                return len(results) + int(captured_value)
+            return len(results)
 
     def request_params(
         self, next_page_token: Mapping[str, Any] = None, **kwargs
@@ -47,6 +67,9 @@ class LightspeedRestoStream(HttpStream, ABC):
         return params
 
     def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
+        print('\n \n \n \n \n \n \n')
+        print(response.url)
+        print('\n \n \n \n \n \n \n')
         return response.json().get('results') if 'results' in response.json() else response.json()
 
 
@@ -121,8 +144,14 @@ class Products(LightspeedRestoStream):
     def path(self, **kwargs) -> str:
         return "inventory/product"
 
-    def next_page_token(self, response: requests.Response) -> Optional[Mapping[str, Any]]:
-        return None
+class ProductGroups(LightspeedRestoStream):
+    """
+    API docs: https://developers.lightspeedhq.com/resto-api/endpoints/inventoryproductgroups
+    """
+    primary_key = "id"
+    
+    def path(self, **kwargs) -> str:
+        return "inventory/productgroup"
 
 class Receipts(IncrementalLightspeedRestoStream):
     """

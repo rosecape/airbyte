@@ -264,6 +264,22 @@
         },
         {
             "stream": {
+                "name": "product_groups",
+                "supported_sync_modes": [
+                    "full_refresh"
+                ],
+                "json_schema": {},
+                "source_defined_primary_key": [
+                    [
+                        "id"
+                    ]
+                ]
+            },
+            "sync_mode": "full_refresh",
+            "destination_sync_mode": "overwrite"
+        },
+        {
+            "stream": {
                 "name": "receipts",
                 "supported_sync_modes": [
                     "full_refresh",
