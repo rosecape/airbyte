@@ -75,7 +75,7 @@ class IncrementalBookerStream(BookerStream, ABC):
     def read_records(self, stream_state: Mapping[str, Any] = None, stream_slice: Optional[Mapping[str, Any]] = None, **kwargs) -> Iterable[Mapping[str, Any]]:
         records = super().read_records(stream_slice=stream_slice, **kwargs)
         for record in records:
-            cursor_value = self._cursor_value.replace(tzinfo=timezone.utc)
+            cursor_value = self._cursor_value.replace(tzinfo=timezone.utc) if self._cursor_value else None
             latest_record_date = datetime.strptime(record[self.cursor_field], '%Y-%m-%dT%H:%M:%S%z').replace(tzinfo=timezone.utc)
             self._cursor_value = max(cursor_value, latest_record_date) if cursor_value else latest_record_date
             yield record
