@@ -1,3 +1,14 @@
 {
-    "sales": { "timeStamp": "2022-12-19T00:00:00-0400" }
+    "sales": { "timeStamp": "2023-01-10T00:00:00-0400" },
+    "categories": { "timeStamp": "2023-01-10T00:00:00-0400" },
+    "customers": { "timeStamp": "2023-01-10T00:00:00-0400" },
+    "discounts": { "timeStamp": "2023-01-10T00:00:00-0400" },
+    "items": { "timeStamp": "2023-01-10T00:00:00-0400" },
+    "item_matrices": { "timeStamp": "2023-01-10T00:00:00-0400" },
+    "manufacturers": { "timeStamp": "2023-01-10T00:00:00-0400" },
+    "sale_lines": { "timeStamp": "2023-01-10T00:00:00-0400" },
+    "sale_payments": { "createTime": "2023-01-10T00:00:00-0400" },
+    "shops": { "timeStamp": "2023-01-10T00:00:00-0400" },
+    "tax_categories": { "timeStamp": "2023-01-10T00:00:00-0400" },
+    "tax_classes": { "timeStamp": "2023-01-10T00:00:00-0400" }
   }

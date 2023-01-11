@@ -17,7 +17,7 @@ read:
 	 python3 main.py read --config secrets/config.json --catalog integration_tests/configured_catalog.json
 
 read-debug:
-	 python3 main.py read --config secrets/config.json --catalog sample_files/catalog.json --debug
+	 python3 main.py read --config secrets/config.json --catalog integration_tests/configured_catalog.json --debug
 
 read-state:
-	python3 main.py read --config secrets/config.json --catalog integration_tests/configured_catalog.json --state sample_files/state.json
+	python3 main.py read --config secrets/config.json --catalog integration_tests/configured_catalog.json --state sample_files/state.json --debug

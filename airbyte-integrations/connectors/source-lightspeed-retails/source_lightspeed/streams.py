@@ -63,6 +63,7 @@ class LightspeedStream(HttpStream, ABC):
         leaky_bucket_level = response.headers['x-ls-api-bucket-level']
         leaky_bucket_drip_rate = response.headers['x-ls-api-drip-rate']
         leaky_bucket_percentage = (float(leaky_bucket_level.split('/')[0]) / float(leaky_bucket_level.split('/')[1])) * 100
+        print('Leaky bucket progression: ' + str(leaky_bucket_percentage) + '% (' + str(leaky_bucket_level) + ')')
         if (leaky_bucket_percentage >= 80):
             required_backoff_time = float(leaky_bucket_level.split('/')[0]) / float(leaky_bucket_drip_rate)
             backoff_time = 0
@@ -86,6 +87,7 @@ class IncrementalLightspeedStream(LightspeedStream, IncrementalMixin):
 
     def __init__(self, config: Dict, authenticator: Oauth2Authenticator):
         super().__init__(config, authenticator)
+        self._cursor_value = None
 
     order_field = "timeStamp"
     cursor_field = "timeStamp"
@@ -219,6 +221,8 @@ class SalePayments(IncrementalLightspeedStream):
     
     data_field = "SalePayment"
     primary_key = "salePaymentID"
+
+    cursor_field = "createTime"
 
 
 class Shops(IncrementalLightspeedStream):
