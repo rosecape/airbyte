@@ -211,7 +211,7 @@ class SaleLines(IncrementalLightspeedStream):
     """
 
     data_field = "SaleLine"
-    primary_key = "saleID"
+    primary_key = "saleLineID"
 
 
 class SalePayments(IncrementalLightspeedStream):
