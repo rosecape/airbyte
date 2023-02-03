@@ -6,6 +6,7 @@ from abc import ABC
 from typing import Any, Dict, Iterable, Mapping, MutableMapping, Optional, List
 
 import requests
+
 from urllib.parse import urlparse
 from urllib.parse import parse_qs
 
@@ -92,9 +93,10 @@ class IncrementalLightspeedRestoStream(LightspeedRestoStream, IncrementalMixin):
 
     def _chunk_date_range(self, start_date: datetime) -> List[Mapping[str, any]]:
         dates = []
-        while start_date < (datetime.now() - timedelta(days=1)):
+        while start_date < datetime.now():
             dates.append({self.cursor_field: start_date.strftime("%Y-%m-%dT%H:%M:%S.%fZ")})
             start_date += timedelta(days=1)
+        dates.append({self.cursor_field: datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%fZ")})
         return dates
         
     def stream_slices(self, stream_state: Mapping[str, Any] = None, **kwargs) -> Iterable[Optional[Mapping[str, any]]]:
@@ -116,11 +118,22 @@ class IncrementalLightspeedRestoStream(LightspeedRestoStream, IncrementalMixin):
             yield record
 
     def next_page_token(self, response: requests.Response) -> Optional[Mapping[str, Any]]:
-        response = response.json()
-        if len(response.get('results')) == 0:
+        next_page = {}
+        previous_query = parse_qs(urlparse(response.request.url).query)
+        
+        if len(response.json().get('results')) == 0:
+            '''At this point, the cursor value is set to the last record read.
+                However, if there are no more records for the given day, it means 
+                the day as been fully read and should not be read again. Hence the
+                state update to force a read on the next day.'''
+            self._cursor_value = previous_query["to"][0]
             return None
-        offset = int(response.get('offset')) + int(response.get('amount'))
-        return offset
+
+        next_page['offset'] = int(response.json().get('offset')) + int(response.json().get('amount'))
+        next_page['previous_to'] = previous_query["to"][0]
+        next_page['previous_from'] = previous_query["from"][0]
+        
+        return next_page
 
 
 class Customers(LightspeedRestoStream):
@@ -165,10 +178,26 @@ class Receipts(IncrementalLightspeedRestoStream):
         params = super().request_params(stream_state=stream_state,
                                         next_page_token=next_page_token, **kwargs) or {}
         
+        # Basic request parameters
         params['useModification'] = "true"
         params['orderby'] = self.cursor_field
-        params['offset'] = next_page_token or 0
 
-        params['date'] = datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%dT%H:%M:%S.%fZ').strftime('%Y-%m-%d')
+        if next_page_token is None:
+            # 1. If stream is new and there is no state, we use start_date
+            if self._cursor_value is None:
+                params["to"] = (datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%dT%H:%M:%S.%fZ') + timedelta(days=1)).strftime('%Y-%m-%dT%H:%M:%S.%fZ')
+                params["from"] = stream_slice[self.cursor_field]
+
+            # 2. If the stream is not new but we have to iterate over the same date range
+            else:
+                params["from"] = self._cursor_value
+                params["to"] = stream_slice[self.cursor_field]
+        
+        else:
+            # 3. If the stream is not new but we have to iterate over the same date range
+            if 'offset' in next_page_token:
+                params["offset"] = next_page_token['offset']
+                params["from"] = next_page_token['previous_from']
+                params["to"] = next_page_token['previous_to']
 
         return params
