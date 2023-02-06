@@ -110,11 +110,12 @@ class IncrementalLightspeedRestoStream(LightspeedRestoStream, IncrementalMixin):
         stream_slice: Mapping[str, Any] = None,
         stream_state: Mapping[str, Any] = None,
     ) -> Iterable[Mapping[str, Any]]:
-
+        
         records = super().read_records(sync_mode=sync_mode, cursor_field=cursor_field, stream_slice=stream_slice, stream_state=stream_state)
         for record in records:
             next_cursor_value = record[self.cursor_field]
-            self._cursor_value = max(self._cursor_value, next_cursor_value) if self._cursor_value else next_cursor_value
+            if sync_mode == SyncMode.incremental:
+                self._cursor_value = max(self._cursor_value, next_cursor_value) if self._cursor_value else next_cursor_value
             yield record
 
     def next_page_token(self, response: requests.Response) -> Optional[Mapping[str, Any]]:
@@ -174,9 +175,8 @@ class Receipts(IncrementalLightspeedRestoStream):
     def path(self, **kwargs) -> str:
         return "financial/receipt"
 
-    def request_params(self, stream_slice, stream_state: Mapping[str, Any], next_page_token: Mapping[str, Any], **kwargs):
-        params = super().request_params(stream_state=stream_state,
-                                        next_page_token=next_page_token, **kwargs) or {}
+    def request_params(self, stream_slice, next_page_token: Mapping[str, Any], **kwargs):
+        params = {}
         
         # Basic request parameters
         params['useModification'] = "true"
@@ -184,15 +184,16 @@ class Receipts(IncrementalLightspeedRestoStream):
 
         if next_page_token is None:
             # 1. If stream is new and there is no state, we use start_date
+
             if self._cursor_value is None:
-                params["to"] = (datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%dT%H:%M:%S.%fZ') + timedelta(days=1)).strftime('%Y-%m-%dT%H:%M:%S.%fZ')
                 params["from"] = stream_slice[self.cursor_field]
+                params["to"] = (datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%dT%H:%M:%S.%fZ') + timedelta(days=1)).strftime('%Y-%m-%dT%H:%M:%S.%fZ')
 
             # 2. If the stream is not new but we have to iterate over the same date range
             else:
                 params["from"] = self._cursor_value
                 params["to"] = stream_slice[self.cursor_field]
-        
+
         else:
             # 3. If the stream is not new but we have to iterate over the same date range
             if 'offset' in next_page_token:
