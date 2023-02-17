@@ -1,0 +1,208 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "order_id": {
+            "type": [
+                "null",
+                "integer"
+            ]
+        },
+        "order_line_ticket_id": {
+            "type": [
+                "null",
+                "integer"
+            ]
+        },
+        "transaction_id": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "barcode": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "status": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "date": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "customer_first_name": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "customer_last_name": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "customer_business": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "customer_email": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "price": {
+            "type": [
+                "null",
+                "number"
+            ]
+        },
+        "gst": {
+            "type": [
+                "null",
+                "number"
+            ]
+        },
+        "qst": {
+            "type": [
+                "null",
+                "number"
+            ]
+        },
+        "fee": {
+            "type": [
+                "null",
+                "number"
+            ]
+        },
+        "shipping_fee": {
+            "type": [
+                "null",
+                "number"
+            ]
+        },
+        "refund_amount": {
+            "type": [
+                "null",
+                "number"
+            ]
+        },
+        "discount": {
+            "type": [
+                "null",
+                "number"
+            ]
+        },
+        "discount_code": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "event_id": {
+            "type": [
+                "null",
+                "integer"
+            ]
+        },
+        "event_title": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "ticket_id": {
+            "type": [
+                "null",
+                "integer"
+            ]
+        },
+        "code": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "ticket_title": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "ticket_description": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "show_date": {
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
+        },
+        "scanned": {
+            "type": [
+                "null",
+                "integer"
+            ]
+        },
+        "scanned_date": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "ticket_pdf_url": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "form_data": {
+            "type": [
+                "null",
+                "array"
+            ],
+            "properties": {
+                "group_label": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "question_type": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "question_label": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "answer": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                }
+            }
+        }
+    }
+}
