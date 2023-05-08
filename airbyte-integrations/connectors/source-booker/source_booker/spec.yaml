@@ -10,6 +10,7 @@ connectionSpecification:
     - grant_type
     - scope
     - subscription_key
+    - personal_access_token
     - location_id
     - start_date
   properties:
@@ -37,6 +38,11 @@ connectionSpecification:
     subscription_key:
       type: string
       description: subscription_key
+      airbyte_secret: true
+
+    personal_access_token:
+      type: string
+      description: personal_access_token
       airbyte_secret: true
 
     location_id:

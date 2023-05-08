@@ -19,7 +19,7 @@ class BookerStream(HttpStream, ABC):
 
     @property
     def url_base(self) -> str:
-        return f'{self.config["url"]}v4.1/customer/'
+        return f'{self.config["url"]}v4.1/merchant/'
     
     @property
     def data_field(self) -> str:
@@ -63,7 +63,7 @@ class IncrementalBookerStream(BookerStream, ABC):
 
     def _chunk_date_range(self, start_date: datetime) -> List[Mapping[str, any]]:
         dates = []
-        while start_date < (datetime.now() - timedelta(days=1)):
+        while start_date < (datetime.now() - timedelta(days=3)):
             dates.append({self.cursor_field: start_date.strftime("%Y-%m-%d")})
             start_date += timedelta(days=1)
         return dates

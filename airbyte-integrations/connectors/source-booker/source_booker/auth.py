@@ -8,15 +8,16 @@ class BookerAuthenticator(HttpAuthenticator):
 
     def __init__(self, config):
         self.subscription_key = config["subscription_key"]
-        self.access_token = self.login(config["url"], config["client_id"], config["client_secret"], config["grant_type"], config["scope"], config["subscription_key"])
+        self.access_token = self.login(config["url"], config["client_id"], config["client_secret"], config["grant_type"], config["scope"], config["subscription_key"], config["personal_access_token"])
 
-    def login(self, url, client_id, client_secret, grant_type, scope, subscription_key):
+    def login(self, url, client_id, client_secret, grant_type, scope, subscription_key, personal_access_token):
         url = """{}v5/auth/connect/token""".format(url)
         data = {
             "client_id": client_id,
             "client_secret": client_secret,
             "grant_type" : grant_type,
-            "scope": scope
+            "scope": scope,
+            "personal_access_token": personal_access_token
         
         }
         headers = { 
