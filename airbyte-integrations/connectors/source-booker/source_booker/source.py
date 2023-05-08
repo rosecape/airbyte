@@ -18,18 +18,7 @@ from source_booker.streams import (
 
 class SourceBooker(AbstractSource):
     def check_connection(self, logger, config) -> Tuple[bool, any]:
-        data = {
-            "client_id": config["client_id"],
-            "client_secret": config["client_secret"],
-            "grant_type" : config["grant_type"],
-            "scope": config["scope"]
-        }
-        headers = { 
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Ocp-Apim-Subscription-Key': config["subscription_key"]
-        }
-        r = requests.post("""{}v5/auth/connect/token""".format(config["url"]), data=data, headers=headers)
-        r.raise_for_status()
+        auth = BookerAuthenticator(config=config)
         return True, None
         
     def streams(self, config: Mapping[str, Any]) -> List[Stream]:

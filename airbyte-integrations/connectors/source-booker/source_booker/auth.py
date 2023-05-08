@@ -18,7 +18,6 @@ class BookerAuthenticator(HttpAuthenticator):
             "grant_type" : grant_type,
             "scope": scope,
             "personal_access_token": personal_access_token
-        
         }
         headers = { 
             'Content-Type': 'application/x-www-form-urlencoded',
