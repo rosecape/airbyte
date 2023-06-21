@@ -63,6 +63,36 @@
                 "string"
             ]
         },
+        "customer_address": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "customer_city": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "customer_province": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "customer_postal_code": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "customer_country": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
         "price": {
             "type": [
                 "null",
