@@ -120,6 +120,28 @@
                     "takeawayVatPercentage": {
                         "type": "number"
                     },
+                    "taxInfo": {
+                        "type": "object",
+                        "properties": {
+                            "taxCalculations": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "taxRate": {
+                                            "type": "string"
+                                        },
+                                        "taxRateCode": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "taxClassCode": {
+                                "type": "string"
+                            }
+                        }
+                    },
                     "priceTypeId": {
                         "type": "integer"
                     },
