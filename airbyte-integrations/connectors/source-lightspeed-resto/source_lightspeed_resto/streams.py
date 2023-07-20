@@ -125,8 +125,9 @@ class IncrementalLightspeedRestoStream(LightspeedRestoStream, IncrementalMixin):
         if len(response.json().get('results')) == 0:
             '''At this point, the cursor value is set to the last record read.
                 However, if there are no more records for the given day, it means 
-                the day as been fully read and should not be read again. Hence the
-                state update to force a read on the next day.'''
+                the day as been fully read and should not be read again. We therefore
+                set the value of the cursor to the previous "to" to be taken as the next
+                "from" value.'''
             self._cursor_value = previous_query["to"][0]
             return None
 
@@ -183,16 +184,13 @@ class Receipts(IncrementalLightspeedRestoStream):
         params['orderby'] = self.cursor_field
 
         if next_page_token is None:
-            # 1. If stream is new and there is no state, we use start_date
 
-            if self._cursor_value is None:
-                params["from"] = stream_slice[self.cursor_field]
-                params["to"] = (datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%dT%H:%M:%S.%fZ') + timedelta(days=1)).strftime('%Y-%m-%dT%H:%M:%S.%fZ')
-
-            # 2. If the stream is not new but we have to iterate over the same date range
-            else:
+            params["from"] = stream_slice[self.cursor_field]
+            params["to"] = (datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%dT%H:%M:%S.%fZ') + timedelta(days=1)).strftime('%Y-%m-%dT%H:%M:%S.%fZ')
+            
+            if self._cursor_value is not None:
                 params["from"] = self._cursor_value
-                params["to"] = stream_slice[self.cursor_field]
+                params["to"] = (datetime.strptime(self._cursor_value, '%Y-%m-%dT%H:%M:%S.%fZ') + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0).strftime('%Y-%m-%dT%H:%M:%S.%fZ')
 
         else:
             # 3. If the stream is not new but we have to iterate over the same date range
@@ -200,5 +198,5 @@ class Receipts(IncrementalLightspeedRestoStream):
                 params["offset"] = next_page_token['offset']
                 params["from"] = next_page_token['previous_from']
                 params["to"] = next_page_token['previous_to']
-
+        
         return params
