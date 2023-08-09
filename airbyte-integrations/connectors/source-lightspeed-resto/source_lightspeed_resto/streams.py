@@ -6,6 +6,8 @@ from abc import ABC
 from typing import Any, Dict, Iterable, Mapping, MutableMapping, Optional, List
 
 import requests
+import pendulum
+from pendulum import DateTime, Period
 
 from urllib.parse import urlparse
 from urllib.parse import parse_qs
@@ -91,17 +93,28 @@ class IncrementalLightspeedRestoStream(LightspeedRestoStream, IncrementalMixin):
     def get_updated_state(self, current_stream_state: MutableMapping[str, Any], latest_record: Mapping[str, Any]):
         return self.state
 
-    def _chunk_date_range(self, start_date: datetime) -> List[Mapping[str, any]]:
-        dates = []
-        while start_date < datetime.now():
-            dates.append({self.cursor_field: start_date.strftime("%Y-%m-%dT%H:%M:%S.%fZ")})
-            start_date += timedelta(days=1)
-        dates.append({self.cursor_field: datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%fZ")})
-        return dates
+    def chunk_date_range(self, start_date: DateTime, interval=pendulum.duration(days=1), end_date: Optional[DateTime] = None) -> Iterable[Period]:
+        """
+        Yields a list of the beginning and ending timestamps of each day between the start date and now.
+        The return value is a pendulum.period
+        """        
+        end_date = pendulum.now()
+        # Each stream_slice contains the beginning and ending timestamp for a 24 hour period
+        chunk_start_date = start_date
+
+        while chunk_start_date < end_date:
+            chunk_end_date = min(chunk_start_date + interval, end_date)
+            yield pendulum.period(chunk_start_date, chunk_end_date)
+            chunk_start_date = chunk_end_date
         
     def stream_slices(self, stream_state: Mapping[str, Any] = None, **kwargs) -> Iterable[Optional[Mapping[str, any]]]:
-        start_date = stream_state[self.cursor_field] if stream_state and self.cursor_field in stream_state else self.config["start_date"]
-        return self._chunk_date_range(datetime.strptime(start_date, '%Y-%m-%dT%H:%M:%S.%fZ'))
+        dates = []
+        date_format = 'YYYY-MM-DDTHH:mm:ss.SSS'
+        date_value = self._cursor_value if self._cursor_value else self.config['start_date']
+        start_date = pendulum.parse(date_value)
+        for period in self.chunk_date_range(start_date=start_date):
+            dates.append({"oldest": period.start.format(date_format), "latest": period.end.format(date_format)})
+        return dates
 
     def read_records(
         self,
@@ -185,12 +198,8 @@ class Receipts(IncrementalLightspeedRestoStream):
 
         if next_page_token is None:
 
-            params["from"] = stream_slice[self.cursor_field]
-            params["to"] = (datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%dT%H:%M:%S.%fZ') + timedelta(days=1)).strftime('%Y-%m-%dT%H:%M:%S.%fZ')
-            
-            if self._cursor_value is not None:
-                params["from"] = self._cursor_value
-                params["to"] = (datetime.strptime(self._cursor_value, '%Y-%m-%dT%H:%M:%S.%fZ') + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0).strftime('%Y-%m-%dT%H:%M:%S.%fZ')
+            params["from"] = stream_slice["oldest"]
+            params["to"] = stream_slice["latest"]
 
         else:
             # 3. If the stream is not new but we have to iterate over the same date range
@@ -198,5 +207,5 @@ class Receipts(IncrementalLightspeedRestoStream):
                 params["offset"] = next_page_token['offset']
                 params["from"] = next_page_token['previous_from']
                 params["to"] = next_page_token['previous_to']
-        
+
         return params
