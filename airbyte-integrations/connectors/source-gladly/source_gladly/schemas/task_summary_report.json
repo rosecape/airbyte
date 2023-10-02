@@ -1,0 +1,75 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "timezone_filter": {
+            "type": "string"
+        },
+        "inboxes_filter": {
+            "type": "string"
+        },
+        "teams_filter": {
+            "type": "string"
+        },
+        "task_metrics_closed_at_dynamic_formatted": {
+            "type": "string"
+        },
+        "count_total": {
+            "type": "string"
+        },
+        "count_with_comments": {
+            "type": "string"
+        },
+        "count_closed_before_due": {
+            "type": "string"
+        },
+        "count_closed_after_due": {
+            "type": "string"
+        },
+        "avg_createdtofirst_closed_time_in_seconds": {
+            "type": "string"
+        },
+        "avg_createdtolast_closed_time_in_seconds": {
+            "type": "string"
+        },
+        "avg_createdtodue_time_in_seconds": {
+            "type": "string"
+        },
+        "avg_last_duetofirst_closed_time_in_seconds": {
+            "type": "string"
+        },
+        "avg_last_duetolast_closed_time_in_seconds": {
+            "type": "string"
+        },
+        "avg_number_of_comments": {
+            "type": "string"
+        },
+        "avg_number_of_commenters": {
+            "type": "string"
+        },
+        "avg_number_of_followers": {
+            "type": "string"
+        },
+        "avg_number_of_inboxes_assigned": {
+            "type": "string"
+        },
+        "avg_number_of_agents_assigned": {
+            "type": "string"
+        },
+        "avg_times_closed": {
+            "type": "string"
+        },
+        "avg_times_reopened": {
+            "type": "string"
+        },
+        "avg_times_due_date_edited": {
+            "type": "string"
+        },
+        "avg_times_content_edited": {
+            "type": "string"
+        },
+        "avg_task_handle_time_in_seconds": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "timezone_filter": {
+            "type": "string"
+        },
+        "inboxes_filter": {
+            "type": "string"
+        },
+        "teams_filter": {
+            "type": "string"
+        },
+        "assigned_agent_name__last_closed": {
+            "type": "string"
+        },
+        "last_closed_at_date": {
+            "type": "string"
+        },
+        "fcr_percentage": {
+            "type": "string"
+        },
+        "fcr_conversations": {
+            "type": "string"
+        },
+        "fcreligible_conversations": {
+            "type": "string"
+        }
+    }
+}

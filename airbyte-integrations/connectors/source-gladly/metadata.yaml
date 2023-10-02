@@ -1,0 +1,25 @@
+data:
+  allowedHosts:
+    hosts:
+      - TODO # Please change to the hostname of the source.
+  registries:
+    oss:
+      enabled: false
+    cloud:
+      enabled: false
+  connectorSubtype: api
+  connectorType: source
+  definitionId: 45445cbf-51e4-4bd0-b95d-242b499287fd
+  dockerImageTag: 0.1.0
+  dockerRepository: airbyte/source-gladly
+  githubIssueLabel: source-gladly
+  icon: gladly.svg
+  license: MIT
+  name: Gladly
+  releaseDate: TODO
+  supportLevel: community
+  releaseStage: alpha
+  documentationUrl: https://docs.airbyte.com/integrations/sources/gladly
+  tags:
+    - language:python
+metadataSpecVersion: "1.0"

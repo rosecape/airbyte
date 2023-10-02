@@ -1,0 +1,113 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "image": {
+            "type": "string"
+        },
+        "address": {
+            "type": "string"
+        },
+        "emails": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "normalized": {
+                        "type": "string"
+                    },
+                    "original": {
+                        "type": "string"
+                    },
+                    "primary": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "normalized",
+                    "original",
+                    "primary"
+                ]
+            }
+        },
+        "phones": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "normalized": {
+                        "type": "string"
+                    },
+                    "extension": {
+                        "type": "string"
+                    },
+                    "original": {
+                        "type": "string"
+                    },
+                    "regionCode": {
+                        "type": "string"
+                    },
+                    "primary": {
+                        "type": "boolean"
+                    },
+                    "smsPreference": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "normalized",
+                    "extension",
+                    "original",
+                    "regionCode",
+                    "primary",
+                    "smsPreference",
+                    "type"
+                ]
+            }
+        },
+        "externalCustomerId": {
+            "type": "string"
+        },
+        "customAttributes": {
+            "type": "object",
+            "properties": {
+                "membershipNumber": {
+                    "type": "string"
+                },
+                "membershipTier": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "membershipNumber",
+                "membershipTier"
+            ]
+        },
+        "id": {
+            "type": "string"
+        },
+        "createdAt": {
+            "type": "string"
+        },
+        "updatedAt": {
+            "type": "string"
+        },
+        "externalCustomerIds": {
+            "type": "object",
+            "properties": {
+                "ABC12345": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ABC12345"
+            ]
+        }
+    }
+}

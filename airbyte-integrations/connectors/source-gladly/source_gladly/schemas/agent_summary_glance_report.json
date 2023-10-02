@@ -1,0 +1,92 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "Timezone Filter": {
+            "type": "string",
+            "enum": [
+                "All",
+                "Local",
+                "UTC"
+            ]
+        },
+        "Teams Filter": {
+            "type": "string",
+            "enum": [
+                "All",
+                "My Teams",
+                "Myself"
+            ]
+        },
+        "Name or Email": {
+            "type": "string"
+        },
+        "Bucket Beginning": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "ID": {
+            "type": "string"
+        },
+        "Logged in Time in seconds": {
+            "type": "number"
+        },
+        "Active Time in seconds": {
+            "type": "number"
+        },
+        "Away Time in seconds": {
+            "type": "number"
+        },
+        "Available Time in seconds - Voice": {
+            "type": "number"
+        },
+        "Available Time in seconds - Messaging": {
+            "type": "number"
+        },
+        "Available Time in seconds - Mail": {
+            "type": "number"
+        },
+        "Contact Offered - Phone Call": {
+            "type": "number"
+        },
+        "Contact Accepted - Phone Call": {
+            "type": "number"
+        },
+        "Contact Declined - Phone Call": {
+            "type": "number"
+        },
+        "Contact Missed - Phone Call": {
+            "type": "number"
+        },
+        "Contact Fulfilled - Phone Call": {
+            "type": "number"
+        },
+        "Contact Handle Time in seconds - Phone Call": {
+            "type": "number"
+        },
+        "After Contact Time in seconds - Phone Call": {
+            "type": "number"
+        },
+        "Contact Offered - Chat": {
+            "type": "number"
+        },
+        "Contact Accepted - Chat": {
+            "type": "number"
+        },
+        "Contact Declined - Chat": {
+            "type": "number"
+        },
+        "Contact Missed - Chat": {
+            "type": "number"
+        },
+        "Contact Fulfilled - Chat": {
+            "type": "number"
+        },
+        "Contact Handle Time in seconds - Chat": {
+            "type": "number"
+        },
+        "After Contact Time in seconds - Chat": {
+            "type": "number"
+        }
+    }
+}

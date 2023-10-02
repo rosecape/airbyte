@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "timezone_filter": {
+            "type": "string"
+        },
+        "inboxes_filter": {
+            "type": "string"
+        },
+        "channel": {
+            "type": "string"
+        },
+        "queued_date": {
+            "type": "string"
+        },
+        "contacts_inbound": {
+            "type": "string"
+        },
+        "messages_from_customer": {
+            "type": "string"
+        },
+        "messages_from_agent": {
+            "type": "string"
+        }
+    }
+}

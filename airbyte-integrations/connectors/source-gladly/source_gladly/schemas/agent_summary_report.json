@@ -1,0 +1,696 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "timezone_filter": {
+            "type": "string"
+        },
+        "teams_filter": {
+            "type": "string"
+        },
+        "bucket_beginning": {
+            "type": "string"
+        },
+        "bucket_end": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string"
+        },
+        "agent_id": {
+            "type": "string"
+        },
+        "user_status": {
+            "type": "string"
+        },
+        "roles": {
+            "type": "string"
+        },
+        "inboxes": {
+            "type": "string"
+        },
+        "teams": {
+            "type": "string"
+        },
+        "logged_in": {
+            "type": "string"
+        },
+        "logged_out": {
+            "type": "string"
+        },
+        "logged_in_time_in_seconds": {
+            "type": "string"
+        },
+        "went_away": {
+            "type": "string"
+        },
+        "returned_from_away": {
+            "type": "string"
+        },
+        "changed_active_reason": {
+            "type": "string"
+        },
+        "active_time_in_seconds": {
+            "type": "string"
+        },
+        "away_time_in_seconds": {
+            "type": "string"
+        },
+        "went_available__voice": {
+            "type": "string"
+        },
+        "went_available__messaging": {
+            "type": "string"
+        },
+        "went_available__mail": {
+            "type": "string"
+        },
+        "went_available__task": {
+            "type": "string"
+        },
+        "went_unavailable__all": {
+            "type": "string"
+        },
+        "went_unavailable__voice": {
+            "type": "string"
+        },
+        "went_unavailable__messaging": {
+            "type": "string"
+        },
+        "went_unavailable__mail": {
+            "type": "string"
+        },
+        "went_unavailable__task": {
+            "type": "string"
+        },
+        "available_time_in_seconds__any": {
+            "type": "string"
+        },
+        "available_time_in_seconds__voice": {
+            "type": "string"
+        },
+        "available_time_in_seconds__messaging": {
+            "type": "string"
+        },
+        "available_time_in_seconds__mail": {
+            "type": "string"
+        },
+        "available_time_in_seconds__task": {
+            "type": "string"
+        },
+        "conversation_created": {
+            "type": "string"
+        },
+        "conversation_closed": {
+            "type": "string"
+        },
+        "conversation_reopened": {
+            "type": "string"
+        },
+        "conversation_topic_added": {
+            "type": "string"
+        },
+        "conversation_topic_removed": {
+            "type": "string"
+        },
+        "contact_offered": {
+            "type": "string"
+        },
+        "contact_accepted": {
+            "type": "string"
+        },
+        "contact_declined": {
+            "type": "string"
+        },
+        "contact_missed": {
+            "type": "string"
+        },
+        "contact_transfer_canceled": {
+            "type": "string"
+        },
+        "contact_fulfilled": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_response": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_cancellation": {
+            "type": "string"
+        },
+        "unique_customers_with_contact_fulfilled": {
+            "type": "string"
+        },
+        "contact_started": {
+            "type": "string"
+        },
+        "contact_transferred": {
+            "type": "string"
+        },
+        "contact_transferred_from": {
+            "type": "string"
+        },
+        "contact_transferred_to": {
+            "type": "string"
+        },
+        "contact_ended": {
+            "type": "string"
+        },
+        "contacts_with_contact_handle_time": {
+            "type": "string"
+        },
+        "contacts_with_after_contact_time": {
+            "type": "string"
+        },
+        "avg_acceptedtofulfilled_time_in_seconds": {
+            "type": "string"
+        },
+        "contact_fulfilled__acceptance_outliers": {
+            "type": "string"
+        },
+        "hold_started": {
+            "type": "string"
+        },
+        "hold_started__manual": {
+            "type": "string"
+        },
+        "hold_started__cold_transfer": {
+            "type": "string"
+        },
+        "hold_started__warm_transfer": {
+            "type": "string"
+        },
+        "hold_started__conference": {
+            "type": "string"
+        },
+        "hold_time__manual": {
+            "type": "string"
+        },
+        "hold_time__warm_transfer": {
+            "type": "string"
+        },
+        "message_sent": {
+            "type": "string"
+        },
+        "payment_request_completed": {
+            "type": "string"
+        },
+        "payment_amount_completed__usd": {
+            "type": "string"
+        },
+        "task_created": {
+            "type": "string"
+        },
+        "task_closed": {
+            "type": "string"
+        },
+        "task_reopened": {
+            "type": "string"
+        },
+        "tasks_assigned": {
+            "type": "string"
+        },
+        "task_commented_on": {
+            "type": "string"
+        },
+        "task_content_updated": {
+            "type": "string"
+        },
+        "task_due_date_updated": {
+            "type": "string"
+        },
+        "task_followed": {
+            "type": "string"
+        },
+        "task_unfollowed": {
+            "type": "string"
+        },
+        "note_added": {
+            "type": "string"
+        },
+        "customer_merged": {
+            "type": "string"
+        },
+        "customer_handle_time_in_seconds": {
+            "type": "string"
+        },
+        "conversation_handle_time_in_seconds": {
+            "type": "string"
+        },
+        "contact_handle_time_in_seconds": {
+            "type": "string"
+        },
+        "after_contact_time_in_seconds": {
+            "type": "string"
+        },
+        "task_handle_time_in_seconds": {
+            "type": "string"
+        },
+        "messaging_concurrency": {
+            "type": "string"
+        },
+        "messaging_work_session_time__aggregate": {
+            "type": "string"
+        },
+        "messaging_work_session_time__union": {
+            "type": "string"
+        },
+        "messaging_contact_handle_time": {
+            "type": "string"
+        },
+        "contact_offered__chat": {
+            "type": "string"
+        },
+        "contact_offered__email": {
+            "type": "string"
+        },
+        "contact_offered__fb_messenger": {
+            "type": "string"
+        },
+        "agent_metrics_contact_offered__instagram_direct": {
+            "type": "string"
+        },
+        "contact_offered__phone_call": {
+            "type": "string"
+        },
+        "contact_offered__sms": {
+            "type": "string"
+        },
+        "contact_offered__twitter": {
+            "type": "string"
+        },
+        "contact_offered__voicemail": {
+            "type": "string"
+        },
+        "contact_offered__whatsapp": {
+            "type": "string"
+        },
+        "contact_accepted__chat": {
+            "type": "string"
+        },
+        "contact_accepted__email": {
+            "type": "string"
+        },
+        "contact_accepted__fb_messenger": {
+            "type": "string"
+        },
+        "contact_accepted__instagram_direct": {
+            "type": "string"
+        },
+        "contact_accepted__phone_call": {
+            "type": "string"
+        },
+        "contact_accepted__sms": {
+            "type": "string"
+        },
+        "contact_accepted__twitter": {
+            "type": "string"
+        },
+        "contact_accepted__voicemail": {
+            "type": "string"
+        },
+        "contact_accepted__whatsapp": {
+            "type": "string"
+        },
+        "contact_declined__chat": {
+            "type": "string"
+        },
+        "contact_declined__fb_messenger": {
+            "type": "string"
+        },
+        "contact_declined__instagram_direct": {
+            "type": "string"
+        },
+        "contact_declined__phone_call": {
+            "type": "string"
+        },
+        "contact_declined__sms": {
+            "type": "string"
+        },
+        "contact_declined__twitter": {
+            "type": "string"
+        },
+        "contact_declined__whatsapp": {
+            "type": "string"
+        },
+        "contact_missed__chat": {
+            "type": "string"
+        },
+        "contact_missed__fb_messenger": {
+            "type": "string"
+        },
+        "contact_missed__instagram_direct": {
+            "type": "string"
+        },
+        "contact_missed__phone_call": {
+            "type": "string"
+        },
+        "contact_missed__sms": {
+            "type": "string"
+        },
+        "contact_missed__twitter": {
+            "type": "string"
+        },
+        "contact_missed__whatsapp": {
+            "type": "string"
+        },
+        "contact_fulfilled__chat": {
+            "type": "string"
+        },
+        "contact_fulfilled__email": {
+            "type": "string"
+        },
+        "contact_fulfilled__fb_messenger": {
+            "type": "string"
+        },
+        "contact_fulfilled__instagram_direct": {
+            "type": "string"
+        },
+        "contact_fulfilled__phone_call": {
+            "type": "string"
+        },
+        "contact_fulfilled__sms": {
+            "type": "string"
+        },
+        "contact_fulfilled__twitter": {
+            "type": "string"
+        },
+        "contact_fulfilled__voicemail": {
+            "type": "string"
+        },
+        "contact_fulfilled__whatsapp": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_response__chat": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_response__email": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_response__fb_messenger": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_response__instagram_direct": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_response__phone_call": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_response__sms": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_response__twitter": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_response__voicemail": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_response__whatsapp": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_cancellation__chat": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_cancellation__email": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_cancellation__fb_messenger": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_cancellation__instagram_direct": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_cancellation__phone_call": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_cancellation__sms": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_cancellation__twitter": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_cancellation__voicemail": {
+            "type": "string"
+        },
+        "contact_fulfilled_by_cancellation__whatsapp": {
+            "type": "string"
+        },
+        "contact_started__fb_messenger": {
+            "type": "string"
+        },
+        "contact_started__instagram_direct": {
+            "type": "string"
+        },
+        "contact_started__phone_call": {
+            "type": "string"
+        },
+        "contact_started__sms": {
+            "type": "string"
+        },
+        "contact_started__twitter": {
+            "type": "string"
+        },
+        "contact_started__whatsapp": {
+            "type": "string"
+        },
+        "contact_started__email": {
+            "type": "string"
+        },
+        "contact_transferred__chat": {
+            "type": "string"
+        },
+        "contact_transferred__email": {
+            "type": "string"
+        },
+        "contact_transferred__fb_messenger": {
+            "type": "string"
+        },
+        "contact_transferred__instagram_direct": {
+            "type": "string"
+        },
+        "contact_transferred__phone_call": {
+            "type": "string"
+        },
+        "contact_transferred__sms": {
+            "type": "string"
+        },
+        "contact_transferred__twitter": {
+            "type": "string"
+        },
+        "contact_transferred__voicemail": {
+            "type": "string"
+        },
+        "contact_transferred__whatsapp": {
+            "type": "string"
+        },
+        "contact_transferred_from__chat": {
+            "type": "string"
+        },
+        "contact_transferred_from__email": {
+            "type": "string"
+        },
+        "contact_transferred_from__fb_messenger": {
+            "type": "string"
+        },
+        "contact_transferred_from__instagram_direct": {
+            "type": "string"
+        },
+        "contact_transferred_from__phone_call": {
+            "type": "string"
+        },
+        "contact_transferred_from__sms": {
+            "type": "string"
+        },
+        "contact_transferred_from__twitter": {
+            "type": "string"
+        },
+        "contact_transferred_from__voicemail": {
+            "type": "string"
+        },
+        "contact_transferred_from__whatsapp": {
+            "type": "string"
+        },
+        "contact_transferred_to__chat": {
+            "type": "string"
+        },
+        "contact_transferred_to__email": {
+            "type": "string"
+        },
+        "contact_transferred_to__fb_messenger": {
+            "type": "string"
+        },
+        "contact_transferred_to__instagram_direct": {
+            "type": "string"
+        },
+        "contact_transferred_to__phone_call": {
+            "type": "string"
+        },
+        "contact_transferred_to__sms": {
+            "type": "string"
+        },
+        "contact_transferred_to__twitter": {
+            "type": "string"
+        },
+        "contact_transferred_to__voicemail": {
+            "type": "string"
+        },
+        "contact_transferred_to__whatsapp": {
+            "type": "string"
+        },
+        "contact_ended__chat": {
+            "type": "string"
+        },
+        "contact_ended__email": {
+            "type": "string"
+        },
+        "contact_ended__fb_messenger": {
+            "type": "string"
+        },
+        "contact_ended__instagram_direct": {
+            "type": "string"
+        },
+        "contact_ended__phone_call": {
+            "type": "string"
+        },
+        "contact_ended__sms": {
+            "type": "string"
+        },
+        "contact_ended__twitter": {
+            "type": "string"
+        },
+        "contact_ended__voicemail": {
+            "type": "string"
+        },
+        "contact_ended__whatsapp": {
+            "type": "string"
+        },
+        "contacts_with_contact_handle_time__chat": {
+            "type": "string"
+        },
+        "contacts_with_contact_handle_time__email": {
+            "type": "string"
+        },
+        "contacts_with_contact_handle_time__fb_messenger": {
+            "type": "string"
+        },
+        "contacts_with_contact_handle_time__instagram_direct": {
+            "type": "string"
+        },
+        "contacts_with_contact_handle_time__phone_call": {
+            "type": "string"
+        },
+        "contacts_with_contact_handle_time__sms": {
+            "type": "string"
+        },
+        "contacts_with_contact_handle_time__twitter": {
+            "type": "string"
+        },
+        "contacts_with_contact_handle_time__voicemail": {
+            "type": "string"
+        },
+        "contacts_with_contact_handle_time__whatsapp": {
+            "type": "string"
+        },
+        "avg_acceptedtofulfilled_time_in_seconds__chat": {
+            "type": "string"
+        },
+        "avg_acceptedtofulfilled_time_in_seconds__email": {
+            "type": "string"
+        },
+        "avg_acceptedtofulfilled_time_in_seconds__fb_messenger": {
+            "type": "string"
+        },
+        "avg_acceptedtofulfilled_time_in_seconds__instagram_direct": {
+            "type": "string"
+        },
+        "avg_acceptedtofulfilled_time_in_seconds__sms": {
+            "type": "string"
+        },
+        "avg_acceptedtofulfilled_time_in_seconds__twitter": {
+            "type": "string"
+        },
+        "avg_acceptedtofulfilled_time_in_seconds__voicemail": {
+            "type": "string"
+        },
+        "avg_acceptedtofulfilled_time_in_seconds__whatsapp": {
+            "type": "string"
+        },
+        "message_sent__chat": {
+            "type": "string"
+        },
+        "message_sent__email": {
+            "type": "string"
+        },
+        "message_sent__fb_messenger": {
+            "type": "string"
+        },
+        "message_sent__instagram_direct": {
+            "type": "string"
+        },
+        "message_sent__sms": {
+            "type": "string"
+        },
+        "message_sent__twitter": {
+            "type": "string"
+        },
+        "message_sent__whatsapp": {
+            "type": "string"
+        },
+        "contact_handle_time_in_seconds__chat": {
+            "type": "string"
+        },
+        "contact_handle_time_in_seconds__email": {
+            "type": "string"
+        },
+        "contact_handle_time_in_seconds__fb_messenger": {
+            "type": "string"
+        },
+        "contact_handle_time_in_seconds__instagram_direct": {
+            "type": "string"
+        },
+        "contact_handle_time_in_seconds__phone_call": {
+            "type": "string"
+        },
+        "contact_handle_time_in_seconds__sms": {
+            "type": "string"
+        },
+        "contact_handle_time_in_seconds__twitter": {
+            "type": "string"
+        },
+        "contact_handle_time_in_seconds__voicemail": {
+            "type": "string"
+        },
+        "contact_handle_time_in_seconds__whatsapp": {
+            "type": "string"
+        },
+        "after_contact_time_in_seconds__chat": {
+            "type": "string"
+        },
+        "after_contact_time_in_seconds__email": {
+            "type": "string"
+        },
+        "after_contact_time_in_seconds__fb_messenger": {
+            "type": "string"
+        },
+        "after_contact_time_in_seconds__instagram_direct": {
+            "type": "string"
+        },
+        "after_contact_time_in_seconds__phone_call": {
+            "type": "string"
+        },
+        "after_contact_time_in_seconds__sms": {
+            "type": "string"
+        },
+        "after_contact_time_in_seconds__twitter": {
+            "type": "string"
+        },
+        "after_contact_time_in_seconds__voicemail": {
+            "type": "string"
+        },
+        "after_contact_time_in_seconds__whatsapp": {
+            "type": "string"
+        }
+    }
+}

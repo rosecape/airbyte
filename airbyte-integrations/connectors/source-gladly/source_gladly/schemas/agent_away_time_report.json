@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "timezone_filter": {
+      "type": "string"
+    },
+    "teams_filter": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "agent_name": {
+      "type": "string"
+    },
+    "away_time_minutes": {
+      "type": "string"
+    }
+  }
+}

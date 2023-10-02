@@ -1,0 +1,3 @@
+{"type": "LOG", "log": {"level": "INFO", "message": "Starting syncing SourceGladly"}}
+{"type": "LOG", "log": {"level": "INFO", "message": "Finished syncing customers"}}
+{"type": "LOG", "log": {"level": "INFO", "message": "SourceGladly runtimes:\nSyncing stream customers 0:00:01.574688"}}

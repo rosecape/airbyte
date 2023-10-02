@@ -1,0 +1,159 @@
+{
+    "$schema": "http: //json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "timezone_filter": {
+            "type": "string"
+        },
+        "channel_filter": {
+            "type": "string"
+        },
+        "inboxes_filter": {
+            "type": "string"
+        },
+        "ended_at_date": {
+            "type": "string"
+        },
+        "contacts_ended": {
+            "type": "string"
+        },
+        "contacts_inbound": {
+            "type": "string"
+        },
+        "contacts_fulfilled": {
+            "type": "string"
+        },
+        "contacts_fulfilled_before_sla": {
+            "type": "string"
+        },
+        "contacts_fulfilled_after_sla": {
+            "type": "string"
+        },
+        "contacts_fulfilled_by_response": {
+            "type": "string"
+        },
+        "contacts_accepted_before_sla": {
+            "type": "string"
+        },
+        "contacts_abandoned": {
+            "type": "string"
+        },
+        "contacts_abandoned_within_5_seconds": {
+            "type": "string"
+        },
+        "contacts_abandoned_within_10_seconds": {
+            "type": "string"
+        },
+        "contacts_abandoned_within_15_seconds": {
+            "type": "string"
+        },
+        "service_level_percentage": {
+            "type": "string"
+        },
+        "avg_queuedtofulfilled_time_sec": {
+            "type": "string"
+        },
+        "max_queuedtofulfilled_time_sec": {
+            "type": "string"
+        },
+        "avg_queuedtofulfilled_time_within_business_hours_sec": {
+            "type": "string"
+        },
+        "max_queuedtofulfilled_time_within_business_hours_sec": {
+            "type": "string"
+        },
+        "avg_queuedtofirst_accepted_time_sec": {
+            "type": "string"
+        },
+        "avg_queuedtoended_time_sec": {
+            "type": "string"
+        },
+        "avg_first_acceptedtofulfilled_sec": {
+            "type": "string"
+        },
+        "avg_duetofulfilled_time_sec": {
+            "type": "string"
+        },
+        "avg_fulfilledtoended_time_sec": {
+            "type": "string"
+        },
+        "avg_inbound_contact_handle_time_sec": {
+            "type": "string"
+        },
+        "avg_inbound_after_contact_time_sec": {
+            "type": "string"
+        },
+        "contacts_outbound": {
+            "type": "string"
+        },
+        "avg_outbound_contact_handle_time_sec": {
+            "type": "string"
+        },
+        "avg_outbound_after_contact_time_sec": {
+            "type": "string"
+        },
+        "avg_talk_time_sec": {
+            "type": "string"
+        },
+        "avg_hold_time__total_sec": {
+            "type": "string"
+        },
+        "avg_hold_time__manual_sec": {
+            "type": "string"
+        },
+        "avg_hold_time__warm_transfer_sec": {
+            "type": "string"
+        },
+        "avg_hold_time__cold_transfer_sec": {
+            "type": "string"
+        },
+        "avg_hold_time__conference_sec": {
+            "type": "string"
+        },
+        "avg_messages_total": {
+            "type": "string"
+        },
+        "avg_messages_from_customer": {
+            "type": "string"
+        },
+        "avg_messages_from_agent": {
+            "type": "string"
+        },
+        "avg_messages_from_rules": {
+            "type": "string"
+        },
+        "avg_messages_from_api": {
+            "type": "string"
+        },
+        "avg_of_avg_agent_reply_time_sec": {
+            "type": "string"
+        },
+        "avg_of_avg_customer_reply_time_sec": {
+            "type": "string"
+        },
+        "unique_customers_with_contact_fulfilled": {
+            "type": "string"
+        },
+        "unique_customers_with_contact_ended": {
+            "type": "string"
+        },
+        "unique_customers_with_an_inbound_contact_ended": {
+            "type": "string"
+        },
+        "unique_customers_with_an_outbound_contact_ended": {
+            "type": "string"
+        },
+        "payment_requests__completed": {
+            "type": "string"
+        },
+        "payment_requests__declined": {
+            "type": "string"
+        },
+        "payment_amount__completed_usd": {
+            "type": "string"
+        },
+        "payment_amount__declined_usd": {
+            "type": "string"
+        }
+    }
+}

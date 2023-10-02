@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "timezone_filter": {
+            "type": "string"
+        },
+        "date": {
+            "type": "string"
+        },
+        "quick_action_name": {
+            "type": "string"
+        },
+        "number_of_clicks": {
+            "type": "string"
+        }
+    }
+}
