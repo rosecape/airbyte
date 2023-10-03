@@ -110,35 +110,27 @@ class Organization(GladlyStream):
 # Basic incremental stream
 class IncrementalGladlyStream(GladlyStream, ABC):
 
-    def __init__(self, **kwargs):
+    def __init__(self, config, **kwargs):
         super().__init__(**kwargs)
         self._cursor_value = None
+        self.config = config
 
     state_checkpoint_interval = None
 
     @property
-    def state(self) -> Mapping[str, Any]:
-        if self._cursor_value:
-            return {self.cursor_field: self._cursor_value.strftime('%Y-%m-%d')}
-        else:
-            return {self.cursor_field: self.start_date.strftime('%Y-%m-%d')}
-    
-    @state.setter
-    def state(self, value: Mapping[str, Any]):
-        self._cursor_value = value[self.cursor_field]
+    def state(self) -> MutableMapping[str, Any]:
+        return {self.cursor_field: self._cursor_value} if self._cursor_value else {}
 
-    @property
-    def cursor_field(self) -> str:
-        return "date"
+    @state.setter
+    def state(self, value: MutableMapping[str, Any]):
+        self._cursor_value = value.get(self.cursor_field, self.config['start_date'])
     
     def stream_slices(self, stream_state: Mapping[str, Any] = None, **kwargs) -> Iterable[Optional[Mapping[str, any]]]:
         """Break up the stream into time slices. Each slice is a dictionary of start and end timestamps.
         The start timestamp is the last time the stream was run. The end timestamp is the current time.
         The stream will be run once for each slice.
         """
-        print(stream_state)
-        exit()
-        start_date = pendulum.parse(stream_state.get(self.cursor_field) if stream_state else '2023-10-01')
+        start_date = pendulum.parse(stream_state.get(self.cursor_field) if stream_state else self.config['start_date'])
         end_date = pendulum.now()
 
         for chunk in chunk_date_range(start_date=start_date, end_date=end_date):
@@ -150,6 +142,7 @@ class IncrementalGladlyReportStream(IncrementalGladlyStream, ABC):
     structure is more consistent."""
     
     http_method = "POST"
+    cursor_field = "date"
     
     @abstractproperty
     def metric_set(self):
@@ -163,6 +156,12 @@ class IncrementalGladlyReportStream(IncrementalGladlyStream, ABC):
         return "reports"
 
     def request_body_json(self, stream_slice: Mapping[str, Any] = None, **kwargs) -> Mapping[str, Any]:
+        print({
+            "metricSet": self.metric_set,
+            "aggregationLevel": self.aggregation_level,
+            "startAt": stream_slice["start_date"].format('YYYY-MM-DD'),
+            "endAt": stream_slice["end_date"].format('YYYY-MM-DD')
+        })
         return {
             "metricSet": self.metric_set,
             "aggregationLevel": self.aggregation_level,
@@ -575,6 +574,7 @@ class Customers(GladlySubStream, ABC):
     http_method = "GET"
     
     primary_key = "id"
+    cursor_field = "date"
     
     parent = ConversationExportReport
     path_template = "customer-profiles/{customer_id}"
@@ -591,7 +591,7 @@ class SourceGladly(AbstractSource):
     def check_connection(self, logger, config) -> Tuple[bool, any]:
         try:
             auth = BasicHttpAuthenticator(username=config['username'], password=config['api_token'])
-            records = Organization(authenticator=auth).read_records(sync_mode=None)
+            records = Organization(authenticator=auth, config=config).read_records(sync_mode=None)
             next(records)
             return True, None
         except Exception as error:
@@ -600,52 +600,52 @@ class SourceGladly(AbstractSource):
     def streams(self, config: Mapping[str, Any]) -> List[Stream]:
         auth = BasicHttpAuthenticator(username=config['username'], password=config['api_token'])
         return [
-            AbandonedCallsInIVRReport(authenticator=auth),
-            AgentAwayTimeReport(authenticator=auth),
-            AgentDurationsReport(authenticator=auth),
-            AgentLoginTimeReport(authenticator=auth),
-            AgentSummaryGlanceReport(authenticator=auth),
-            AgentSummaryReport(authenticator=auth),
-            AgentSummaryV2(authenticator=auth),
-            AgentTimestampsReport(authenticator=auth),
-            AnswerUsageByAgentReport(authenticator=auth),
-            AnswerUsageReport(authenticator=auth),
-            AutoThrottleChangesReport(authenticator=auth),
-            AutoThrottleMissedConversationsReport(authenticator=auth),
-            ChannelMixReportV2(authenticator=auth),
-            ChannelWaitTimeReport(authenticator=auth),
-            ChannelWaitTimeReportV2(authenticator=auth),
-            ChatDisplayPctChangesReport(authenticator=auth),
-            ContactExportReportV2(authenticator=auth),
-            ContactExportReportV3(authenticator=auth),
-            ContactExportReport(authenticator=auth),
-            ContactSummaryCountsReport(authenticator=auth),
-            ContactSummaryDurationsReportV2(authenticator=auth),
-            ContactSummaryDurationsReport(authenticator=auth),
-            ContactSummaryReport(authenticator=auth),
-            ContactSummaryReportV2(authenticator=auth),
-            ContactTimestampsReport(authenticator=auth),
-            ConversationExportReport(authenticator=auth),
-            ConversationSummaryReport(authenticator=auth),
-            ConversationTimestampsReport(authenticator=auth),
-            Customers(authenticator=auth, parent=ConversationExportReport(authenticator=auth)),
-            FirstContactResolutionByAgentV2Report(authenticator=auth),
-            HelpCenterAnswerSearchReport(authenticator=auth),
-            HelpCenterAnswerUsageReport(authenticator=auth),
-            # IvrEndStatesReportV2(authenticator=auth),
-            # IvrExecutiveSummaryReportV2(authenticator=auth),
-            PaymentsByAgentReport(authenticator=auth),
-            PaymentsSummaryReport(authenticator=auth),
-            ProactiveVoiceSummaryReport(authenticator=auth),
-            QuickActionsUsageReport(authenticator=auth),
-            SidekickAnswerSearchReport(authenticator=auth),
-            SidekickAnswerUsageReport(authenticator=auth),
-            SidekickContactPointsReport(authenticator=auth),
-            TaskExportReport(authenticator=auth),
-            TaskSummaryReport(authenticator=auth),
-            TaskTimestampsReport(authenticator=auth),
-            TopicHierarchyReport(authenticator=auth),
-            WorkSessionEventsReportV3(authenticator=auth),
-            WorkSessionsReportV3(authenticator=auth),
-            WorkSessionsReport(authenticator=auth),
+            AbandonedCallsInIVRReport(authenticator=auth, config=config),
+            AgentAwayTimeReport(authenticator=auth, config=config),
+            AgentDurationsReport(authenticator=auth, config=config),
+            AgentLoginTimeReport(authenticator=auth, config=config),
+            AgentSummaryGlanceReport(authenticator=auth, config=config),
+            AgentSummaryReport(authenticator=auth, config=config),
+            AgentSummaryV2(authenticator=auth, config=config),
+            AgentTimestampsReport(authenticator=auth, config=config),
+            AnswerUsageByAgentReport(authenticator=auth, config=config),
+            AnswerUsageReport(authenticator=auth, config=config),
+            AutoThrottleChangesReport(authenticator=auth, config=config),
+            AutoThrottleMissedConversationsReport(authenticator=auth, config=config),
+            ChannelMixReportV2(authenticator=auth, config=config),
+            ChannelWaitTimeReport(authenticator=auth, config=config),
+            ChannelWaitTimeReportV2(authenticator=auth, config=config),
+            ChatDisplayPctChangesReport(authenticator=auth, config=config),
+            ContactExportReportV2(authenticator=auth, config=config),
+            ContactExportReportV3(authenticator=auth, config=config),
+            ContactExportReport(authenticator=auth, config=config),
+            ContactSummaryCountsReport(authenticator=auth, config=config),
+            ContactSummaryDurationsReportV2(authenticator=auth, config=config),
+            ContactSummaryDurationsReport(authenticator=auth, config=config),
+            ContactSummaryReport(authenticator=auth, config=config),
+            ContactSummaryReportV2(authenticator=auth, config=config),
+            ContactTimestampsReport(authenticator=auth, config=config),
+            ConversationExportReport(authenticator=auth, config=config),
+            ConversationSummaryReport(authenticator=auth, config=config),
+            ConversationTimestampsReport(authenticator=auth, config=config),
+            Customers(authenticator=auth, parent=ConversationExportReport(authenticator=auth, config=config)),
+            FirstContactResolutionByAgentV2Report(authenticator=auth, config=config),
+            HelpCenterAnswerSearchReport(authenticator=auth, config=config),
+            HelpCenterAnswerUsageReport(authenticator=auth, config=config),
+            # IvrEndStatesReportV2(authenticator=auth, config=config),
+            # IvrExecutiveSummaryReportV2(authenticator=auth, config=config),
+            PaymentsByAgentReport(authenticator=auth, config=config),
+            PaymentsSummaryReport(authenticator=auth, config=config),
+            ProactiveVoiceSummaryReport(authenticator=auth, config=config),
+            QuickActionsUsageReport(authenticator=auth, config=config),
+            SidekickAnswerSearchReport(authenticator=auth, config=config),
+            SidekickAnswerUsageReport(authenticator=auth, config=config),
+            SidekickContactPointsReport(authenticator=auth, config=config),
+            TaskExportReport(authenticator=auth, config=config),
+            TaskSummaryReport(authenticator=auth, config=config),
+            TaskTimestampsReport(authenticator=auth, config=config),
+            TopicHierarchyReport(authenticator=auth, config=config),
+            WorkSessionEventsReportV3(authenticator=auth, config=config),
+            WorkSessionsReportV3(authenticator=auth, config=config),
+            WorkSessionsReport(authenticator=auth, config=config),
         ]
