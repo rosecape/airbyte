@@ -77,8 +77,6 @@ class GladlyStream(HttpStream, ABC):
                 yield snakecased_row
         else:
             yield response.json()
-            
-        self._cursor_value = stream_slice["end_date"].format('YYYY-MM-DD')
 
 # Incremental Streams
 def chunk_date_range(start_date: DateTime, interval=pendulum.duration(days=1), end_date: Optional[DateTime] = None) -> Iterable[Period]:
@@ -131,10 +129,14 @@ class IncrementalGladlyStream(GladlyStream, ABC):
         The stream will be run once for each slice.
         """
         start_date = pendulum.parse(stream_state.get(self.cursor_field) if stream_state else self.config['start_date'])
-        end_date = pendulum.now()
+        end_date = pendulum.now() # Shoudl stop at now - 1 day to prevent duplicates from append
 
         for chunk in chunk_date_range(start_date=start_date, end_date=end_date):
             yield {"start_date": chunk.start, "end_date": chunk.end}
+
+    def read_records(self, sync_mode: SyncMode, cursor_field: List[str] = None, stream_slice: Mapping[str, Any] = None, stream_state: Mapping[str, Any] = None) -> Iterable[Mapping[str, Any]]:
+        yield from super().read_records(sync_mode=sync_mode, cursor_field=cursor_field, stream_slice=stream_slice, stream_state=stream_state)
+        self._cursor_value = stream_slice["end_date"].format('YYYY-MM-DD')
 
 class IncrementalGladlyReportStream(IncrementalGladlyStream, ABC):
     """ Special class for Gladly reports as they require a POST request with a JSON body
@@ -546,7 +548,7 @@ class WorkSessionsReport(IncrementalGladlyReportStream):
     metric_set = "workSessionsReport"
     aggregation_level = None
     
-class GladlySubStream(GladlyStream, HttpSubStream, ABC):
+class GladlySubStream(GladlyStream, HttpSubStream):
 
     @property
     @abstractmethod
@@ -565,7 +567,7 @@ class GladlySubStream(GladlyStream, HttpSubStream, ABC):
     def path(self, stream_slice: Optional[Mapping[str, Any]] = None, **kwargs) -> str:
         return self.path_template.format(customer_id=stream_slice["parent_id"])
 
-class Customers(GladlySubStream, ABC):
+class Customers(GladlySubStream):
     """
     Docs: https://developer.gladly.com/rest/#tag/Customers
     
