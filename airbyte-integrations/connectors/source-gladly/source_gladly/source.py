@@ -17,7 +17,7 @@ from pendulum import DateTime, Period
 from airbyte_cdk.models import SyncMode
 from airbyte_cdk.sources import AbstractSource
 from airbyte_cdk.sources.streams import Stream
-from airbyte_cdk.sources.streams.http import HttpStream
+from airbyte_cdk.sources.streams.http import HttpStream, HttpSubStream
 from airbyte_cdk.sources.streams.http.auth import BasicHttpAuthenticator
 
 
@@ -56,7 +56,7 @@ class GladlyStream(HttpStream, ABC):
     def next_page_token(self, response: requests.Response) -> Optional[Mapping[str, Any]]:
         return None
 
-    def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
+    def parse_response(self, response: requests.Response, stream_slice: Mapping[str, Any] = None, **kwargs) -> Iterable[Mapping]:
 
         # Handle 'Ratelimit-Remaining-Second' header
         if 'Ratelimit-Remaining-Second' in response.headers:
@@ -77,6 +77,8 @@ class GladlyStream(HttpStream, ABC):
                 yield snakecased_row
         else:
             yield response.json()
+            
+        self._cursor_value = stream_slice["end_date"].format('YYYY-MM-DD')
 
 # Incremental Streams
 def chunk_date_range(start_date: DateTime, interval=pendulum.duration(days=1), end_date: Optional[DateTime] = None) -> Iterable[Period]:
@@ -108,22 +110,34 @@ class Organization(GladlyStream):
 # Basic incremental stream
 class IncrementalGladlyStream(GladlyStream, ABC):
 
-    # TODO: Fill in to checkpoint stream reads after N records. This prevents re-reading of data if the stream fails for any reason.
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self._cursor_value = None
+
     state_checkpoint_interval = None
 
     @property
-    def cursor_field(self) -> str:
-        return []
+    def state(self) -> Mapping[str, Any]:
+        if self._cursor_value:
+            return {self.cursor_field: self._cursor_value.strftime('%Y-%m-%d')}
+        else:
+            return {self.cursor_field: self.start_date.strftime('%Y-%m-%d')}
+    
+    @state.setter
+    def state(self, value: Mapping[str, Any]):
+        self._cursor_value = value[self.cursor_field]
 
-    def get_updated_state(self, current_stream_state: MutableMapping[str, Any], latest_record: Mapping[str, Any]) -> Mapping[str, Any]:
-        return {}
+    @property
+    def cursor_field(self) -> str:
+        return "date"
     
     def stream_slices(self, stream_state: Mapping[str, Any] = None, **kwargs) -> Iterable[Optional[Mapping[str, any]]]:
         """Break up the stream into time slices. Each slice is a dictionary of start and end timestamps.
         The start timestamp is the last time the stream was run. The end timestamp is the current time.
         The stream will be run once for each slice.
         """
-
+        print(stream_state)
+        exit()
         start_date = pendulum.parse(stream_state.get(self.cursor_field) if stream_state else '2023-10-01')
         end_date = pendulum.now()
 
@@ -290,10 +304,14 @@ class ContactTimestampsReport(IncrementalGladlyReportStream):
 
 class ConversationExportReport(IncrementalGladlyReportStream):
 
+    @property
+    def use_cache(self) -> bool:
+        return True
+
     primary_key = "id"
     metric_set = "conversationExportReport"
     aggregation_level = None
-    
+
 class ConversationSummaryReport(IncrementalGladlyReportStream):
 
     primary_key = "id"
@@ -529,7 +547,8 @@ class WorkSessionsReport(IncrementalGladlyReportStream):
     metric_set = "workSessionsReport"
     aggregation_level = None
     
-class GladlySubStream(GladlyStream, ABC):
+class GladlySubStream(GladlyStream, HttpSubStream, ABC):
+
     @property
     @abstractmethod
     def path_template(self) -> str:
@@ -539,34 +558,33 @@ class GladlySubStream(GladlyStream, ABC):
 
     @property
     @abstractmethod
-    def parent_stream(self) -> IncrementalGladlyStream:
+    def parent(self) -> IncrementalGladlyStream:
         """
         :return: parent stream class
         """
 
-    def stream_slices(self, **kwargs) -> Iterable[Optional[Mapping[str, any]]]:
-        items = self.parent_stream(authenticator=self.authenticator)
-        for item in items.read_records(sync_mode=SyncMode.incremental):
-            yield {"parent_id": item["customer_id"]}
-
     def path(self, stream_slice: Optional[Mapping[str, Any]] = None, **kwargs) -> str:
-        return self.path_template.format(parent_id=stream_slice["parent_id"])
+        return self.path_template.format(customer_id=stream_slice["parent_id"])
 
-    def parse_response(self, response: requests.Response, stream_slice: Mapping[str, Any] = None, **kwargs) -> Iterable[Mapping]:
-        for record in super().parse_response(response, stream_slice=stream_slice, **kwargs):
-            record["parent_id"] = stream_slice["parent_id"]
-            yield record
-
-class Customers(GladlySubStream, IncrementalGladlyStream):
+class Customers(GladlySubStream, ABC):
     """
     Docs: https://developer.gladly.com/rest/#tag/Customers
+    
     """
+        
     http_method = "GET"
     
     primary_key = "id"
     
-    parent_stream = ConversationExportReport
-    path_template = "customer-profiles/{parent_id}"
+    parent = ConversationExportReport
+    path_template = "customer-profiles/{customer_id}"
+    
+    def stream_slices(
+            self, sync_mode: SyncMode, cursor_field: List[str] = None, stream_state: Mapping[str, Any] = None
+        ) -> Iterable[Optional[Mapping[str, Any]]]:
+            for parent_slice in super().stream_slices(sync_mode=SyncMode.incremental, cursor_field=cursor_field, stream_state=stream_state):
+                yield {"parent_id": parent_slice["parent"]["customer_id"]}
+
 
 # Source
 class SourceGladly(AbstractSource):
@@ -610,7 +628,7 @@ class SourceGladly(AbstractSource):
             ConversationExportReport(authenticator=auth),
             ConversationSummaryReport(authenticator=auth),
             ConversationTimestampsReport(authenticator=auth),
-            Customers(authenticator=auth),
+            Customers(authenticator=auth, parent=ConversationExportReport(authenticator=auth)),
             FirstContactResolutionByAgentV2Report(authenticator=auth),
             HelpCenterAnswerSearchReport(authenticator=auth),
             HelpCenterAnswerUsageReport(authenticator=auth),
