@@ -12,3 +12,6 @@ connectionSpecification:
       type: string
       description: API token for the specified user
       airbyte_secret: true
+    start_date:
+      type: string
+      description: Date to start syncing from (YYYY-MM-DD)

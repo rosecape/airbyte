@@ -1,5 +1,171 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
-    "properties": {}
+    "properties": {
+        "timezone_filter": {
+            "type": "string"
+        },
+        "inboxes_filter": {
+            "type": "string"
+        },
+        "created_at": {
+            "type": "string"
+        },
+        "conversation_id": {
+            "type": "string"
+        },
+        "customer_id": {
+            "type": "string"
+        },
+        "conversation_link": {
+            "type": "string"
+        },
+        "status": {
+            "type": "string"
+        },
+        "assigned_agent_id__current": {
+            "type": "string"
+        },
+        "assigned_agent_name__current": {
+            "type": "string"
+        },
+        "inbox_id__current": {
+            "type": "string"
+        },
+        "inbox_name__current": {
+            "type": "string"
+        },
+        "first_closed_at": {
+            "type": "string"
+        },
+        "last_closed_at": {
+            "type": "string"
+        },
+        "initiator_type__created": {
+            "type": "string"
+        },
+        "initiator_agent_id__created": {
+            "type": "string"
+        },
+        "initiator_agent_name__created": {
+            "type": "string"
+        },
+        "inbox_id__created": {
+            "type": "string"
+        },
+        "inbox_name__created": {
+            "type": "string"
+        },
+        "assigned_agent_id__created": {
+            "type": "string"
+        },
+        "assigned_agent_name__created": {
+            "type": "string"
+        },
+        "initiator_type__last_closed": {
+            "type": "string"
+        },
+        "initiator_agent_id__last_closed": {
+            "type": "string"
+        },
+        "initiator_agent_name__last_closed": {
+            "type": "string"
+        },
+        "initiator_rule_id__last_closed": {
+            "type": "string"
+        },
+        "inbox_id__last_closed": {
+            "type": "string"
+        },
+        "inbox_name__last_closed": {
+            "type": "string"
+        },
+        "assigned_agent_id__last_closed": {
+            "type": "string"
+        },
+        "assigned_agent_name__last_closed": {
+            "type": "string"
+        },
+        "topics": {
+            "type": "string"
+        },
+        "topics_with_hierarchy": {
+            "type": "string"
+        },
+        "first_contact_id": {
+            "type": "string"
+        },
+        "first_channel": {
+            "type": "string"
+        },
+        "second_channel": {
+            "type": "string"
+        },
+        "third_channel": {
+            "type": "string"
+        },
+        "last_channel": {
+            "type": "string"
+        },
+        "createdtofirst_closed_time_in_seconds": {
+            "type": "string"
+        },
+        "createdtolast_closed_time_in_seconds": {
+            "type": "string"
+        },
+        "conversation_handle_time_in_seconds": {
+            "type": "string"
+        },
+        "is_fcr_eligible": {
+            "type": "string"
+        },
+        "is_fcr_success": {
+            "type": "string"
+        },
+        "merged_conversations": {
+            "type": "string"
+        },
+        "count_of_contacts": {
+            "type": "string"
+        },
+        "count_of_channels": {
+            "type": "string"
+        },
+        "count_of_notes": {
+            "type": "string"
+        },
+        "count_of_agents_assigned": {
+            "type": "string"
+        },
+        "count_of_inboxes_assigned": {
+            "type": "string"
+        },
+        "times_agent_unassigned_by_rule": {
+            "type": "string"
+        },
+        "times_closed": {
+            "type": "string"
+        },
+        "times_reopened": {
+            "type": "string"
+        },
+        "times_topic_added": {
+            "type": "string"
+        },
+        "times_topic_removed": {
+            "type": "string"
+        },
+        "payment_requests__completed": {
+            "type": "string"
+        },
+        "payment_requests__declined": {
+            "type": "string"
+        },
+        "payment_amount__completed_usd": {
+            "type": "string"
+        },
+        "payment_amount__declined_usd": {
+            "type": "string"
+        }
+    }
 }
