@@ -1,5 +1,195 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
-    "properties": {}
+    "properties": {
+        "timezone_filter": {
+            "type": "string"
+        },
+        "channel_filter": {
+            "type": "string"
+        },
+        "inboxes_filter": {
+            "type": "string"
+        },
+        "queued_at": {
+            "type": "string"
+        },
+        "customer_id": {
+            "type": "string"
+        },
+        "conversation_id": {
+            "type": "string"
+        },
+        "contact_id": {
+            "type": "string"
+        },
+        "conversation_link": {
+            "type": "string"
+        },
+        "channel": {
+            "type": "string"
+        },
+        "direction": {
+            "type": "string"
+        },
+        "contact_initiator": {
+            "type": "string"
+        },
+        "entry_point": {
+            "type": "string"
+        },
+        "final_ivr_selection": {
+            "type": "string"
+        },
+        "fulfilled_type": {
+            "type": "string"
+        },
+        "status": {
+            "type": "string"
+        },
+        "inbox_when_queued": {
+            "type": "string"
+        },
+        "inbox_when_ended": {
+            "type": "string"
+        },
+        "agent_when_ended": {
+            "type": "string"
+        },
+        "offered_at": {
+            "type": "string"
+        },
+        "accepted_at": {
+            "type": "string"
+        },
+        "fulfilled_at": {
+            "type": "string"
+        },
+        "due_at": {
+            "type": "string"
+        },
+        "ended_at": {
+            "type": "string"
+        },
+        "answered_at_outbound": {
+            "type": "string"
+        },
+        "sla_target_sec": {
+            "type": "string"
+        },
+        "queuedtofulfilled_sec": {
+            "type": "string"
+        },
+        "queuedtofulfilled_within_business_hours_sec": {
+            "type": "string"
+        },
+        "queuedtoaccepted_sec": {
+            "type": "string"
+        },
+        "queuedtoended_sec": {
+            "type": "string"
+        },
+        "acceptedtofulfilled_sec": {
+            "type": "string"
+        },
+        "seconds_within__or_over__sla": {
+            "type": "string"
+        },
+        "fulfilledtoended_sec": {
+            "type": "string"
+        },
+        "fulfilled_by_contact_id": {
+            "type": "string"
+        },
+        "contact_handle_time_sec": {
+            "type": "string"
+        },
+        "after_contact_time_sec": {
+            "type": "string"
+        },
+        "total_contact_handle_time_sec": {
+            "type": "string"
+        },
+        "total_talk_time": {
+            "type": "string"
+        },
+        "hold_time_total_sec": {
+            "type": "string"
+        },
+        "hold_time__manual_sec": {
+            "type": "string"
+        },
+        "hold_time__warm_transfer_sec": {
+            "type": "string"
+        },
+        "hold_time__cold_transfer_sec": {
+            "type": "string"
+        },
+        "hold_time__conference_sec": {
+            "type": "string"
+        },
+        "messages_total": {
+            "type": "string"
+        },
+        "messages_from_customer": {
+            "type": "string"
+        },
+        "messages_from_agent": {
+            "type": "string"
+        },
+        "messages_from_rules": {
+            "type": "string"
+        },
+        "messages_from_api": {
+            "type": "string"
+        },
+        "avg_agent_reply_time_sec": {
+            "type": "string"
+        },
+        "avg_customer_reply_time_sec": {
+            "type": "string"
+        },
+        "times_offered": {
+            "type": "string"
+        },
+        "times_accepted": {
+            "type": "string"
+        },
+        "times_missed": {
+            "type": "string"
+        },
+        "times_declined": {
+            "type": "string"
+        },
+        "times_transferred": {
+            "type": "string"
+        },
+        "times_on_hold_total": {
+            "type": "string"
+        },
+        "times_on_hold__manual": {
+            "type": "string"
+        },
+        "times_on_hold__warm_transfer": {
+            "type": "string"
+        },
+        "times_on_hold__cold_transfer": {
+            "type": "string"
+        },
+        "times_on_hold__conference": {
+            "type": "string"
+        },
+        "payment_requests__completed": {
+            "type": "string"
+        },
+        "payment_requests__declined": {
+            "type": "string"
+        },
+        "payment_amount__completed_usd": {
+            "type": "string"
+        },
+        "payment_amount__declined_usd": {
+            "type": "string"
+        }
+    }
 }

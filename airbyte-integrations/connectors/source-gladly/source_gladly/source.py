@@ -641,7 +641,7 @@ class SourceGladly(AbstractSource):
             # ChannelWaitTimeReportV2(authenticator=auth, config=config),
             # ChatDisplayPctChangesReport(authenticator=auth, config=config),
             # ContactExportReportV2(authenticator=auth, config=config),
-            # ContactExportReportV3(authenticator=auth, config=config),
+            ContactExportReportV3(authenticator=auth, config=config),
             # ContactExportReport(authenticator=auth, config=config),
             # ContactSummaryCountsReport(authenticator=auth, config=config),
             # ContactSummaryDurationsReportV2(authenticator=auth, config=config),
