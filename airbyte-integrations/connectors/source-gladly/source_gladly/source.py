@@ -140,6 +140,7 @@ class IncrementalGladlyStream(GladlyStream, ABC):
 
     def read_records(self, sync_mode: SyncMode, cursor_field: List[str] = None, stream_slice: Mapping[str, Any] = None, stream_state: Mapping[str, Any] = None) -> Iterable[Mapping[str, Any]]:
         yield from super().read_records(sync_mode=sync_mode, cursor_field=cursor_field, stream_slice=stream_slice, stream_state=stream_state)
+        print(stream_slice)
         if "end_date" in stream_slice:
             self._cursor_value = stream_slice["end_date"].format('YYYY-MM-DD')
 
@@ -149,7 +150,6 @@ class IncrementalGladlyReportStream(IncrementalGladlyStream, ABC):
     structure is more consistent."""
     
     http_method = "POST"
-    cursor_field = "created_at"
     
     @abstractproperty
     def metric_set(self):
@@ -245,10 +245,15 @@ class ChatDisplayPctChangesReport(IncrementalGladlyReportStream):
 class ContactExportReportV2(IncrementalGladlyReportStream):
 
     primary_key = "contact_id"
+
     metric_set = "contactExportReportV2"
     aggregation_level = None
     
 class ContactExportReportV3(IncrementalGladlyReportStream):
+
+    @property
+    def cursor_field(self):
+        return "queued_at"
 
     primary_key = "contact_id"
     metric_set = "contactExportReportV3"
@@ -307,8 +312,13 @@ class ConversationExportReport(IncrementalGladlyReportStream):
     @property
     def use_cache(self) -> bool:
         return True
+    
+    @property
+    def cursor_field(self):
+        return "created_at"
 
     primary_key = "conversation_id"
+
     metric_set = "conversationExportReport"
     aggregation_level = None
 
