@@ -136,7 +136,8 @@ class IncrementalGladlyStream(GladlyStream, ABC):
 
     def read_records(self, sync_mode: SyncMode, cursor_field: List[str] = None, stream_slice: Mapping[str, Any] = None, stream_state: Mapping[str, Any] = None) -> Iterable[Mapping[str, Any]]:
         yield from super().read_records(sync_mode=sync_mode, cursor_field=cursor_field, stream_slice=stream_slice, stream_state=stream_state)
-        self._cursor_value = stream_slice["end_date"].format('YYYY-MM-DD')
+        if "end_date" in stream_slice:
+            self._cursor_value = stream_slice["end_date"].format('YYYY-MM-DD')
 
 class IncrementalGladlyReportStream(IncrementalGladlyStream, ABC):
     """ Special class for Gladly reports as they require a POST request with a JSON body
@@ -158,12 +159,6 @@ class IncrementalGladlyReportStream(IncrementalGladlyStream, ABC):
         return "reports"
 
     def request_body_json(self, stream_slice: Mapping[str, Any] = None, **kwargs) -> Mapping[str, Any]:
-        print({
-            "metricSet": self.metric_set,
-            "aggregationLevel": self.aggregation_level,
-            "startAt": stream_slice["start_date"].format('YYYY-MM-DD'),
-            "endAt": stream_slice["end_date"].format('YYYY-MM-DD')
-        })
         return {
             "metricSet": self.metric_set,
             "aggregationLevel": self.aggregation_level,
@@ -245,19 +240,19 @@ class ChatDisplayPctChangesReport(IncrementalGladlyReportStream):
     
 class ContactExportReportV2(IncrementalGladlyReportStream):
 
-    primary_key = "id"
+    primary_key = "contact_id"
     metric_set = "contactExportReportV2"
     aggregation_level = None
     
 class ContactExportReportV3(IncrementalGladlyReportStream):
 
-    primary_key = "id"
+    primary_key = "contact_id"
     metric_set = "contactExportReportV3"
     aggregation_level = None
     
 class ContactExportReport(IncrementalGladlyReportStream):
 
-    primary_key = "id"
+    primary_key = "contact_id"
     metric_set = "contactExportReport"
     aggregation_level = None
     
@@ -309,7 +304,7 @@ class ConversationExportReport(IncrementalGladlyReportStream):
     def use_cache(self) -> bool:
         return True
 
-    primary_key = "id"
+    primary_key = "conversation_id"
     metric_set = "conversationExportReport"
     aggregation_level = None
 
@@ -520,7 +515,7 @@ class SidekickContactPointsReport(IncrementalGladlyReportStream):
 
 class TaskExportReport(IncrementalGladlyReportStream):
 
-    primary_key = "id"
+    primary_key = "task_id"
     metric_set = "taskExportReport"
     aggregation_level = None
     
@@ -548,7 +543,7 @@ class WorkSessionsReport(IncrementalGladlyReportStream):
     metric_set = "workSessionsReport"
     aggregation_level = None
     
-class GladlySubStream(GladlyStream, HttpSubStream):
+class GladlySubStream(IncrementalGladlyStream, HttpSubStream):
 
     @property
     @abstractmethod
@@ -564,8 +559,22 @@ class GladlySubStream(GladlyStream, HttpSubStream):
         :return: parent stream class
         """
 
+    @property
+    @abstractmethod
+    def foreign_key(self) -> IncrementalGladlyStream:
+        """
+        :return: foreign key
+        """
+
     def path(self, stream_slice: Optional[Mapping[str, Any]] = None, **kwargs) -> str:
         return self.path_template.format(customer_id=stream_slice["parent_id"])
+    
+    def stream_slices(
+            self, sync_mode: SyncMode, cursor_field: List[str] = None, stream_state: Mapping[str, Any] = None
+        ) -> Iterable[Optional[Mapping[str, Any]]]:
+            for parent_slice in self.parent.stream_slices(sync_mode=SyncMode.incremental, cursor_field=cursor_field, stream_state=stream_state):
+                for record in self.parent.read_records(sync_mode=SyncMode.incremental, cursor_field=cursor_field, stream_slice=parent_slice, stream_state=stream_state):
+                    yield {"parent_id": record[self.foreign_key]}
 
 class Customers(GladlySubStream):
     """
@@ -577,15 +586,10 @@ class Customers(GladlySubStream):
     
     primary_key = "id"
     cursor_field = "date"
+    foreign_key = "customer_id"
     
     parent = ConversationExportReport
     path_template = "customer-profiles/{customer_id}"
-    
-    def stream_slices(
-            self, sync_mode: SyncMode, cursor_field: List[str] = None, stream_state: Mapping[str, Any] = None
-        ) -> Iterable[Optional[Mapping[str, Any]]]:
-            for parent_slice in super().stream_slices(sync_mode=SyncMode.incremental, cursor_field=cursor_field, stream_state=stream_state):
-                yield {"parent_id": parent_slice["parent"]["customer_id"]}
 
 
 # Source
@@ -630,7 +634,7 @@ class SourceGladly(AbstractSource):
             ConversationExportReport(authenticator=auth, config=config),
             ConversationSummaryReport(authenticator=auth, config=config),
             ConversationTimestampsReport(authenticator=auth, config=config),
-            Customers(authenticator=auth, parent=ConversationExportReport(authenticator=auth, config=config)),
+            Customers(authenticator=auth, config=config, parent=ConversationExportReport(authenticator=auth, config=config)),
             FirstContactResolutionByAgentV2Report(authenticator=auth, config=config),
             HelpCenterAnswerSearchReport(authenticator=auth, config=config),
             HelpCenterAnswerUsageReport(authenticator=auth, config=config),
