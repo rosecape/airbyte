@@ -149,7 +149,7 @@ class IncrementalGladlyReportStream(IncrementalGladlyStream, ABC):
     structure is more consistent."""
     
     http_method = "POST"
-    cursor_field = "date"
+    cursor_field = "created_at"
     
     @abstractproperty
     def metric_set(self):
@@ -602,7 +602,7 @@ class Customers(GladlySubStream):
     http_method = "GET"
     
     primary_key = "id"
-    cursor_field = "date"
+    cursor_field = "created_at"
     foreign_key = "customer_id"
     
     parent = ConversationExportReport
