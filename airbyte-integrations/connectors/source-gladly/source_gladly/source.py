@@ -69,14 +69,18 @@ class GladlyStream(HttpStream, ABC):
             # Parse CSV response
             csv_data = response.text
             csv_reader = csv.DictReader(StringIO(csv_data))
-            headers_snakecased = [self.snakecase_header(header) for header in csv_reader.fieldnames]
 
             for row in csv_reader:
                 # Snakecase the keys in each row
                 snakecased_row = {self.snakecase_header(key): value for key, value in row.items()}
                 yield snakecased_row
         else:
-            yield response.json()
+            # if list, iterate over each item and snakecase the keys
+            if isinstance(response.json(), list):
+                for item in response.json():
+                    yield item
+            else:
+                yield response.json()
 
 # Incremental Streams
 def chunk_date_range(start_date: DateTime, interval=pendulum.duration(days=1), end_date: Optional[DateTime] = None) -> Iterable[Period]:
@@ -576,6 +580,19 @@ class GladlySubStream(IncrementalGladlyStream, HttpSubStream):
                 for record in self.parent.read_records(sync_mode=SyncMode.incremental, cursor_field=cursor_field, stream_slice=parent_slice, stream_state=stream_state):
                     yield {"parent_id": record[self.foreign_key]}
 
+class Agents(GladlyStream):
+    """
+    Docs: https://developer.gladly.com/rest/#tag/Agents
+    
+    """
+        
+    http_method = "GET"
+    
+    primary_key = "id"
+
+    def path(self, **kwargs) -> str:
+        return "agents"
+
 class Customers(GladlySubStream):
     """
     Docs: https://developer.gladly.com/rest/#tag/Customers
@@ -607,6 +624,7 @@ class SourceGladly(AbstractSource):
         auth = BasicHttpAuthenticator(username=config['username'], password=config['api_token'])
         return [
             AbandonedCallsInIVRReport(authenticator=auth, config=config),
+            Agents(authenticator=auth),
             AgentAwayTimeReport(authenticator=auth, config=config),
             AgentDurationsReport(authenticator=auth, config=config),
             AgentLoginTimeReport(authenticator=auth, config=config),
