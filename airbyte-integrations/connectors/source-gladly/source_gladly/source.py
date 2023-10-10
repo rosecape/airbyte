@@ -125,14 +125,15 @@ class IncrementalGladlyStream(GladlyStream, ABC):
 
     @state.setter
     def state(self, value: MutableMapping[str, Any]):
-        self._cursor_value = value.get(self.cursor_field, self.config['start_date'])
+        self._cursor_value = pendulum.parse(value.get(self.cursor_field, self.config['start_date']))
     
     def stream_slices(self, stream_state: Mapping[str, Any] = None, **kwargs) -> Iterable[Optional[Mapping[str, any]]]:
         """Break up the stream into time slices. Each slice is a dictionary of start and end timestamps.
         The start timestamp is the last time the stream was run. The end timestamp is the current time.
         The stream will be run once for each slice.
         """
-        start_date = pendulum.parse(stream_state.get(self.cursor_field) if stream_state else self.config['start_date'])
+
+        start_date = pendulum.parse(stream_state.get(kwargs.get("child_cursor_field") or self.cursor_field) if stream_state else self.config['start_date'])
         end_date = pendulum.now() # Shoudl stop at now - 1 day to prevent duplicates from append
 
         for chunk in chunk_date_range(start_date=start_date, end_date=end_date):
@@ -140,7 +141,6 @@ class IncrementalGladlyStream(GladlyStream, ABC):
 
     def read_records(self, sync_mode: SyncMode, cursor_field: List[str] = None, stream_slice: Mapping[str, Any] = None, stream_state: Mapping[str, Any] = None) -> Iterable[Mapping[str, Any]]:
         yield from super().read_records(sync_mode=sync_mode, cursor_field=cursor_field, stream_slice=stream_slice, stream_state=stream_state)
-        print(stream_slice)
         if "end_date" in stream_slice:
             self._cursor_value = stream_slice["end_date"].format('YYYY-MM-DD')
 
@@ -586,9 +586,9 @@ class GladlySubStream(IncrementalGladlyStream, HttpSubStream):
     def stream_slices(
             self, sync_mode: SyncMode, cursor_field: List[str] = None, stream_state: Mapping[str, Any] = None
         ) -> Iterable[Optional[Mapping[str, Any]]]:
-            for parent_slice in self.parent.stream_slices(sync_mode=SyncMode.incremental, cursor_field=cursor_field, stream_state=stream_state):
+            for parent_slice in self.parent.stream_slices(sync_mode=SyncMode.incremental, cursor_field=cursor_field, stream_state=stream_state, child_cursor_field=self.cursor_field):
                 for record in self.parent.read_records(sync_mode=SyncMode.incremental, cursor_field=cursor_field, stream_slice=parent_slice, stream_state=stream_state):
-                    yield {"parent_id": record[self.foreign_key]}
+                    yield {"parent_id": record[self.foreign_key], "start_date": parent_slice["start_date"], "end_date": parent_slice["end_date"]}
 
 class Agents(GladlyStream):
     """
@@ -612,7 +612,8 @@ class Customers(GladlySubStream):
     http_method = "GET"
     
     primary_key = "id"
-    cursor_field = "created_at"
+
+    cursor_field = "createdAt"
     foreign_key = "customer_id"
     
     parent = ConversationExportReport
