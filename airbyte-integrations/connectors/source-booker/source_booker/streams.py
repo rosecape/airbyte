@@ -1,7 +1,8 @@
+import json
+import requests
 from abc import ABC
 from typing import Any, Iterable, List, Mapping, MutableMapping, Optional
 from datetime import datetime, timedelta, timezone
-import requests
 
 from .auth import BookerAuthenticator
 from airbyte_cdk.sources.streams.http import HttpStream
@@ -20,13 +21,19 @@ class BookerStream(HttpStream, ABC):
     @property
     def url_base(self) -> str:
         return f'{self.config["url"]}v4.1/merchant/'
-    
-    @property
-    def data_field(self) -> str:
-        """The name of the field in the response which contains the data"""
 
     def next_page_token(self, response: requests.Response) -> Optional[Mapping[str, Any]]:
+        previous_request_body = json.loads(response.request.body)
+        if "PageNumber" in previous_request_body and len(response.json()["Results"]) > 0:
+            # Append to a file the results of the previous request
+            with open('results.txt', 'a') as f:
+                line = f'{previous_request_body["FromStartDateOffset"]},{len(response.json()["Results"])}'
+                f.write(f'{line}\n')
+            previous_page_number = previous_request_body["PageNumber"]
+            next_page_number = previous_page_number + 1
+            return next_page_number
         return None
+            
 
     def backoff_time(self, response: requests.Response) -> Optional[float]:
         return 60
@@ -42,6 +49,7 @@ class BookerStream(HttpStream, ABC):
         return data
 
     def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
+        parsed = json.loads(response.text)
         return response.json().get(self.data_field, []) if self.data_field is not None else response.json()
 
 class IncrementalBookerStream(BookerStream, ABC):
@@ -95,7 +103,7 @@ class Treatments(BookerStream):
 class Appointments(IncrementalBookerStream, IncrementalMixin):
 
     def path(self, **kwargs) -> str:
-        return "appointments"
+        return "appointments/partial"
 
     http_method = "POST"
     
@@ -107,7 +115,11 @@ class Appointments(IncrementalBookerStream, IncrementalMixin):
     def request_body_json(self, stream_state: Mapping[str, Any], stream_slice: Mapping[str, Any], next_page_token: Mapping[str, Any] = None) -> Optional[Mapping]:
         super_data = super().request_body_json(stream_state, stream_slice, next_page_token)
         data = {
+            "UsePaging": "true",
+            "PageSize": 50,
+            "PageNumber": next_page_token or 1,
             "FromStartDateOffset": """{}T00:00:00-0000""".format(stream_slice[self.cursor_field]),
             "ToStartDateOffset": """{}T00:00:00-0000""".format((datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%d').replace(tzinfo=timezone.utc) + timedelta(days=1)).strftime('%Y-%m-%d')),
         }
+        # print(f'Progress tracker - {data["FromStartDateOffset"]} - {data["ToStartDateOffset"]} - Page #{data["PageNumber"]}')
         return {**super_data, **data}
