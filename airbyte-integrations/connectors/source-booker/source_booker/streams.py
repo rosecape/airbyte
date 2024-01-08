@@ -103,7 +103,7 @@ class Treatments(BookerStream):
 class Appointments(IncrementalBookerStream, IncrementalMixin):
 
     def path(self, **kwargs) -> str:
-        return "appointments/partial"
+        return "appointments"
 
     http_method = "POST"
     
@@ -116,7 +116,7 @@ class Appointments(IncrementalBookerStream, IncrementalMixin):
         super_data = super().request_body_json(stream_state, stream_slice, next_page_token)
         data = {
             "UsePaging": "true",
-            "PageSize": 50,
+            "PageSize": 25,
             "PageNumber": next_page_token or 1,
             "FromStartDateOffset": """{}T00:00:00-0000""".format(stream_slice[self.cursor_field]),
             "ToStartDateOffset": """{}T00:00:00-0000""".format((datetime.strptime(stream_slice[self.cursor_field], '%Y-%m-%d').replace(tzinfo=timezone.utc) + timedelta(days=1)).strftime('%Y-%m-%d')),
