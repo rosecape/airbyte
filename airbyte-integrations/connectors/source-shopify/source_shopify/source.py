@@ -923,6 +923,17 @@ class Countries(ShopifyStream):
 
     def path(self, **kwargs) -> str:
         return f"{self.data_field}.json"
+    
+class GiftCards(IncrementalShopifyStream):
+    api_version = "2024-01"
+    cursor_field = "updated_at"
+    order_field = "updated_at"
+    data_field = "gift_cards"
+    filter_field = "updated_at_min"
+
+    def path(self, **kwargs) -> str:
+        return f"{self.data_field}.json"
+
 
 
 class ConnectionCheckTest:
@@ -1008,6 +1019,7 @@ class SourceShopify(AbstractSource):
             DraftOrders(config),
             FulfillmentOrders(config),
             Fulfillments(config),
+            GiftCards(config),
             InventoryItems(config),
             InventoryLevels(config),
             Locations(config),

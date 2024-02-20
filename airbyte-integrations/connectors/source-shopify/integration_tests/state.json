@@ -2,6 +2,9 @@
   "customers": {
     "updated_at": "2023-07-11T13:07:45-07:00"
   },
+  "gift_cards": {
+    "updated_at": "2024-02-16T09:43:21-05:00"
+  },
   "orders": {
     "deleted": {
       "deleted_at": ""
