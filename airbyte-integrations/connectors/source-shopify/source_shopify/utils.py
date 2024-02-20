@@ -71,6 +71,8 @@ SCOPES_MAPPING = {
         "Blogs",
         "MetafieldBlogs",
     ],
+    "write_gift_cards": ["GiftCards"],
+    "read_gift_cards": ["GiftCards"],
 }
 
 

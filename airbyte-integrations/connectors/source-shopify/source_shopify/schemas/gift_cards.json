@@ -1,0 +1,66 @@
+{
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+        "id": {
+            "type": "integer"
+        },
+        "balance": {
+            "type": "string"
+        },
+        "created_at": {
+            "type": "string"
+        },
+        "updated_at": {
+            "type": "string"
+        },
+        "currency": {
+            "type": "string"
+        },
+        "initial_value": {
+            "type": "string"
+        },
+        "disabled_at": {
+            "type": "string"
+        },
+        "line_item_id": {
+            "type": "integer"
+        },
+        "api_client_id": {
+            "type": "integer"
+        },
+        "user_id": {
+            "type": "integer"
+        },
+        "customer_id": {
+            "type": "integer"
+        },
+        "note": {
+            "type": "string"
+        },
+        "expires_on": {
+            "type": "string"
+        },
+        "template_suffix": {
+            "type": "string"
+        },
+        "recipient_id": {
+            "type": "integer"
+        },
+        "message": {
+            "type": "string"
+        },
+        "send_on": {
+            "type": "string"
+        },
+        "notify": {
+            "type": "boolean"
+        },
+        "last_characters": {
+            "type": "string"
+        },
+        "order_id": {
+            "type": "integer"
+        }
+    }
+}
