@@ -39,6 +39,16 @@ connectionSpecification:
       airbyte_secret: true
       order: 3
 
+    tables:
+      type: array
+      description: The list of tables to sync from. Defaults to all tables.
+      items:
+        type: string
+      minItems: 0
+      uniqueItems: true
+      title: Tables
+      order: 4
+
     odata_maxpagesize:
       type: integer
       description: Max number of results per page. Default=5000

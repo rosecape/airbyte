@@ -28,7 +28,8 @@ class AirbyteType(Enum):
 
     String = {"type": ["null", "string"]}
     Boolean = {"type": ["null", "boolean"]}
-    Timestamp = {"type": ["null", "string"], "format": "date-time", "airbyte_type": "timestamp_with_timezone"}
+    Timestamp = {"type": ["null", "string"], "format": "date-time",
+                 "airbyte_type": "timestamp_with_timezone"}
     Integer = {"type": ["null", "integer"]}
     Number = {"type": ["null", "number"]}
 
@@ -48,6 +49,8 @@ class DataverseType(Enum):
     State = AirbyteType.Integer
     Picklist = AirbyteType.Integer
     Lookup = AirbyteType.String
+    Customer = AirbyteType.String
+    Owner = AirbyteType.String
     Virtual = None
 
 

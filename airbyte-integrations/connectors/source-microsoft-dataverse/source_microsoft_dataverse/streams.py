@@ -12,7 +12,6 @@ from airbyte_cdk.sources.streams import IncrementalMixin
 from airbyte_cdk.sources.streams.http import HttpStream
 
 
-# Basic full refresh stream
 class MicrosoftDataverseStream(HttpStream, ABC):
 
     # Base url will be set by init(), using information provided by the user through config input
@@ -47,7 +46,8 @@ class MicrosoftDataverseStream(HttpStream, ABC):
 
         if "@odata.nextLink" in response_json:
             next_link = response_json["@odata.nextLink"]
-            next_link_params = dict(parse.parse_qsl(parse.urlsplit(next_link).query))
+            next_link_params = dict(parse.parse_qsl(
+                parse.urlsplit(next_link).query))
             return next_link_params
         else:
             return None
@@ -95,14 +95,34 @@ class MicrosoftDataverseStream(HttpStream, ABC):
         return self.stream_path
 
 
+class MicrosoftDataverseOptionsStream(MicrosoftDataverseStream):
+
+    def read_records(self, **kwargs) -> Iterable[Mapping]:
+        for record in super().read_records(**kwargs):
+            yielded = {
+                "value": record["Value"],
+                "label": record["Label"]["UserLocalizedLabel"]["Label"],
+            }
+            yield yielded
+
+    def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
+        """
+        :return an iterable containing each record in the response
+        """
+        for result in response.json()["Options"]:
+            yield result
+
+
 # Basic incremental stream
 class IncrementalMicrosoftDataverseStream(MicrosoftDataverseStream, IncrementalMixin, ABC):
 
     delta_token_field = "$deltatoken"
-    state_checkpoint_interval = None  # For now we just use the change tracking as state, and it is only emitted on last page
+    # For now we just use the change tracking as state, and it is only emitted on last page
+    state_checkpoint_interval = None
 
     def __init__(self, url, stream_name, stream_path, schema, primary_key, odata_maxpagesize, config_cursor_field, **kwargs):
-        super().__init__(url, stream_name, stream_path, schema, primary_key, odata_maxpagesize, **kwargs)
+        super().__init__(url, stream_name, stream_path,
+                         schema, primary_key, odata_maxpagesize, **kwargs)
         self._cursor_value = None
         self.config_cursor_field = config_cursor_field
 
@@ -135,7 +155,8 @@ class IncrementalMicrosoftDataverseStream(MicrosoftDataverseStream, IncrementalM
         response_json = response.json()
         if "@odata.deltaLink" in response_json:
             delta_link = response_json["@odata.deltaLink"]
-            delta_link_params = dict(parse.parse_qsl(parse.urlsplit(delta_link).query))
+            delta_link_params = dict(parse.parse_qsl(
+                parse.urlsplit(delta_link).query))
             self._cursor_value = delta_link_params[self.delta_token_field]
         for result in response_json["value"]:
             if "@odata.context" in result and result["reason"] == "deleted":
@@ -147,6 +168,7 @@ class IncrementalMicrosoftDataverseStream(MicrosoftDataverseStream, IncrementalM
                 result.update({self.cursor_field[0]: now})
                 result.update({"_ab_cdc_deleted_at": now})
             else:
-                result.update({"_ab_cdc_updated_at": result[self.cursor_field[0]]})
+                result.update(
+                    {"_ab_cdc_updated_at": result[self.cursor_field[0]]})
 
             yield result
