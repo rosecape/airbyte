@@ -271,6 +271,13 @@ definitions:
       object_type: "ITEM"
       path: "/catalog/search"
 
+  item_variations_stream:
+    $ref: "#/definitions/base_catalog_objects_stream"
+    $parameters:
+      name: "item_variations"
+      object_type: "ITEM_VARIATION"
+      path: "/catalog/search"
+
   discounts_stream:
     $ref: "#/definitions/base_catalog_objects_stream"
     $parameters:
@@ -354,8 +361,20 @@ definitions:
       requester:
         $ref: "#/definitions/base_stream_page_json_limit/retriever/requester"
         http_method: "POST"
-        request_body_json:
-          limit: "{{ 500 }}"
+      paginator:
+        type: DefaultPaginator
+        pagination_strategy:
+          type: "CursorPagination"
+          cursor_value: "{{ response['cursor'] }}"
+          stop_condition: "{{ 'cursor' not in response }}"
+          page_size: 100
+        page_size_option:
+          inject_into: "request_parameter"
+          field_name: "limit"
+        page_token_option:
+          type: RequestOption
+          inject_into: "request_parameter"
+          field_name: "cursor"
 
   bank_accounts_stream:
     $ref: "#/definitions/base_stream"
@@ -371,6 +390,7 @@ streams:
   - "#/definitions/team_members_stream"
   - "#/definitions/team_member_wages_stream"
   - "#/definitions/items_stream"
+  - "#/definitions/item_variations_stream"
   - "#/definitions/categories_stream"
   - "#/definitions/discounts_stream"
   - "#/definitions/taxes_stream"

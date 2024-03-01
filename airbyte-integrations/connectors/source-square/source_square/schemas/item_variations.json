@@ -1,0 +1,71 @@
+{
+    "type": ["null", "object"],
+    "properties": {
+        "type": {
+            "type": "string",
+            "enum": ["ITEM_VARIATION"]
+        },
+        "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-_]+$"
+        },
+        "updated_at": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "created_at": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "version": {
+            "type": "integer"
+        },
+        "is_deleted": {
+            "type": "boolean"
+        },
+        "present_at_all_locations": {
+            "type": "boolean"
+        },
+        "present_at_location_ids": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9-_]+$"
+            }
+        },
+        "absent_at_location_ids": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9-_]+$"
+            }
+        },
+        "item_variation_data": {
+            "type": ["null", "object"],
+            "properties": {
+                "item_id": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9-_]+$"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "ordinal": {
+                    "type": "integer"
+                },
+                "pricing_type": {
+                    "type": "string"
+                },
+                "track_inventory": {
+                    "type": "boolean"
+                },
+                "sellable": {
+                    "type": "boolean"
+                },
+                "stockable": {
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}

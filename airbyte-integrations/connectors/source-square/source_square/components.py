@@ -46,10 +46,12 @@ class SquareSubstreamIncrementalSync(DatetimeBasedCursor):
         stream_slice: Optional[StreamSlice] = None,
         next_page_token: Optional[Mapping[str, Any]] = None,
     ) -> Optional[Mapping]:
-        json_payload = {"cursor": next_page_token["cursor"]} if next_page_token else {}
+        json_payload = {
+            "cursor": next_page_token["next_page_token"]} if next_page_token else {}
         if stream_slice:
             json_payload.update(stream_slice)
-        initial_start_time = self._format_datetime(self.start_datetime.get_datetime(self.config, stream_state={}))
+        initial_start_time = self._format_datetime(
+            self.start_datetime.get_datetime(self.config, stream_state={}))
         json_payload["query"] = {
             "filter": {
                 "date_time_filter": {
@@ -63,8 +65,10 @@ class SquareSubstreamIncrementalSync(DatetimeBasedCursor):
         return json_payload
 
     def stream_slices(self) -> Iterable[StreamSlice]:
-        locations_records = self.parent_stream.read_records(sync_mode=SyncMode.full_refresh)
-        location_ids = [location[self.parent_key] for location in locations_records]
+        locations_records = self.parent_stream.read_records(
+            sync_mode=SyncMode.full_refresh)
+        location_ids = [location[self.parent_key]
+                        for location in locations_records]
 
         if not location_ids:
             self.logger.error(
@@ -73,7 +77,7 @@ class SquareSubstreamIncrementalSync(DatetimeBasedCursor):
             )
             yield from []
         separated_locations = [
-            location_ids[i : i + self.parent_records_per_request] for i in range(0, len(location_ids), self.parent_records_per_request)
+            location_ids[i: i + self.parent_records_per_request] for i in range(0, len(location_ids), self.parent_records_per_request)
         ]
         for location in separated_locations:
             stream_slice = {"location_ids": location}
