@@ -73,6 +73,9 @@ class MicrosoftDataverseStream(HttpStream, ABC):
         :return an iterable containing each record in the response
         """
         for result in response.json()["value"]:
+            # remove metadata from records (temporary)
+            result.pop("@odata.context", None)
+            result.pop("@odata.etag", None)
             yield result
 
     def request_headers(
