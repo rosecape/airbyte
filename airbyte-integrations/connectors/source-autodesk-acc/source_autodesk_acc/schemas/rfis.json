@@ -1,0 +1,181 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "createdAt": {
+            "type": "string"
+        },
+        "customIdentifier": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string"
+        },
+        "question": {
+            "type": "string"
+        },
+        "status": {
+            "type": "string"
+        },
+        "dueDate": {
+            "type": "string"
+        },
+        "lbsIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "linkedDocument": {
+            "type": "string"
+        },
+        "linkedDocumentVersion": {
+            "type": "string"
+        },
+        "linkedDocumentCloseVersion": {
+            "type": "string"
+        },
+        "officialResponse": {
+            "type": "string"
+        },
+        "respondedAt": {
+            "type": "string"
+        },
+        "respondedBy": {
+            "type": "string"
+        },
+        "createdBy": {
+            "type": "string"
+        },
+        "updatedBy": {
+            "type": "string"
+        },
+        "updatedAt": {
+            "type": "string"
+        },
+        "closedAt": {
+            "type": "string"
+        },
+        "closedBy": {
+            "type": "string"
+        },
+        "containerId": {
+            "type": "string"
+        },
+        "suggestedAnswer": {
+            "type": "string"
+        },
+        "coReviewers": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "coReviewersRoles": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "coReviewersCompanies": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "distributionList": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "distributionListRoles": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "distributionListCompanies": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "answeredAt": {
+            "type": "string"
+        },
+        "answeredBy": {
+            "type": "string"
+        },
+        "costImpact": {
+            "type": "string"
+        },
+        "scheduleImpact": {
+            "type": "string"
+        },
+        "priority": {
+            "type": "string"
+        },
+        "discipline": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "category": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "reference": {
+            "type": "string"
+        },
+        "sheetMetadata": {
+            "type": "string"
+        },
+        "managerId": {
+            "type": "string"
+        },
+        "constructionManagerId": {
+            "type": "string"
+        },
+        "reviewers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    },
+                    "oxygenId": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "rfiTypeId": {
+            "type": "string"
+        },
+        "attachmentsCount": {
+            "type": "integer"
+        },
+        "commentsCount": {
+            "type": "integer"
+        },
+        "assignedTo": {
+            "type": "string"
+        },
+        "projectId": {
+            "type": "string"
+        },
+        "reviewerId": {
+            "type": "string"
+        },
+        "assignedToType": {
+            "type": "string"
+        }
+    }
+}

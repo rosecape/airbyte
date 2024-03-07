@@ -1,0 +1,85 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uuid"
+        },
+        "account_id": {
+            "type": "string",
+            "format": "uuid"
+        },
+        "name": {
+            "type": "string"
+        },
+        "start_date": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "end_date": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "value": {
+            "type": "number"
+        },
+        "currency": {
+            "type": "string"
+        },
+        "status": {
+            "type": "string"
+        },
+        "job_number": {
+            "type": "string"
+        },
+        "address_line_1": {
+            "type": "string"
+        },
+        "address_line_2": {
+            "type": "string"
+        },
+        "city": {
+            "type": "string"
+        },
+        "state_or_province": {
+            "type": "string"
+        },
+        "postal_code": {
+            "type": "string"
+        },
+        "country": {
+            "type": "string"
+        },
+        "business_unit_id": {
+            "type": "string",
+            "format": "uuid"
+        },
+        "created_at": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "updated_at": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "project_type": {
+            "type": "string"
+        },
+        "timezone": {
+            "type": "string"
+        },
+        "language": {
+            "type": "string"
+        },
+        "construction_type": {
+            "type": "string"
+        },
+        "contract_type": {
+            "type": "string"
+        },
+        "last_sign_in": {
+            "type": "string",
+            "format": "date-time"
+        }
+    }
+}

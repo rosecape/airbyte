@@ -1,0 +1,3307 @@
+{
+    "type": "RECORD",
+    "record": {
+        "stream": "projects",
+        "data": {
+            "jsonapi": {
+                "version": "1.0"
+            },
+            "links": {
+                "self": {
+                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects"
+                }
+            },
+            "data": [
+                {
+                    "type": "projects",
+                    "id": "b.b930cf02-40b7-4451-b4c4-52f4a1664839",
+                    "attributes": {
+                        "name": "3963 - Avril Repentigny",
+                        "scopes": [
+                            "b360project.b930cf02-40b7-4451-b4c4-52f4a1664839",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "BIM360"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.b930cf02-40b7-4451-b4c4-52f4a1664839"
+                        },
+                        "webView": {
+                            "href": "https://docs.b360.autodesk.com/projects/b930cf02-40b7-4451-b4c4-52f4a1664839"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.NVOmQf-QRKuOOM3OJHbamA"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.b930cf02-40b7-4451-b4c4-52f4a1664839/folders/urn:adsk.wipprod:fs.folder:co.NVOmQf-QRKuOOM3OJHbamA"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.b930cf02-40b7-4451-b4c4-52f4a1664839/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "b930cf02-40b7-4451-b4c4-52f4a1664839"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/b930cf02-40b7-4451-b4c4-52f4a1664839/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "b930cf02-40b7-4451-b4c4-52f4a1664839"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/b930cf02-40b7-4451-b4c4-52f4a1664839/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "b930cf02-40b7-4451-b4c4-52f4a1664839"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/b930cf02-40b7-4451-b4c4-52f4a1664839/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "b930cf02-40b7-4451-b4c4-52f4a1664839"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/b930cf02-40b7-4451-b4c4-52f4a1664839/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "b930cf02-40b7-4451-b4c4-52f4a1664839"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/b930cf02-40b7-4451-b4c4-52f4a1664839/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "b930cf02-40b7-4451-b4c4-52f4a1664839"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/b930cf02-40b7-4451-b4c4-52f4a1664839/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "b930cf02-40b7-4451-b4c4-52f4a1664839"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/b930cf02-40b7-4451-b4c4-52f4a1664839/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.8e1fe12c-c5a6-4822-b81c-f6c726f33fad",
+                    "attributes": {
+                        "name": "4002 - 134 Le Monarque",
+                        "scopes": [
+                            "b360project.8e1fe12c-c5a6-4822-b81c-f6c726f33fad",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "ACC"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.8e1fe12c-c5a6-4822-b81c-f6c726f33fad"
+                        },
+                        "webView": {
+                            "href": "https://acc.autodesk.com/docs/files/projects/8e1fe12c-c5a6-4822-b81c-f6c726f33fad"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.GvMSME2QR-mXvNJuwtm9LQ"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.8e1fe12c-c5a6-4822-b81c-f6c726f33fad/folders/urn:adsk.wipprod:fs.folder:co.GvMSME2QR-mXvNJuwtm9LQ"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.8e1fe12c-c5a6-4822-b81c-f6c726f33fad/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "8e1fe12c-c5a6-4822-b81c-f6c726f33fad"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/8e1fe12c-c5a6-4822-b81c-f6c726f33fad/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "8e1fe12c-c5a6-4822-b81c-f6c726f33fad"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/8e1fe12c-c5a6-4822-b81c-f6c726f33fad/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "8e1fe12c-c5a6-4822-b81c-f6c726f33fad"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/8e1fe12c-c5a6-4822-b81c-f6c726f33fad/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "8e1fe12c-c5a6-4822-b81c-f6c726f33fad"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/8e1fe12c-c5a6-4822-b81c-f6c726f33fad/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "8e1fe12c-c5a6-4822-b81c-f6c726f33fad"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/8e1fe12c-c5a6-4822-b81c-f6c726f33fad/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "8e1fe12c-c5a6-4822-b81c-f6c726f33fad"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/8e1fe12c-c5a6-4822-b81c-f6c726f33fad/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "8e1fe12c-c5a6-4822-b81c-f6c726f33fad"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/8e1fe12c-c5a6-4822-b81c-f6c726f33fad/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.980ec310-8e4f-4da4-9646-82f106ea9b54",
+                    "attributes": {
+                        "name": "Z - 3930 - Ecoparc (Archive)",
+                        "scopes": [
+                            "b360project.980ec310-8e4f-4da4-9646-82f106ea9b54",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "BIM360"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.980ec310-8e4f-4da4-9646-82f106ea9b54"
+                        },
+                        "webView": {
+                            "href": "https://docs.b360.autodesk.com/projects/980ec310-8e4f-4da4-9646-82f106ea9b54"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.5JI7RVmVTCS-cYne8KuMHA"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.980ec310-8e4f-4da4-9646-82f106ea9b54/folders/urn:adsk.wipprod:fs.folder:co.5JI7RVmVTCS-cYne8KuMHA"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.980ec310-8e4f-4da4-9646-82f106ea9b54/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "980ec310-8e4f-4da4-9646-82f106ea9b54"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/980ec310-8e4f-4da4-9646-82f106ea9b54/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "980ec310-8e4f-4da4-9646-82f106ea9b54"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/980ec310-8e4f-4da4-9646-82f106ea9b54/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "980ec310-8e4f-4da4-9646-82f106ea9b54"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/980ec310-8e4f-4da4-9646-82f106ea9b54/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "980ec310-8e4f-4da4-9646-82f106ea9b54"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/980ec310-8e4f-4da4-9646-82f106ea9b54/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "980ec310-8e4f-4da4-9646-82f106ea9b54"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/980ec310-8e4f-4da4-9646-82f106ea9b54/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "980ec310-8e4f-4da4-9646-82f106ea9b54"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/980ec310-8e4f-4da4-9646-82f106ea9b54/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "980ec310-8e4f-4da4-9646-82f106ea9b54"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/980ec310-8e4f-4da4-9646-82f106ea9b54/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.320c52e3-4966-47db-8c2d-66e8f69b891c",
+                    "attributes": {
+                        "name": "3906 - 116 Logements",
+                        "scopes": [
+                            "b360project.320c52e3-4966-47db-8c2d-66e8f69b891c",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "BIM360"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.320c52e3-4966-47db-8c2d-66e8f69b891c"
+                        },
+                        "webView": {
+                            "href": "https://docs.b360.autodesk.com/projects/320c52e3-4966-47db-8c2d-66e8f69b891c"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.OuSzdsvuSvO47VPWJbsDjQ"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.320c52e3-4966-47db-8c2d-66e8f69b891c/folders/urn:adsk.wipprod:fs.folder:co.OuSzdsvuSvO47VPWJbsDjQ"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.320c52e3-4966-47db-8c2d-66e8f69b891c/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "320c52e3-4966-47db-8c2d-66e8f69b891c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/320c52e3-4966-47db-8c2d-66e8f69b891c/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "320c52e3-4966-47db-8c2d-66e8f69b891c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/320c52e3-4966-47db-8c2d-66e8f69b891c/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "320c52e3-4966-47db-8c2d-66e8f69b891c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/320c52e3-4966-47db-8c2d-66e8f69b891c/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "320c52e3-4966-47db-8c2d-66e8f69b891c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/320c52e3-4966-47db-8c2d-66e8f69b891c/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "320c52e3-4966-47db-8c2d-66e8f69b891c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/320c52e3-4966-47db-8c2d-66e8f69b891c/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "320c52e3-4966-47db-8c2d-66e8f69b891c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/320c52e3-4966-47db-8c2d-66e8f69b891c/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "320c52e3-4966-47db-8c2d-66e8f69b891c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/320c52e3-4966-47db-8c2d-66e8f69b891c/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.3d7fa082-a351-4ce0-b588-62d057db6ad4",
+                    "attributes": {
+                        "name": "3910 - CRL - Phase 2B",
+                        "scopes": [
+                            "b360project.3d7fa082-a351-4ce0-b588-62d057db6ad4",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "BIM360"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.3d7fa082-a351-4ce0-b588-62d057db6ad4"
+                        },
+                        "webView": {
+                            "href": "https://docs.b360.autodesk.com/projects/3d7fa082-a351-4ce0-b588-62d057db6ad4"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.OqyAmXEARVmQ3IlfxHOx8A"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.3d7fa082-a351-4ce0-b588-62d057db6ad4/folders/urn:adsk.wipprod:fs.folder:co.OqyAmXEARVmQ3IlfxHOx8A"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.3d7fa082-a351-4ce0-b588-62d057db6ad4/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "3d7fa082-a351-4ce0-b588-62d057db6ad4"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/3d7fa082-a351-4ce0-b588-62d057db6ad4/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "3d7fa082-a351-4ce0-b588-62d057db6ad4"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/3d7fa082-a351-4ce0-b588-62d057db6ad4/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "3d7fa082-a351-4ce0-b588-62d057db6ad4"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/3d7fa082-a351-4ce0-b588-62d057db6ad4/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "3d7fa082-a351-4ce0-b588-62d057db6ad4"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/3d7fa082-a351-4ce0-b588-62d057db6ad4/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "3d7fa082-a351-4ce0-b588-62d057db6ad4"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/3d7fa082-a351-4ce0-b588-62d057db6ad4/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "3d7fa082-a351-4ce0-b588-62d057db6ad4"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/3d7fa082-a351-4ce0-b588-62d057db6ad4/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "3d7fa082-a351-4ce0-b588-62d057db6ad4"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/3d7fa082-a351-4ce0-b588-62d057db6ad4/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.709fbc42-61f3-45a4-8258-e22e87024ff8",
+                    "attributes": {
+                        "name": "3942 - IGA Farnham",
+                        "scopes": [
+                            "b360project.709fbc42-61f3-45a4-8258-e22e87024ff8",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "ACC"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.709fbc42-61f3-45a4-8258-e22e87024ff8"
+                        },
+                        "webView": {
+                            "href": "https://acc.autodesk.com/docs/files/projects/709fbc42-61f3-45a4-8258-e22e87024ff8"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.4SNydkRDQqSBySvbWVtoJQ"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.709fbc42-61f3-45a4-8258-e22e87024ff8/folders/urn:adsk.wipprod:fs.folder:co.4SNydkRDQqSBySvbWVtoJQ"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.709fbc42-61f3-45a4-8258-e22e87024ff8/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "709fbc42-61f3-45a4-8258-e22e87024ff8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/709fbc42-61f3-45a4-8258-e22e87024ff8/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "709fbc42-61f3-45a4-8258-e22e87024ff8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/709fbc42-61f3-45a4-8258-e22e87024ff8/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "709fbc42-61f3-45a4-8258-e22e87024ff8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/709fbc42-61f3-45a4-8258-e22e87024ff8/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "709fbc42-61f3-45a4-8258-e22e87024ff8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/709fbc42-61f3-45a4-8258-e22e87024ff8/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "709fbc42-61f3-45a4-8258-e22e87024ff8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/709fbc42-61f3-45a4-8258-e22e87024ff8/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "709fbc42-61f3-45a4-8258-e22e87024ff8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/709fbc42-61f3-45a4-8258-e22e87024ff8/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "709fbc42-61f3-45a4-8258-e22e87024ff8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/709fbc42-61f3-45a4-8258-e22e87024ff8/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.f4a8c618-1737-4b31-80ed-3ea6233bd588",
+                    "attributes": {
+                        "name": "4007 - Veralex",
+                        "scopes": [
+                            "b360project.f4a8c618-1737-4b31-80ed-3ea6233bd588",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "ACC"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.f4a8c618-1737-4b31-80ed-3ea6233bd588"
+                        },
+                        "webView": {
+                            "href": "https://acc.autodesk.com/docs/files/projects/f4a8c618-1737-4b31-80ed-3ea6233bd588"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.kOoJRRppTwm68i-T21Wy_g"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.f4a8c618-1737-4b31-80ed-3ea6233bd588/folders/urn:adsk.wipprod:fs.folder:co.kOoJRRppTwm68i-T21Wy_g"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.f4a8c618-1737-4b31-80ed-3ea6233bd588/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "f4a8c618-1737-4b31-80ed-3ea6233bd588"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/f4a8c618-1737-4b31-80ed-3ea6233bd588/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "f4a8c618-1737-4b31-80ed-3ea6233bd588"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/f4a8c618-1737-4b31-80ed-3ea6233bd588/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "f4a8c618-1737-4b31-80ed-3ea6233bd588"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/f4a8c618-1737-4b31-80ed-3ea6233bd588/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "f4a8c618-1737-4b31-80ed-3ea6233bd588"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/f4a8c618-1737-4b31-80ed-3ea6233bd588/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "f4a8c618-1737-4b31-80ed-3ea6233bd588"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/f4a8c618-1737-4b31-80ed-3ea6233bd588/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "f4a8c618-1737-4b31-80ed-3ea6233bd588"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/f4a8c618-1737-4b31-80ed-3ea6233bd588/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "f4a8c618-1737-4b31-80ed-3ea6233bd588"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/f4a8c618-1737-4b31-80ed-3ea6233bd588/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.f25729d6-7085-4ec9-bf3b-08377589a1cf",
+                    "attributes": {
+                        "name": "3950 - Carrefour du Savoir (Z9) - UdeS",
+                        "scopes": [
+                            "b360project.f25729d6-7085-4ec9-bf3b-08377589a1cf",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "BIM360"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.f25729d6-7085-4ec9-bf3b-08377589a1cf"
+                        },
+                        "webView": {
+                            "href": "https://docs.b360.autodesk.com/projects/f25729d6-7085-4ec9-bf3b-08377589a1cf"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.wE5DB4ZDSPOqgH81OK9d3Q"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.f25729d6-7085-4ec9-bf3b-08377589a1cf/folders/urn:adsk.wipprod:fs.folder:co.wE5DB4ZDSPOqgH81OK9d3Q"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.f25729d6-7085-4ec9-bf3b-08377589a1cf/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "f25729d6-7085-4ec9-bf3b-08377589a1cf"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/f25729d6-7085-4ec9-bf3b-08377589a1cf/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "f25729d6-7085-4ec9-bf3b-08377589a1cf"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/f25729d6-7085-4ec9-bf3b-08377589a1cf/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "f25729d6-7085-4ec9-bf3b-08377589a1cf"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/f25729d6-7085-4ec9-bf3b-08377589a1cf/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "f25729d6-7085-4ec9-bf3b-08377589a1cf"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/f25729d6-7085-4ec9-bf3b-08377589a1cf/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "f25729d6-7085-4ec9-bf3b-08377589a1cf"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/f25729d6-7085-4ec9-bf3b-08377589a1cf/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "f25729d6-7085-4ec9-bf3b-08377589a1cf"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/f25729d6-7085-4ec9-bf3b-08377589a1cf/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "f25729d6-7085-4ec9-bf3b-08377589a1cf"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/f25729d6-7085-4ec9-bf3b-08377589a1cf/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.ae2fda84-5c79-42bd-84fa-9437e200d08c",
+                    "attributes": {
+                        "name": "9900 - Construction Longer",
+                        "scopes": [
+                            "b360project.ae2fda84-5c79-42bd-84fa-9437e200d08c",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "ACC"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.ae2fda84-5c79-42bd-84fa-9437e200d08c"
+                        },
+                        "webView": {
+                            "href": "https://acc.autodesk.com/docs/files/projects/ae2fda84-5c79-42bd-84fa-9437e200d08c"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.d-cNuHZoQquMDQk7ZeO5XA"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.ae2fda84-5c79-42bd-84fa-9437e200d08c/folders/urn:adsk.wipprod:fs.folder:co.d-cNuHZoQquMDQk7ZeO5XA"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.ae2fda84-5c79-42bd-84fa-9437e200d08c/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "ae2fda84-5c79-42bd-84fa-9437e200d08c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/ae2fda84-5c79-42bd-84fa-9437e200d08c/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "ae2fda84-5c79-42bd-84fa-9437e200d08c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/ae2fda84-5c79-42bd-84fa-9437e200d08c/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "ae2fda84-5c79-42bd-84fa-9437e200d08c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/ae2fda84-5c79-42bd-84fa-9437e200d08c/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "ae2fda84-5c79-42bd-84fa-9437e200d08c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/ae2fda84-5c79-42bd-84fa-9437e200d08c/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "ae2fda84-5c79-42bd-84fa-9437e200d08c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/ae2fda84-5c79-42bd-84fa-9437e200d08c/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "ae2fda84-5c79-42bd-84fa-9437e200d08c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/ae2fda84-5c79-42bd-84fa-9437e200d08c/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "ae2fda84-5c79-42bd-84fa-9437e200d08c"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/ae2fda84-5c79-42bd-84fa-9437e200d08c/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7",
+                    "attributes": {
+                        "name": "3900 - UdeS - PSPRT(Z10)",
+                        "scopes": [
+                            "b360project.6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "BIM360"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7"
+                        },
+                        "webView": {
+                            "href": "https://docs.b360.autodesk.com/projects/6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.VRw1Zw0wRmOuC1nfDIQ3PA"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7/folders/urn:adsk.wipprod:fs.folder:co.VRw1Zw0wRmOuC1nfDIQ3PA"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/6b4d28ba-90b2-4ea3-a3ce-5c71c09e8cd7/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.9fe46ce8-379d-43c6-9dae-1266dfdcdf1b",
+                    "attributes": {
+                        "name": "S-34165 - Home Hardware",
+                        "scopes": [
+                            "b360project.9fe46ce8-379d-43c6-9dae-1266dfdcdf1b",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "BIM360"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.9fe46ce8-379d-43c6-9dae-1266dfdcdf1b"
+                        },
+                        "webView": {
+                            "href": "https://docs.b360.autodesk.com/projects/9fe46ce8-379d-43c6-9dae-1266dfdcdf1b"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.rwdTkKmMR6a0AnruinMn7w"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.9fe46ce8-379d-43c6-9dae-1266dfdcdf1b/folders/urn:adsk.wipprod:fs.folder:co.rwdTkKmMR6a0AnruinMn7w"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.9fe46ce8-379d-43c6-9dae-1266dfdcdf1b/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "9fe46ce8-379d-43c6-9dae-1266dfdcdf1b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/9fe46ce8-379d-43c6-9dae-1266dfdcdf1b/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "9fe46ce8-379d-43c6-9dae-1266dfdcdf1b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/9fe46ce8-379d-43c6-9dae-1266dfdcdf1b/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "9fe46ce8-379d-43c6-9dae-1266dfdcdf1b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/9fe46ce8-379d-43c6-9dae-1266dfdcdf1b/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "9fe46ce8-379d-43c6-9dae-1266dfdcdf1b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/9fe46ce8-379d-43c6-9dae-1266dfdcdf1b/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "9fe46ce8-379d-43c6-9dae-1266dfdcdf1b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/9fe46ce8-379d-43c6-9dae-1266dfdcdf1b/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "9fe46ce8-379d-43c6-9dae-1266dfdcdf1b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/9fe46ce8-379d-43c6-9dae-1266dfdcdf1b/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "9fe46ce8-379d-43c6-9dae-1266dfdcdf1b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/9fe46ce8-379d-43c6-9dae-1266dfdcdf1b/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.1e637e0e-f09b-4e2e-bb47-1e1df0ddf904",
+                    "attributes": {
+                        "name": "4081 - Maxi Acton Vale ",
+                        "scopes": [
+                            "b360project.1e637e0e-f09b-4e2e-bb47-1e1df0ddf904",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "ACC"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.1e637e0e-f09b-4e2e-bb47-1e1df0ddf904"
+                        },
+                        "webView": {
+                            "href": "https://acc.autodesk.com/docs/files/projects/1e637e0e-f09b-4e2e-bb47-1e1df0ddf904"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.qVSCYi9XRp6aHrrR08hxiA"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.1e637e0e-f09b-4e2e-bb47-1e1df0ddf904/folders/urn:adsk.wipprod:fs.folder:co.qVSCYi9XRp6aHrrR08hxiA"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.1e637e0e-f09b-4e2e-bb47-1e1df0ddf904/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "1e637e0e-f09b-4e2e-bb47-1e1df0ddf904"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/1e637e0e-f09b-4e2e-bb47-1e1df0ddf904/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "1e637e0e-f09b-4e2e-bb47-1e1df0ddf904"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/1e637e0e-f09b-4e2e-bb47-1e1df0ddf904/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "1e637e0e-f09b-4e2e-bb47-1e1df0ddf904"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/1e637e0e-f09b-4e2e-bb47-1e1df0ddf904/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "1e637e0e-f09b-4e2e-bb47-1e1df0ddf904"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/1e637e0e-f09b-4e2e-bb47-1e1df0ddf904/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "1e637e0e-f09b-4e2e-bb47-1e1df0ddf904"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/1e637e0e-f09b-4e2e-bb47-1e1df0ddf904/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "1e637e0e-f09b-4e2e-bb47-1e1df0ddf904"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/1e637e0e-f09b-4e2e-bb47-1e1df0ddf904/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "1e637e0e-f09b-4e2e-bb47-1e1df0ddf904"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/1e637e0e-f09b-4e2e-bb47-1e1df0ddf904/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.4404a344-5126-421c-b72e-249476fd5747",
+                    "attributes": {
+                        "name": "4000 - STEP Magog Lot 1B",
+                        "scopes": [
+                            "b360project.4404a344-5126-421c-b72e-249476fd5747",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "ACC"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.4404a344-5126-421c-b72e-249476fd5747"
+                        },
+                        "webView": {
+                            "href": "https://acc.autodesk.com/docs/files/projects/4404a344-5126-421c-b72e-249476fd5747"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.gOQI1zjRQRqUcH5eYN0Owg"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.4404a344-5126-421c-b72e-249476fd5747/folders/urn:adsk.wipprod:fs.folder:co.gOQI1zjRQRqUcH5eYN0Owg"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.4404a344-5126-421c-b72e-249476fd5747/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "4404a344-5126-421c-b72e-249476fd5747"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/4404a344-5126-421c-b72e-249476fd5747/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "4404a344-5126-421c-b72e-249476fd5747"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/4404a344-5126-421c-b72e-249476fd5747/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "4404a344-5126-421c-b72e-249476fd5747"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/4404a344-5126-421c-b72e-249476fd5747/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "4404a344-5126-421c-b72e-249476fd5747"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/4404a344-5126-421c-b72e-249476fd5747/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "4404a344-5126-421c-b72e-249476fd5747"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/4404a344-5126-421c-b72e-249476fd5747/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "4404a344-5126-421c-b72e-249476fd5747"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/4404a344-5126-421c-b72e-249476fd5747/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "4404a344-5126-421c-b72e-249476fd5747"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/4404a344-5126-421c-b72e-249476fd5747/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.f100ee51-f04b-42f8-8024-8255446ad6a1",
+                    "attributes": {
+                        "name": "G000_ACC_Gabarit",
+                        "scopes": [
+                            "b360project.f100ee51-f04b-42f8-8024-8255446ad6a1",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "ACC"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.f100ee51-f04b-42f8-8024-8255446ad6a1"
+                        },
+                        "webView": {
+                            "href": "https://acc.autodesk.com/docs/files/projects/f100ee51-f04b-42f8-8024-8255446ad6a1"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.dcMdpOHOS8201yyesWp6qA"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.f100ee51-f04b-42f8-8024-8255446ad6a1/folders/urn:adsk.wipprod:fs.folder:co.dcMdpOHOS8201yyesWp6qA"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.f100ee51-f04b-42f8-8024-8255446ad6a1/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "f100ee51-f04b-42f8-8024-8255446ad6a1"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/f100ee51-f04b-42f8-8024-8255446ad6a1/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "f100ee51-f04b-42f8-8024-8255446ad6a1"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/f100ee51-f04b-42f8-8024-8255446ad6a1/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "f100ee51-f04b-42f8-8024-8255446ad6a1"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/f100ee51-f04b-42f8-8024-8255446ad6a1/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "f100ee51-f04b-42f8-8024-8255446ad6a1"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/f100ee51-f04b-42f8-8024-8255446ad6a1/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "f100ee51-f04b-42f8-8024-8255446ad6a1"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/f100ee51-f04b-42f8-8024-8255446ad6a1/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "f100ee51-f04b-42f8-8024-8255446ad6a1"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/f100ee51-f04b-42f8-8024-8255446ad6a1/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "f100ee51-f04b-42f8-8024-8255446ad6a1"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/f100ee51-f04b-42f8-8024-8255446ad6a1/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef",
+                    "attributes": {
+                        "name": "G000_BIM360_Gabarit_DesignBuild",
+                        "scopes": [
+                            "b360project.fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "BIM360"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef"
+                        },
+                        "webView": {
+                            "href": "https://docs.b360.autodesk.com/projects/fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.gt92WhAtQna0n4yP7iXclg"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef/folders/urn:adsk.wipprod:fs.folder:co.gt92WhAtQna0n4yP7iXclg"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/fbbe1f1a-dd2f-4d3f-aca9-ede72c9773ef/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.d7718deb-a4fe-4121-b204-ed6ca8ff75e8",
+                    "attributes": {
+                        "name": "Z000_ACC_Sandbox_CostManagement",
+                        "scopes": [
+                            "b360project.d7718deb-a4fe-4121-b204-ed6ca8ff75e8",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "ACC"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.d7718deb-a4fe-4121-b204-ed6ca8ff75e8"
+                        },
+                        "webView": {
+                            "href": "https://acc.autodesk.com/docs/files/projects/d7718deb-a4fe-4121-b204-ed6ca8ff75e8"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.nBH7WSbuQrCqD8-P6JsJFA"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.d7718deb-a4fe-4121-b204-ed6ca8ff75e8/folders/urn:adsk.wipprod:fs.folder:co.nBH7WSbuQrCqD8-P6JsJFA"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.d7718deb-a4fe-4121-b204-ed6ca8ff75e8/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "d7718deb-a4fe-4121-b204-ed6ca8ff75e8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/d7718deb-a4fe-4121-b204-ed6ca8ff75e8/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "d7718deb-a4fe-4121-b204-ed6ca8ff75e8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/d7718deb-a4fe-4121-b204-ed6ca8ff75e8/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "d7718deb-a4fe-4121-b204-ed6ca8ff75e8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/d7718deb-a4fe-4121-b204-ed6ca8ff75e8/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "d7718deb-a4fe-4121-b204-ed6ca8ff75e8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/d7718deb-a4fe-4121-b204-ed6ca8ff75e8/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "d7718deb-a4fe-4121-b204-ed6ca8ff75e8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/d7718deb-a4fe-4121-b204-ed6ca8ff75e8/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "d7718deb-a4fe-4121-b204-ed6ca8ff75e8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/d7718deb-a4fe-4121-b204-ed6ca8ff75e8/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "d7718deb-a4fe-4121-b204-ed6ca8ff75e8"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/d7718deb-a4fe-4121-b204-ed6ca8ff75e8/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.1c92e7f9-49a7-453e-9094-150fea62b10e",
+                    "attributes": {
+                        "name": "G000_BIM360_Gabarit_Gestion",
+                        "scopes": [
+                            "b360project.1c92e7f9-49a7-453e-9094-150fea62b10e",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "BIM360"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.1c92e7f9-49a7-453e-9094-150fea62b10e"
+                        },
+                        "webView": {
+                            "href": "https://docs.b360.autodesk.com/projects/1c92e7f9-49a7-453e-9094-150fea62b10e"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.tvRuQanjQIyaOsnCDbEL9Q"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.1c92e7f9-49a7-453e-9094-150fea62b10e/folders/urn:adsk.wipprod:fs.folder:co.tvRuQanjQIyaOsnCDbEL9Q"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.1c92e7f9-49a7-453e-9094-150fea62b10e/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "1c92e7f9-49a7-453e-9094-150fea62b10e"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/1c92e7f9-49a7-453e-9094-150fea62b10e/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "1c92e7f9-49a7-453e-9094-150fea62b10e"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/1c92e7f9-49a7-453e-9094-150fea62b10e/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "1c92e7f9-49a7-453e-9094-150fea62b10e"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/1c92e7f9-49a7-453e-9094-150fea62b10e/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "1c92e7f9-49a7-453e-9094-150fea62b10e"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/1c92e7f9-49a7-453e-9094-150fea62b10e/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "1c92e7f9-49a7-453e-9094-150fea62b10e"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/1c92e7f9-49a7-453e-9094-150fea62b10e/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "1c92e7f9-49a7-453e-9094-150fea62b10e"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/1c92e7f9-49a7-453e-9094-150fea62b10e/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "1c92e7f9-49a7-453e-9094-150fea62b10e"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/1c92e7f9-49a7-453e-9094-150fea62b10e/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.e9451108-90de-4a84-868e-5d1e094e346b",
+                    "attributes": {
+                        "name": "Z000_ACC_SampleProject",
+                        "scopes": [
+                            "b360project.e9451108-90de-4a84-868e-5d1e094e346b",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "ACC"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.e9451108-90de-4a84-868e-5d1e094e346b"
+                        },
+                        "webView": {
+                            "href": "https://acc.autodesk.com/docs/files/projects/e9451108-90de-4a84-868e-5d1e094e346b"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.z8GCy-5mRgqoZh4fC9U7kQ"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.e9451108-90de-4a84-868e-5d1e094e346b/folders/urn:adsk.wipprod:fs.folder:co.z8GCy-5mRgqoZh4fC9U7kQ"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.e9451108-90de-4a84-868e-5d1e094e346b/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "e9451108-90de-4a84-868e-5d1e094e346b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/e9451108-90de-4a84-868e-5d1e094e346b/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "e9451108-90de-4a84-868e-5d1e094e346b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/e9451108-90de-4a84-868e-5d1e094e346b/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "e9451108-90de-4a84-868e-5d1e094e346b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/e9451108-90de-4a84-868e-5d1e094e346b/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "e9451108-90de-4a84-868e-5d1e094e346b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/e9451108-90de-4a84-868e-5d1e094e346b/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "e9451108-90de-4a84-868e-5d1e094e346b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/e9451108-90de-4a84-868e-5d1e094e346b/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "e9451108-90de-4a84-868e-5d1e094e346b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/e9451108-90de-4a84-868e-5d1e094e346b/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "e9451108-90de-4a84-868e-5d1e094e346b"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/e9451108-90de-4a84-868e-5d1e094e346b/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.fd87d2af-94a1-4f6e-a2a4-bad1571ce835",
+                    "attributes": {
+                        "name": "Z000_BIM360_Sandbox",
+                        "scopes": [
+                            "b360project.fd87d2af-94a1-4f6e-a2a4-bad1571ce835",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "BIM360"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.fd87d2af-94a1-4f6e-a2a4-bad1571ce835"
+                        },
+                        "webView": {
+                            "href": "https://docs.b360.autodesk.com/projects/fd87d2af-94a1-4f6e-a2a4-bad1571ce835"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.8iMetVOdQiG8mW5E0rglgA"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.fd87d2af-94a1-4f6e-a2a4-bad1571ce835/folders/urn:adsk.wipprod:fs.folder:co.8iMetVOdQiG8mW5E0rglgA"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.fd87d2af-94a1-4f6e-a2a4-bad1571ce835/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "fd87d2af-94a1-4f6e-a2a4-bad1571ce835"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/fd87d2af-94a1-4f6e-a2a4-bad1571ce835/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "fd87d2af-94a1-4f6e-a2a4-bad1571ce835"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/fd87d2af-94a1-4f6e-a2a4-bad1571ce835/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "fd87d2af-94a1-4f6e-a2a4-bad1571ce835"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/fd87d2af-94a1-4f6e-a2a4-bad1571ce835/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "fd87d2af-94a1-4f6e-a2a4-bad1571ce835"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/fd87d2af-94a1-4f6e-a2a4-bad1571ce835/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "fd87d2af-94a1-4f6e-a2a4-bad1571ce835"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/fd87d2af-94a1-4f6e-a2a4-bad1571ce835/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "fd87d2af-94a1-4f6e-a2a4-bad1571ce835"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/fd87d2af-94a1-4f6e-a2a4-bad1571ce835/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "fd87d2af-94a1-4f6e-a2a4-bad1571ce835"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/fd87d2af-94a1-4f6e-a2a4-bad1571ce835/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.92db1a33-157b-4295-8cc6-f7f37ac00cec",
+                    "attributes": {
+                        "name": "3985 - R\u00e9sidence Deneault-McCarthy",
+                        "scopes": [
+                            "b360project.92db1a33-157b-4295-8cc6-f7f37ac00cec",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "BIM360"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.92db1a33-157b-4295-8cc6-f7f37ac00cec"
+                        },
+                        "webView": {
+                            "href": "https://docs.b360.autodesk.com/projects/92db1a33-157b-4295-8cc6-f7f37ac00cec"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.zHSDWa0RTkiNCK6rsrERRw"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.92db1a33-157b-4295-8cc6-f7f37ac00cec/folders/urn:adsk.wipprod:fs.folder:co.zHSDWa0RTkiNCK6rsrERRw"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.92db1a33-157b-4295-8cc6-f7f37ac00cec/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "92db1a33-157b-4295-8cc6-f7f37ac00cec"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/92db1a33-157b-4295-8cc6-f7f37ac00cec/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "92db1a33-157b-4295-8cc6-f7f37ac00cec"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/92db1a33-157b-4295-8cc6-f7f37ac00cec/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "92db1a33-157b-4295-8cc6-f7f37ac00cec"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/92db1a33-157b-4295-8cc6-f7f37ac00cec/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "92db1a33-157b-4295-8cc6-f7f37ac00cec"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/92db1a33-157b-4295-8cc6-f7f37ac00cec/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "92db1a33-157b-4295-8cc6-f7f37ac00cec"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/92db1a33-157b-4295-8cc6-f7f37ac00cec/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "92db1a33-157b-4295-8cc6-f7f37ac00cec"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/92db1a33-157b-4295-8cc6-f7f37ac00cec/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "92db1a33-157b-4295-8cc6-f7f37ac00cec"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/92db1a33-157b-4295-8cc6-f7f37ac00cec/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.1b46197c-f000-4f4c-a2a6-7d094145a496",
+                    "attributes": {
+                        "name": "Z000_ACC_Formation",
+                        "scopes": [
+                            "b360project.1b46197c-f000-4f4c-a2a6-7d094145a496",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "ACC"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.1b46197c-f000-4f4c-a2a6-7d094145a496"
+                        },
+                        "webView": {
+                            "href": "https://acc.autodesk.com/docs/files/projects/1b46197c-f000-4f4c-a2a6-7d094145a496"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.E6e59czbROWlUtzk9W6M4w"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.1b46197c-f000-4f4c-a2a6-7d094145a496/folders/urn:adsk.wipprod:fs.folder:co.E6e59czbROWlUtzk9W6M4w"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.1b46197c-f000-4f4c-a2a6-7d094145a496/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "1b46197c-f000-4f4c-a2a6-7d094145a496"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/1b46197c-f000-4f4c-a2a6-7d094145a496/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "1b46197c-f000-4f4c-a2a6-7d094145a496"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/1b46197c-f000-4f4c-a2a6-7d094145a496/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "1b46197c-f000-4f4c-a2a6-7d094145a496"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/1b46197c-f000-4f4c-a2a6-7d094145a496/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "1b46197c-f000-4f4c-a2a6-7d094145a496"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/1b46197c-f000-4f4c-a2a6-7d094145a496/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "1b46197c-f000-4f4c-a2a6-7d094145a496"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/1b46197c-f000-4f4c-a2a6-7d094145a496/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "1b46197c-f000-4f4c-a2a6-7d094145a496"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/1b46197c-f000-4f4c-a2a6-7d094145a496/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "1b46197c-f000-4f4c-a2a6-7d094145a496"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/1b46197c-f000-4f4c-a2a6-7d094145a496/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.a7a1a62b-090e-4590-a124-72186fe65f10",
+                    "attributes": {
+                        "name": "3943 - Local commercial Farnham",
+                        "scopes": [
+                            "b360project.a7a1a62b-090e-4590-a124-72186fe65f10",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "ACC"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.a7a1a62b-090e-4590-a124-72186fe65f10"
+                        },
+                        "webView": {
+                            "href": "https://acc.autodesk.com/docs/files/projects/a7a1a62b-090e-4590-a124-72186fe65f10"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co._qABnVm2TY2gdkXEwADExA"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.a7a1a62b-090e-4590-a124-72186fe65f10/folders/urn:adsk.wipprod:fs.folder:co._qABnVm2TY2gdkXEwADExA"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.a7a1a62b-090e-4590-a124-72186fe65f10/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "a7a1a62b-090e-4590-a124-72186fe65f10"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/a7a1a62b-090e-4590-a124-72186fe65f10/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "a7a1a62b-090e-4590-a124-72186fe65f10"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/a7a1a62b-090e-4590-a124-72186fe65f10/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "a7a1a62b-090e-4590-a124-72186fe65f10"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/a7a1a62b-090e-4590-a124-72186fe65f10/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "a7a1a62b-090e-4590-a124-72186fe65f10"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/a7a1a62b-090e-4590-a124-72186fe65f10/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "a7a1a62b-090e-4590-a124-72186fe65f10"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/a7a1a62b-090e-4590-a124-72186fe65f10/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "a7a1a62b-090e-4590-a124-72186fe65f10"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/a7a1a62b-090e-4590-a124-72186fe65f10/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "a7a1a62b-090e-4590-a124-72186fe65f10"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/a7a1a62b-090e-4590-a124-72186fe65f10/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.60578c31-383e-4288-9c68-5739e3f0c120",
+                    "attributes": {
+                        "name": "3945 - Cuisine Id\u00e9ale",
+                        "scopes": [
+                            "b360project.60578c31-383e-4288-9c68-5739e3f0c120",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "BIM360"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.60578c31-383e-4288-9c68-5739e3f0c120"
+                        },
+                        "webView": {
+                            "href": "https://docs.b360.autodesk.com/projects/60578c31-383e-4288-9c68-5739e3f0c120"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.HwiZAPe2SzW5BqOIT_duzg"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.60578c31-383e-4288-9c68-5739e3f0c120/folders/urn:adsk.wipprod:fs.folder:co.HwiZAPe2SzW5BqOIT_duzg"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.60578c31-383e-4288-9c68-5739e3f0c120/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "60578c31-383e-4288-9c68-5739e3f0c120"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/60578c31-383e-4288-9c68-5739e3f0c120/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "60578c31-383e-4288-9c68-5739e3f0c120"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/60578c31-383e-4288-9c68-5739e3f0c120/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "60578c31-383e-4288-9c68-5739e3f0c120"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/60578c31-383e-4288-9c68-5739e3f0c120/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "60578c31-383e-4288-9c68-5739e3f0c120"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/60578c31-383e-4288-9c68-5739e3f0c120/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "60578c31-383e-4288-9c68-5739e3f0c120"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/60578c31-383e-4288-9c68-5739e3f0c120/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "60578c31-383e-4288-9c68-5739e3f0c120"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/60578c31-383e-4288-9c68-5739e3f0c120/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "60578c31-383e-4288-9c68-5739e3f0c120"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/60578c31-383e-4288-9c68-5739e3f0c120/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "projects",
+                    "id": "b.6414f858-b599-43c2-9f6c-575a697cfe27",
+                    "attributes": {
+                        "name": "9000_Test_OuvertureACC",
+                        "scopes": [
+                            "b360project.6414f858-b599-43c2-9f6c-575a697cfe27",
+                            "O2tenant.27585214"
+                        ],
+                        "extension": {
+                            "type": "projects:autodesk.bim360:Project",
+                            "version": "1.0",
+                            "schema": {
+                                "href": "https://developer.api.autodesk.com/schema/v1/versions/projects:autodesk.bim360:Project-1.0"
+                            },
+                            "data": {
+                                "projectType": "ACC"
+                            }
+                        }
+                    },
+                    "links": {
+                        "self": {
+                            "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.6414f858-b599-43c2-9f6c-575a697cfe27"
+                        },
+                        "webView": {
+                            "href": "https://acc.autodesk.com/docs/files/projects/6414f858-b599-43c2-9f6c-575a697cfe27"
+                        }
+                    },
+                    "relationships": {
+                        "hub": {
+                            "data": {
+                                "type": "hubs",
+                                "id": "b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                            },
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837"
+                                }
+                            }
+                        },
+                        "rootFolder": {
+                            "data": {
+                                "type": "folders",
+                                "id": "urn:adsk.wipprod:fs.folder:co.Y0O0pYVvT-qhvR1nJXDknw"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/data/v1/projects/b.6414f858-b599-43c2-9f6c-575a697cfe27/folders/urn:adsk.wipprod:fs.folder:co.Y0O0pYVvT-qhvR1nJXDknw"
+                                }
+                            }
+                        },
+                        "topFolders": {
+                            "links": {
+                                "related": {
+                                    "href": "https://developer.api.autodesk.com/project/v1/hubs/b.57a62d1e-af7b-4560-9abb-fca3e9bb1837/projects/b.6414f858-b599-43c2-9f6c-575a697cfe27/topFolders"
+                                }
+                            }
+                        },
+                        "issues": {
+                            "data": {
+                                "type": "issueContainerId",
+                                "id": "6414f858-b599-43c2-9f6c-575a697cfe27"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/6414f858-b599-43c2-9f6c-575a697cfe27/issues"
+                                }
+                            }
+                        },
+                        "submittals": {
+                            "data": {
+                                "type": "submittalContainerId",
+                                "id": "6414f858-b599-43c2-9f6c-575a697cfe27"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/submittals/v1/containers/6414f858-b599-43c2-9f6c-575a697cfe27/items"
+                                }
+                            }
+                        },
+                        "rfis": {
+                            "data": {
+                                "type": "rfisContainerId",
+                                "id": "6414f858-b599-43c2-9f6c-575a697cfe27"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/rfis/v1/containers/6414f858-b599-43c2-9f6c-575a697cfe27/rfis"
+                                }
+                            }
+                        },
+                        "markups": {
+                            "data": {
+                                "type": "markupsContainerId",
+                                "id": "6414f858-b599-43c2-9f6c-575a697cfe27"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/issues/v1/containers/6414f858-b599-43c2-9f6c-575a697cfe27/markups"
+                                }
+                            }
+                        },
+                        "checklists": {
+                            "data": {
+                                "type": "checklistsContainerId",
+                                "id": "6414f858-b599-43c2-9f6c-575a697cfe27"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/checklists/v1/containers/6414f858-b599-43c2-9f6c-575a697cfe27/instances"
+                                }
+                            }
+                        },
+                        "cost": {
+                            "data": {
+                                "type": "costContainerId",
+                                "id": "6414f858-b599-43c2-9f6c-575a697cfe27"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/cost/v1/containers/6414f858-b599-43c2-9f6c-575a697cfe27/budgets"
+                                }
+                            }
+                        },
+                        "locations": {
+                            "data": {
+                                "type": "locationsContainerId",
+                                "id": "6414f858-b599-43c2-9f6c-575a697cfe27"
+                            },
+                            "meta": {
+                                "link": {
+                                    "href": "https://developer.api.autodesk.com/bim360/locations/v2/containers/6414f858-b599-43c2-9f6c-575a697cfe27/trees/default/nodes"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "emitted_at": 1708627838233
+    }
+}
